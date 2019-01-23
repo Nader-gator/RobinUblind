@@ -1,0 +1,87 @@
+.login-signup-bar{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding-top: 10px;
+}
+
+
+.home-link-button{
+  font-family: Roboto;
+  font-size: 20px;
+  flex-grow: 0.50;
+  text-align: right;
+  vertical-align: middle;
+  text-decoration: none;
+  color: black;
+  position: relative;
+  border-left: 130px
+}
+
+.home-link-button:hover {
+  color: green
+}
+
+.login-button{
+  font-family: Roboto;
+  flex-grow: 0.5;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up{
+  font-family: Roboto;
+  flex-grow: 0.3;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #21ce99;
+  font-weight: bold ;
+  font-size: 17px;
+  border-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-box-divider {
+  flex-grow: 5
+}
+
+.flex-box-divider-2 {
+  flex-grow: 0.5
+}
+
+.mainlogo {
+  position: relative;
+  top: 25%;
+  left: 1%;
+  height: 45px;
+  width: 45px;
+}
+
+.filler-link {
+  font-family: Roboto;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 40px solid transparent;
+}
+
+.middle-filler{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 4;
+  align-items: center;
+  padding-top: 30px
+}

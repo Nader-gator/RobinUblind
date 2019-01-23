@@ -11,7 +11,14 @@ import * as Actions from './actions/session_actions'
 
 document.addEventListener("DOMContentLoaded", ()=>{
   const rootEl = document.getElementById("root")
-  const store = configureStore()
+  const preloadedState = {
+    entities: {
+      user: window.currentUser
+    },
+    session: {id: window.currentUser.id}
+  }
+
+  const store = configureStore(preloadedState)
   
   //TEST
   window.state = store.getState
@@ -24,5 +31,3 @@ document.addEventListener("DOMContentLoaded", ()=>{
   
   ReactDOM.render(<Root store={store}/>, rootEl)
 })
-
-

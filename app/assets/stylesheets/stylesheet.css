@@ -344,7 +344,7 @@ label {
 
 .demo-user:active {
   outline: none !important;
-  background-color: rgb(209, 193, 193)
+  background-color: rgb(209, 193, 193);
   box-shadow: none;
 }
 

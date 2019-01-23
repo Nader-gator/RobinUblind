@@ -8,15 +8,18 @@ import {
 } from 'react-router-dom';
 import { AuthRoute, MainAuth } from "../util/route_util";
 
-import HeaderContainer from "./header/header_container"
 import LogInFormContainter from "./session_form/login_form_container"
-import SignUpFormContainter from "./session_form/sign_up_form"
+import SignUpFormContainter from "./session_form/sign_up_form_container"
 import MainBodyContainer from "./login_body/body_container"
 
 const App = () => {
   return <div>
+      <Switch>
+
+      </Switch>
+
       <header>
-        <HeaderContainer />
+
       </header>
 
 

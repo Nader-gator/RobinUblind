@@ -340,6 +340,7 @@ label {
   border-left: 40px solid transparent;
   color: red;
   border-color: white;
+  cursor: pointer;
 }
 
 .demo-user:active {

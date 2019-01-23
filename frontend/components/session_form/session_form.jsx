@@ -23,6 +23,23 @@ class SessionForm extends React.Component {
     this.props.formAction(user)
   }
 
+  renderErrors() {
+    
+    const mappedErros = this.props.errors.map((el,idx) => {
+      return (
+        <li key={`error-${idx}`}>
+            {el}
+        </li>)
+    })
+    return (
+      <ul>
+        {mappedErros}
+      </ul>
+      )
+    
+  }
+
+
   render() {
     return (
       <div className="login-form-submit-container">
@@ -39,7 +56,7 @@ class SessionForm extends React.Component {
       <div className="login-fields">
 
           <label>Email 
-            <input className="login-button" type="text" value={this.state.username} onChange={this.update('email')}/>
+            <input className="login-button" type="text" value={this.state.email} onChange={this.update('email')}/>
           </label>
 
             <br/><br/>
@@ -66,3 +83,5 @@ class SessionForm extends React.Component {
   }
 
 }
+
+export default SessionForm

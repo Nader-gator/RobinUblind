@@ -6,8 +6,11 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import { AuthRoute } from "../util/route_util"
 
 import Greetingcontainer from "./greet/greeting_container"
+import LogInFormContainter from "./session_form/login_form_container"
+import SignUpFormContainter from "./session_form/sign_up_form"
 
 const App = () => {
   return (
@@ -20,8 +23,8 @@ const App = () => {
       </header>
 
       <Switch>
-        <Route exact path="/login" component={LogInFormContainter}/>
-        <Route exact path="/signup" component={SignUpFormContainter}/>
+        <AuthRoute exact path="/login" component={LogInFormContainter}/>
+        <AuthRoute exact path="/signup" component={SignUpFormContainter}/>
 
 
       </Switch>

@@ -1,7 +1,7 @@
 import {RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER} from '../../actions/session_actions'
 
 
-export default (state = {}, action) => {
+export default (state = [], action) => {
   Object.freeze(state)
 
   switch (action.type) {

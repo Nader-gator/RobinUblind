@@ -11,14 +11,22 @@ import * as Actions from './actions/session_actions'
 
 document.addEventListener("DOMContentLoaded", ()=>{
   const rootEl = document.getElementById("root")
-  const preloadedState = {
-    entities: {
-      user: window.currentUser
-    },
-    session: {id: window.currentUser.id}
+  let store
+  
+  if (window.currentUser) {
+    const preloadedState = {
+      entities: {
+        user: window.currentUser
+      },
+      session: { id: window.currentUser.id }
+    }
+
+    store = configureStore(preloadedState)
+    delete window.currentUser
+  } else {
+    store = configureStore()
   }
 
-  const store = configureStore(preloadedState)
   
   //TEST
   window.state = store.getState

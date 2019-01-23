@@ -12,7 +12,7 @@ const mapStateToProps = ({entities:{user}}) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => dispatch(logOut)
+    logout: () => dispatch(logOut())
   }
 }
 

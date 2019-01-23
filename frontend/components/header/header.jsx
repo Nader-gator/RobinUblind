@@ -6,11 +6,16 @@ const Greeting = ({ currentUser, logout }) => {
 
   const notLoggedIn = () => {
     return (
-        <nav className="login-signup-bar">
+      <nav id="navbar" className="login-signup-bar sticky">
 
         <Link className="home-link-button" to="/">
         <img className="mainlogo" src={window.logoURL} />
-        RobinUblind</Link>
+
+        <span>
+          RobinUblind
+        </span>
+        
+        </Link>
         <div className="middle-filler">
           <Link to="/" className="filler-link">Investing</Link>
           <Link to="/" className="filler-link">Cash Management</Link>

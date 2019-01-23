@@ -3,23 +3,51 @@
   flex-direction: row;
   background-color: white;
   padding-top: 10px;
+  z-index: 1;
+  overflow: auto;
 }
 
+/* always on top navbar */
+#navbar {
+  overflow: hidden;
+}
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 98.9%;
+}
+
+.sticky {
+  padding-top: 20px;
+}
+
+/* end */
 
 .home-link-button{
   font-family: Roboto;
   font-size: 20px;
-  flex-grow: 0.50;
+  flex-grow: 1.1;
   text-align: right;
-  vertical-align: middle;
   text-decoration: none;
   color: black;
+}
+.mainlogo {
   position: relative;
-  border-left: 130px
+  top: 1%;
+  left: 1%;
+  height: 45px;
+  width: 45px;
+}
+
+.home-link-button span {
+  position: relative;
+  bottom: 10px
 }
 
 .home-link-button:hover {
-  color: green
+  color: #21ce99
 }
 
 .login-button{
@@ -35,6 +63,10 @@
   align-items: center;
 }
 
+.login-button:hover {
+  color: #21ce99
+}
+
 .sign-up{
   font-family: Roboto;
   flex-grow: 0.3;
@@ -48,6 +80,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 80px;
+  height: 45px;
+}
+
+.sign-up:hover{
+-webkit-box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.40);
+-moz-box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.40);
+box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.40);
 }
 
 .flex-box-divider {
@@ -58,13 +98,6 @@
   flex-grow: 0.5
 }
 
-.mainlogo {
-  position: relative;
-  top: 25%;
-  left: 1%;
-  height: 45px;
-  width: 45px;
-}
 
 .filler-link {
   font-family: Roboto;
@@ -78,10 +111,65 @@
   border-left: 40px solid transparent;
 }
 
+.filler-link:hover {
+  color: #21ce99
+}
+
 .middle-filler{
   display: flex;
   flex-direction: row;
   flex-grow: 4;
   align-items: center;
-  padding-top: 30px
+  padding-top: 5px
+}
+
+
+.main_body_container{
+  display: flex;
+}
+
+.body-image-container img {
+  min-width: 922px;
+  min-height: 720px;
+  position: relative;
+  top: 1%
+}
+
+.main-text h1 {
+  font-family: Roboto;
+  font-size: 46px;
+  font-weight: bold;
+  display: block;
+}
+
+.main-text p {
+  font-family: Roboto;
+  font-size: 16px;
+  display: block;
+  width: 300px;
+  line-height: 26px;
+}
+
+.main-text {
+  position: relative;
+  margin-left: 7%;
+  margin-top: 15%
+}
+
+
+
+.body-signup {
+  font-family: Roboto;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #21ce99;
+  font-weight: bold;
+  font-size: 17px;
+  border-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 115px;
+  height: 45px;
 }

@@ -8,7 +8,7 @@ const Greeting = ({ currentUser, logout }) => {
     return (
       <nav id="navbar" className="login-signup-bar sticky">
 
-        <Link className="home-link-button" to="/">
+        <Link className="home-link-button" to="/main">
         <img className="mainlogo" src={window.logoURL} />
 
         <span>
@@ -17,11 +17,11 @@ const Greeting = ({ currentUser, logout }) => {
         
         </Link>
         <div className="middle-filler">
-          <Link to="/" className="filler-link">Investing</Link>
-          <Link to="/" className="filler-link">Cash Management</Link>
-          <Link to="/" className="filler-link">Blog</Link>
-          <Link to="/" className="filler-link">Help</Link>
-          <Link to="/" className="filler-link">Careers</Link>
+          <Link to="/main" className="filler-link">Investing</Link>
+          <Link to="/main" className="filler-link">Cash Management</Link>
+          <Link to="/main" className="filler-link">Blog</Link>
+          <Link to="/main" className="filler-link">Help</Link>
+          <Link to="/main" className="filler-link">Careers</Link>
         </div>
         
 

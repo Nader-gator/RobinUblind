@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 
-const Greeting = ({ currentUser, logout }) => {
+const Greeting = ({ currentUser, logout, demoUser }) => {
 
   const notLoggedIn = () => {
     return (
@@ -21,7 +21,7 @@ const Greeting = ({ currentUser, logout }) => {
           <Link to="/main" className="filler-link">Cash Management</Link>
           <Link to="/main" className="filler-link">Blog</Link>
           <Link to="/main" className="filler-link">Help</Link>
-          <Link to="/main" className="filler-link">Careers</Link>
+          <button className="demo-user" onClick={demoUser}>Demo User</button>
         </div>
         
 
@@ -37,7 +37,6 @@ const Greeting = ({ currentUser, logout }) => {
     
     return (
       <hgroup>
-        <h2 className="user-greet-message">Back to gamblin eh?</h2>
         <button className="logout-button" onClick={logout}>Log Out</button>
       </hgroup>
     )

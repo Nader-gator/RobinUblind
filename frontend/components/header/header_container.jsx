@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 
-import { logOut } from "../../actions/session_actions";
+import { logOut, logIn } from "../../actions/session_actions";
 import header from './header'
 
 const mapStateToProps = ({entities:{user}}) => {
@@ -12,7 +12,8 @@ const mapStateToProps = ({entities:{user}}) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => dispatch(logOut())
+    logout: () => dispatch(logOut()),
+    demoUser: () => dispatch(logIn({ email: "demouser@demo.com", password: "starwars"}))
   }
 }
 

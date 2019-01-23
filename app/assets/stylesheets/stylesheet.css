@@ -186,6 +186,7 @@ box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.40);
 .login-img {
   width: 720;
   height: 701px;
+  display: flex;
 }
 
 input{
@@ -200,6 +201,7 @@ input{
   align-items: center;
   position: relative;
   left: 20px;
+  display: flex;
   
 }
 
@@ -266,7 +268,7 @@ label {
   background-color: #fff;
 }
 
-input:focus {
+.login-inputs:focus {
   outline: none !important;
   border-color: #21ce99;
   background-color: #fff
@@ -290,4 +292,73 @@ input:focus {
   width: 140px;
   height: 50px;
   margin-top: 70px;
+  position: relative;
+  right: 32%;
+}
+
+.login-form-submit:active {
+  outline: none !important;
+  border-color: #21ce99;
+  background-color: #05533c
+}
+
+.login-form-submit:target {
+  outline: none !important;
+  border-color: #21ce99;
+  background-color: #05533c
+}
+.login-form-submit:hover {
+  outline: none !important;
+}
+
+
+
+.login-error ul li {
+  font-family: Roboto;
+  font-size: 17px;
+  list-style-type: none;
+  color: red;
+  position: relative;
+  right: 55%
+}
+
+.login-form {
+  display: flex;
+}
+
+
+.demo-user {
+  font-family: Roboto;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-left: 40px solid transparent;
+  color: red;
+  border-color: white;
+}
+
+.demo-user:active {
+  outline: none !important;
+  background-color: rgb(209, 193, 193)
+  box-shadow: none;
+}
+
+.demo-user:focus {
+  outline: none !important;
+  background-color: rgb(209, 193, 193)
+}
+
+.demo-user:target {
+  outline: none !important;
+  background-color: rgb(209, 193, 193)
+}
+
+.demo-user:hover {
+  outline: none !important;
+  background-color: rgb(209, 193, 193)
 }

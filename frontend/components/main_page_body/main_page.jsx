@@ -40,14 +40,121 @@ const MainPage = ({ }) => {
         <div className="porfolio-chart">
           <h1>Chart goes here</h1>
         </div>
-
+          {/* 22 Articles in here */}
         <div className="news-list">
           <h1>Recent News</h1>
           <ul>
-            <li>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
               <h2>Title</h2>
-                <p>The actual news</p>
-            </li>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+            <Link to="/">
+              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
+              <h2>Title</h2>
+              <p>The actual news</p>
+            </Link>
+
           </ul>
         
         </div>
@@ -57,6 +164,24 @@ const MainPage = ({ }) => {
 
         <div className="watch-list">
           <ul>
+            <li>
+              <p>Placeholder</p>
+            </li>
+            <li>
+              <p>Placeholder</p>
+            </li>
+            <li>
+              <p>Placeholder</p>
+            </li>
+            <li>
+              <p>Placeholder</p>
+            </li>
+            <li>
+              <p>Placeholder</p>
+            </li>
+            <li>
+              <p>Placeholder</p>
+            </li>
             <li>
               <p>Placeholder</p>
             </li>

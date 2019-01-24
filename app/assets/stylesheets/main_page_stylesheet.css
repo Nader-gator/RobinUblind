@@ -35,31 +35,79 @@ h1 {
 .watch-list {
   margin-top: 80px;
   background-color: blueviolet;
-  height: 100%;
+  min-height: 200px;
   width: 280px;
   margin-left: 70px;
 }
 
 .news-list {
-  background-color: saddlebrown;
   margin-left: 180px;
   width: 700px;
   height: 4530px;
+  background-color: #77464649
 }
 
 /* main body elements end */
 
+/* news sections styling start*/
 
-/* news sections styling */
 /* 
   sample news section
-
-      <ul>
-          <li>
-            <h2>Title</h2>
-            <p>The actual news</p>
-          </li>
-      </ul>
-
-
+  <h1>Recent News</h1>
+    <ul>
+      <li>
+        <img src="..."/>
+        <h2>Title</h2>
+        <p>The actual news</p>
+      </li>
+    </ul>
 */
+
+.news-list ul {
+  margin: 0;
+  padding: 0;
+  width: 600;
+  list-style: none;
+}
+
+.news-list h1 {
+  padding-left: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(122, 118, 118, 0.76);
+  font-family: Roboto;
+  color: white;
+}
+.news-list h2 {
+  padding-left: 15px;
+  color: white;
+  font-family: Roboto;
+}
+.news-list p {
+  padding-left: 15px; 
+  font-family: Roboto;
+}
+
+.news-list img {
+  height: 180px;
+  width: 240px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+.news-list a {
+  width: 690px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  text-decoration: none;
+  color: white;
+}
+
+.news-list a:hover {
+  background-color: rgba(126, 120, 113, 0.39);
+}
+
+
+
+/* news sections styling end*/

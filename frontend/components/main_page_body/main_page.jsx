@@ -26,6 +26,23 @@ const MainPage = ({ }) => {
           })}
 
         </script>
+        <script>
+
+          {document.addEventListener("DOMContentLoaded", () => {
+            window.onscroll = function () { myFunction() };
+            var navbar = document.getElementById("watchlist");
+            var sticky = navbar.offsetTop;
+
+            function myFunction() {
+              if (window.pageYOffset >= sticky) {
+                navbar.classList.add("wsticky")
+              } else {
+                navbar.classList.remove("wsticky");
+              }
+            }
+          })}
+
+        </script>
 
 
       </header>
@@ -162,7 +179,7 @@ const MainPage = ({ }) => {
 
 
 
-        <div className="watch-list">
+        <div id='watchlist' className="watch-list wsticky">
           <h2>
             Watchlist
           </h2>

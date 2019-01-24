@@ -38,6 +38,7 @@ h1 {
   min-height: 200px;
   width: 280px;
   margin-left: 70px;
+  position: relative;
 }
 
 .news-list {
@@ -120,28 +121,30 @@ h1 {
   <p>price</p>
 </Link>
 */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
 
 .watch-list {
   display: flex;
   flex-direction: column;
   border: 1px solid #6e6c6c31;
-  -webkit-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.30);
-  -moz-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.30);
-  box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.30);
-  -webkit-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
-  -moz-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
-  box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
+  -webkit-box-shadow: 0px 10px 51px 14px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
+  -moz-box-shadow: 0px 10px 51px 14px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
+  box-shadow: 0px 10px 51px 14px rgba(0,0,0,0.75),0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
   background-color: rgba(63, 62, 62, 0.746);
   border-radius: 10px;
-
+  height: 580px;
 }
 
 .watch-list h2 {
   margin-left: 15px;
   font-family: Roboto;
   font-size: 16px;
-  margin-top: 25px;
   color: #ffffffd2;
+  padding: 0;
+  
 }
 .watch-list span{
   border-bottom: 1px solid rgba(122, 118, 118, 0.76);
@@ -167,6 +170,8 @@ h1 {
   padding-left: 0;
   padding-top: 0;
   margin-top: 0;
+  overflow-y: scroll;
+  height: 580px;
 }
 
 .watch-list h3 {
@@ -195,6 +200,23 @@ h1 {
   text-decoration: none!important;
 }
 
+/* always on top navbar */
+
+#watchlist {
+  overflow: hidden;
+}
+
+.wsticky {
+  position: fixed;
+  right: 170px;
+}
+
+.wsticky {
+  padding-top: 20px;
+}
+
+
+
 /* Watch list section styling end */
 
 
@@ -210,3 +232,6 @@ h1 {
 
 
 /* Portfolio value styling end */
+
+
+

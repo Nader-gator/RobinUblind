@@ -163,34 +163,75 @@ const MainPage = ({ }) => {
 
 
         <div className="watch-list">
+          <h2>
+            Watchlist
+          </h2>
           <ul>
-            <li>
-              <p>Placeholder</p>
-            </li>
-            <li>
-              <p>Placeholder</p>
-            </li>
-            <li>
-              <p>Placeholder</p>
-            </li>
-            <li>
-              <p>Placeholder</p>
-            </li>
-            <li>
-              <p>Placeholder</p>
-            </li>
-            <li>
-              <p>Placeholder</p>
-            </li>
-            <li>
-              <p>Placeholder</p>
-            </li>
-            <li>
-              <p>Placeholder</p>
-            </li>
-            <li>
-              <p>Placeholder</p>
-            </li>
+            <Link to="/" >
+              <h3>M</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBE</h3>
+              <div></div>
+              <p>0.00</p>
+            </Link>
           </ul>
         </div>
 

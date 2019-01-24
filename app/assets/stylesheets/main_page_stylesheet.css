@@ -44,7 +44,6 @@ h1 {
   margin-left: 180px;
   width: 700px;
   height: 4530px;
-  background-color: #77464649
 }
 
 /* main body elements end */
@@ -108,6 +107,69 @@ h1 {
   background-color: rgba(126, 120, 113, 0.39);
 }
 
-
-
 /* news sections styling end*/
+
+
+/* Watch list section styling start */
+
+/* 
+<Link to="/" >
+  <h3>S</h3>
+  <div>
+  </div>
+  <p>price</p>
+</Link>
+*/
+
+.watch-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.watch-list h2 {
+  margin-left: 15px;
+  font-family: Roboto;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(122, 118, 118, 0.76);
+  padding-bottom: 15px;
+  margin-top: 25px;
+}
+
+
+.watch-list div {
+  height: 50px;
+  width: 85px;
+  background-color: orange;
+  margin-right: 35px;
+}
+
+.watch-list a {
+  display: flex;
+  margin-bottom: 10px;
+}
+.watch-list ul {
+  padding-left: 15px;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.watch-list h3 {
+  display: box;
+  width: 80px;
+  text-decoration: none !important;
+  color: black;
+}
+
+
+.watch-list p {
+  font-family: Roboto;
+  font-size: 18px;
+  color: black;
+  text-decoration: none !important;
+}
+
+.watch-list a:link{
+  text-decoration: none!important;
+}
+
+/* Watch list section styling end */

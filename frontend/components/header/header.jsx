@@ -35,26 +35,8 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
   const isloggedIn = () => {
     
     return (
-      <hgroup id="loggedin-navbar" className="logged-in-nav-bar">
+      <hgroup id="loggedin-navbar" className="logged-in-nav-bar sticky">
 
-        <script>
-
-          {document.addEventListener("DOMContentLoaded", () => {
-            window.onscroll = function () { myFunction() };
-            var navbar = document.getElementById("loggedin-navbar");
-            var sticky = navbar.offsetTop;
-
-            function myFunction() {
-              if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-              } else {
-                navbar.classList.remove("sticky");
-              }
-            }
-          })}
-
-
-        </script>
 
 
         <div className="navbar_logo">

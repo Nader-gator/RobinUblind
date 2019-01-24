@@ -6,6 +6,12 @@
   max-height: 50px;
 }
 
+#loggedin-navbar {
+  padding: 0;
+  height: 80px;
+  background: #333
+}
+
 .navbar a {
   float: right;
   font-size: 13px;
@@ -18,7 +24,6 @@
   font-weight: 600;
 
 }
-
 .dropdown {
   float: right;
   overflow: hidden;

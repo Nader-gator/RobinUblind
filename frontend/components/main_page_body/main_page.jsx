@@ -8,8 +8,9 @@ const MainPage = ({ }) => {
     <div>
       <header>
         <Header/>
+        
       </header>
-      <h1>Sup, you're logged in..for now</h1>
+      <h1>Sup, you're logged in...for now</h1>
     </div>
   )
 }

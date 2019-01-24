@@ -58,30 +58,8 @@ const Greeting = ({ currentUser }) => {
   const isloggedIn = () => {
     
     return (
-     <div id="tester">
-        <header>
-          <HeaderContainer />
-
-          <script>
-
-            {document.addEventListener("DOMContentLoaded", () => {
-              window.onscroll = function () { myFunction() };
-              var navbar = document.getElementById("navbar");
-              var sticky = navbar.offsetTop;
-
-              function myFunction() {
-                if (window.pageYOffset >= sticky) {
-                  navbar.classList.add("sticky")
-                } else {
-                  navbar.classList.remove("sticky");
-                }
-              }
-            })}
-
-
-          </script>
-
-        </header>
+     <div >
+       <h1>you should definitly not be here</h1>
      </div>
     )
   }

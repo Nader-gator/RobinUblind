@@ -36,8 +36,89 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
   const isloggedIn = () => {
     
     return (
-      <hgroup>
-        <button className="logout-button" onClick={logout}>Log Out</button>
+      <hgroup id="loggedin-navbar" className="logged-in-nav-bar">
+
+        <script>
+
+          {document.addEventListener("DOMContentLoaded", () => {
+            window.onscroll = function () { myFunction() };
+            var navbar = document.getElementById("loggedin-navbar");
+            var sticky = navbar.offsetTop;
+
+            function myFunction() {
+              if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+              } else {
+                navbar.classList.remove("sticky");
+              }
+            }
+          })}
+
+
+        </script>
+
+
+        <div className="navbar_logo">
+          <img className="navbar_logo" src={window.logoURL} />
+        </div>
+
+
+        <div className="search-bar">
+            <input type="text" placeholder=" 🔍 Search"/>
+        </div>
+
+        <nav className="navbar">
+
+            
+
+
+
+          <div className="dropdown">
+            <button className="dropbtn">Dropdown
+            </button>
+
+            <div className="dropdown-content">
+              <ul>
+                <li>
+                  <a href="#">Link 1</a>
+                </li>
+                <li>
+                  <a href="#">Link 2</a>
+                </li>
+                <li>
+                  <a href="#" onClick={logout}>Sign Out</a>
+                </li>
+              </ul>
+              
+            </div>
+
+          </div>
+          <div className="dropdown2">
+            <button className="dropbtn2">Dropdown
+            </button>
+
+            <div className="dropdown-content2">
+              <ul>
+                <li>
+                  <a href="#">Link 1</a>
+                </li>
+                <li>
+                  <a href="#">Link 2</a>
+                </li>
+                <li>
+                  <a href="#">Link 3</a>
+                </li>
+              </ul>
+              
+            </div>
+
+          </div>
+
+          
+          <a href="#home">Home</a>
+
+      </nav>
+
       </hgroup>
     )
   }
@@ -46,3 +127,5 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
 }
 
 export default Greeting
+
+  // < button className = "logout-button" onClick = { logout } > Log Out</button >

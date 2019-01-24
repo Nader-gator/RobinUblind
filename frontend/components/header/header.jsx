@@ -114,13 +114,15 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
             <div className="dropdown-content2">
               <ul>
                 <li>
-                  <a href="#">Link 1</a>
+                  <Link to="/">Congrats you just lost all your money</Link>
                 </li>
+                  <div className="notf-separator"></div>
                 <li>
-                  <a href="#">Link 2</a>
+                  <Link to="/">Your trade for 50 Theranos shares was executed</Link>
                 </li>
+                  <div className="notf-separator"></div>
                 <li>
-                  <a href="#">Link 3</a>
+                  <Link to="/">Your $100 is deposited and ready for trading</Link>
                 </li>
               </ul>
               

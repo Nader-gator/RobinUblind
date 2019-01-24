@@ -126,7 +126,7 @@
 .dropdown-content2 ul li {
   list-style: none;
   position: relative;
-  right: 30%;
+  right: 10%;
 
 }
 
@@ -206,4 +206,12 @@
   position: relative;
   right: 5%;
   top: 10px;
+}
+
+.notf-separator {
+  border-top: 1px solid #b1b1b157;
+  position: relative;
+  right: 6%;
+  top: 10px;
+  width: 350px;
 }

@@ -8,9 +8,12 @@ const MainPage = ({ }) => {
     <div>
       <header>
         <Header/>
-        
       </header>
-      <h1>Sup, you're logged in...for now</h1>
+
+      <div className="entire-main-body">
+        
+      </div>
+
     </div>
   )
 }

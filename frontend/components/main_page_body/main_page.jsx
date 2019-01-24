@@ -30,52 +30,50 @@ const MainPage = ({ }) => {
 
       </header>
       <div className="entire-main-body">
-      <br/><br/><br/><br/>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        <h1>Sup my dude</h1>
-        
+
+
 
         <div className="porfolio-performance">
-          
+          <h1>portfolio value goes here</h1>
         </div>
 
-        <div className="porfolio-chart"></div>
+        <div className="porfolio-chart">
+          <h1>Chart goes here</h1>
+        </div>
+
+        <div className="news-list">
+          <h1>Recent News</h1>
+          <ul>
+            <li>
+              <h2>Title</h2>
+                <p>The actual news</p>
+            </li>
+          </ul>
+        
+        </div>
 
 
-        <div className="news"></div>
+
+
+        <div className="watch-list">
+          <ul>
+            <li>
+              <p>Placeholder</p>
+            </li>
+            <li>
+              <p>Placeholder</p>
+            </li>
+            <li>
+              <p>Placeholder</p>
+            </li>
+          </ul>
+        </div>
 
 
 
 
 
-        <div className="watch-list"></div>
+
 
       </div>
 

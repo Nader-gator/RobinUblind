@@ -50,7 +50,7 @@
   position: absolute;
   right: 3.8%;
   background-color: #f9f9f9;
-  min-width: 120px;
+  min-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -61,7 +61,7 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: left;
+  text-align: right;
 }
 .dropdown-content ul li {
   list-style: none;
@@ -108,7 +108,7 @@
 .dropdown-content2 {
   display: none;
   position: absolute;
-  right: 10%;
+  right: 9%;
   background-color: #f9f9f9;
   min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -162,4 +162,48 @@
   width: 460px;
   border: 1px solid black;
   padding-left: 20px;
+}
+
+.dropdown-content ul {
+  padding-inline-start: 0px;
+}
+
+.user-email {
+  position: relative;
+  left: 5%;
+  padding-top: 15px;
+  color: rgb(65, 45, 45)
+}
+
+.user-portfolio {
+  padding-top: 20px;
+  position: relative;
+  left: 5%;
+  color: #21ce99
+}
+
+.user-portfolio p {
+  margin: 0px;
+    max-width: 270px;
+}
+
+.dropdown-content a{
+  position: relative;
+  left: 30%;
+  text-align: left;
+}
+
+
+
+.fix {
+  border-top: 1px solid #b1b1b157;
+  position: relative;
+  left: 30%;
+  top: 10px;
+}
+.fix2 {
+  border-top: 1px solid #b1b1b157;
+  position: relative;
+  right: 5%;
+  top: 10px;
 }

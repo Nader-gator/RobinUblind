@@ -35,7 +35,7 @@ class User < ApplicationRecord
   private
 
   def ensure_bankroll
-    self.bankroll ||= 0
+    self.bankroll ||= "0.00"
   end
 
   def ensure_session_token

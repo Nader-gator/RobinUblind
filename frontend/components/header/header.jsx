@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-
 const Greeting = ({ currentUser, logout, demoUser }) => {
 
   const notLoggedIn = () => {
@@ -59,7 +58,9 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
 
 
         <div className="navbar_logo">
-          <img className="navbar_logo" src={window.logoURL} />
+          <Link to="/" className="navbar_logo">
+            <img className="navbar_logo" src={window.logoURL} />
+          </Link>
         </div>
 
 
@@ -74,19 +75,32 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
 
 
           <div className="dropdown">
-            <button className="dropbtn">Dropdown
+            <button className="dropbtn">Account
             </button>
 
             <div className="dropdown-content">
               <ul>
+                <li className="user-email">
+                  {currentUser.email}
+                </li>
+                <li className="user-portfolio">
+                  <div>
+                    <span>{currentUser.bankroll}</span>
+                    <p>Portfolio Value</p>
+                  </div>
+                  <div className="fix2"></div>
+                </li>
+
+
                 <li>
-                  <a href="#">Link 1</a>
+                  <a href="#">💼 Account</a>
                 </li>
                 <li>
-                  <a href="#">Link 2</a>
+                  <a href="#">🕑 History</a>
                 </li>
-                <li>
-                  <a href="#" onClick={logout}>Sign Out</a>
+                <li className="log-out">
+                  <div className="fix"></div>
+                  <a href="#" onClick={logout}>↪ Sign Out</a>
                 </li>
               </ul>
               
@@ -94,7 +108,7 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
 
           </div>
           <div className="dropdown2">
-            <button className="dropbtn2">Dropdown
+            <button className="dropbtn2">Notifications
             </button>
 
             <div className="dropdown-content2">
@@ -115,7 +129,7 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
           </div>
 
           
-          <a href="#home">Home</a>
+          <Link to="/">Home</Link>
 
       </nav>
 

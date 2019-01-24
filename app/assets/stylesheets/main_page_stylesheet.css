@@ -34,7 +34,7 @@ h1 {
 
 .watch-list {
   margin-top: 80px;
-  background-color: blueviolet;
+  background-color: #333;
   min-height: 200px;
   width: 280px;
   margin-left: 70px;
@@ -124,47 +124,63 @@ h1 {
 .watch-list {
   display: flex;
   flex-direction: column;
+  border: 1px solid #a1a1a131;
+  -webkit-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.30);
+  -moz-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.30);
+  box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.30);
+
 }
 
 .watch-list h2 {
   margin-left: 15px;
   font-family: Roboto;
   font-size: 16px;
-  border-bottom: 1px solid rgba(122, 118, 118, 0.76);
-  padding-bottom: 15px;
   margin-top: 25px;
+  color: #ffffffd2;
 }
-
+.watch-list span{
+  border-bottom: 1px solid rgba(122, 118, 118, 0.76);
+  margin-bottom: 20px;
+}
 
 .watch-list div {
   height: 50px;
   width: 85px;
   background-color: orange;
-  margin-right: 35px;
+  margin-right: 25px;
 }
 
 .watch-list a {
   display: flex;
   margin-bottom: 10px;
 }
+
+.watch-list a:hover{
+  background-color: rgba(126, 120, 113, 0.39);
+}
 .watch-list ul {
-  padding-left: 15px;
+  padding-left: 0;
   padding-top: 0;
   margin-top: 0;
 }
 
 .watch-list h3 {
   display: box;
-  width: 80px;
+  box-sizing: border-box;
+  padding-left: 15px;
+  width: 100px;
   text-decoration: none !important;
-  color: black;
+  color: #ffffffd2;
+  font-family: Roboto;
+  font-size: 16px;
+  padding-left: 20px;
 }
 
 
 .watch-list p {
   font-family: Roboto;
   font-size: 18px;
-  color: black;
+  color: #ffffffd2;
   text-decoration: none !important;
 }
 
@@ -173,3 +189,17 @@ h1 {
 }
 
 /* Watch list section styling end */
+
+
+
+/* Portfolio value styling start */
+
+
+
+
+
+
+
+
+
+/* Portfolio value styling end */

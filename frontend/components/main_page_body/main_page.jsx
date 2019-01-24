@@ -166,71 +166,72 @@ const MainPage = ({ }) => {
           <h2>
             Watchlist
           </h2>
+          <span></span>
           <ul>
             <Link to="/" >
               <h3>M</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
+            </Link>
+            <Link to="/" >
+              <h3>ADBEX</h3>
+              <div></div>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
             <Link to="/" >
               <h3>ADBE</h3>
               <div></div>
-              <p>0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>0.00</p>
+              <p>$0.00</p>
             </Link>
           </ul>
         </div>

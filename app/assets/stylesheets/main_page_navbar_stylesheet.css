@@ -105,7 +105,9 @@
   top: 10px;
   font-weight: 600;
 }
-
+..dropdown2 {
+  padding: 0;
+}
 .navbar2 a:hover,
 .dropdown2:hover .dropbtn2 {
   color: #21ce99;
@@ -117,6 +119,7 @@
   right: 9%;
   background-color: #f9f9f9;
   min-width: 120px;
+  max-width: 350;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -124,10 +127,13 @@
 .dropdown-content2 a {
   float: none;
   color: black;
-  padding: 12px 16px;
+  padding: 18px 16px;
+  padding-left: 20px;
   text-decoration: none;
   display: block;
   text-align: left;
+  position: relative;
+  left: 4.5%;
 }
 .dropdown-content2 ul li {
   list-style: none;

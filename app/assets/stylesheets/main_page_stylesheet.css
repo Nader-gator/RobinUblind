@@ -124,10 +124,15 @@ h1 {
 .watch-list {
   display: flex;
   flex-direction: column;
-  border: 1px solid #a1a1a131;
+  border: 1px solid #6e6c6c31;
   -webkit-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.30);
   -moz-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.30);
   box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.30);
+  -webkit-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
+  -moz-box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
+  box-shadow: 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
+  background-color: rgba(63, 62, 62, 0.746);
+  border-radius: 10px;
 
 }
 
@@ -172,6 +177,7 @@ h1 {
   text-decoration: none !important;
   color: #ffffffd2;
   font-family: Roboto;
+  font-weight: 100;
   font-size: 16px;
   padding-left: 20px;
 }
@@ -179,6 +185,7 @@ h1 {
 
 .watch-list p {
   font-family: Roboto;
+  font-weight: 100;
   font-size: 18px;
   color: #ffffffd2;
   text-decoration: none !important;

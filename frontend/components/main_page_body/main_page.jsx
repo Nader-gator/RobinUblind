@@ -2,7 +2,10 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import Header from "../header/header_container"
 
-const MainPage = ({ }) => {
+
+
+const MainPage = ({articles, currentUser}) => {
+  
 
   return (
     <div>
@@ -52,7 +55,7 @@ const MainPage = ({ }) => {
 
         <div className="porfolio-performance">
           <h1>$0.00</h1>
-          <h2>$0.00    (0.00%)<span>Today</span></h2> 
+          <h2>$0.00 (0.00%)<span>Today</span></h2> 
         </div>
 
         <div className="porfolio-chart">

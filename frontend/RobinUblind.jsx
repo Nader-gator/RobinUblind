@@ -5,8 +5,7 @@ import Root from './components/root'
 import configureStore from './store/store'
 
 //test
-
-import * as Actions from './actions/session_actions' 
+import newsFetch from "./util/news_util_api"
 //test
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -29,12 +28,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
   
   //TEST
-  window.state = store.getState
-  window.dispatch = store.dispatch
-
-  window.signup = Actions.signUp
-  window.login = Actions.logIn
-  window.signout = Actions.logOut
+  window.testrequest = newsFetch
   //TEST
   
   ReactDOM.render(<Root store={store}/>, rootEl)

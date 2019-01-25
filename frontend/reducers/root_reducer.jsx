@@ -8,11 +8,13 @@ export default combineReducers({
   session
 })
 
+
 // Entities: 
         //Stocks
         //user
         //purchasehistory
         //watchlist
+        //news
 //UI:
       //loading
       //purchase pending (might not need this one)

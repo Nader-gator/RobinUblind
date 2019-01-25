@@ -58,7 +58,7 @@ const mapStateToProps = ({entities:{user}, entities:{news}, ui:{loading}}) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getNews: () => dispatch(getNews('stock+market'))
+    getNews: () => dispatch(getNews("stock+market"))
   }
 }
 

@@ -51,7 +51,8 @@ const MainPage = ({ }) => {
 
 
         <div className="porfolio-performance">
-          <h1>portfolio value goes here</h1>
+          <h1>$0.00</h1>
+          <h2>$0.00(0.00%)<span>Today</span></h2> 
         </div>
 
         <div className="porfolio-chart">

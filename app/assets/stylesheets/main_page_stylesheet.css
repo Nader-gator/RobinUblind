@@ -1,4 +1,6 @@
-
+* {
+    font-family: Roboto;
+  }
 .entire-main-body {
   height: 100%;
   width: 100%;
@@ -15,18 +17,20 @@
 .porfolio-performance {
   width: 700px;
   height: 100px;
-  background-color: aqua;
   margin-top: 80px;
   margin-left: 180px;
   
 }
 
 .porfolio-chart {
-  background-color: red;
   width: 700px;
   height: 290px;
   margin-left: 180px;
-  
+  text-align: center;
+  color:white;
+  /* to be removed */
+  box-sizing: border-box;
+  border:1px solid white;
 }
 
 .watch-list {
@@ -213,19 +217,37 @@
   padding-top: 12px;
 }
 
-
-
 /* Watch list section styling end */
 
 
 
 /* Portfolio value styling start */
 
+/*
+        <div className="porfolio-performance">
+          <h1>$0.00</h1>
+          <h2>0.00(0.00%)Today</h2>
+        </div>
+*/
 
+.porfolio-performance h1 {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-family: Roboto;
+  font-size: 36px;
+  color: #fffffff1;
+  margin-left: 10px;
+}
 
-
-
-
+.porfolio-performance h2{
+  margin: 0;
+  font-size: 13px;
+  margin-left: 15px;
+  color: #fffffff1;
+}
+.porfolio-performance span {
+  color: #6b6a6ad2
+}
 
 
 

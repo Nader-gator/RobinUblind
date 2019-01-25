@@ -1,4 +1,6 @@
-
+* {
+    font-family: Roboto;
+  }
 .navbar {
   overflow: hidden;
   background-color: rgb(27, 27, 28);

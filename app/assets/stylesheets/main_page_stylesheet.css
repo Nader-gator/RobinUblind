@@ -1,11 +1,8 @@
-h1 {
-  color: black;
-}
 
 .entire-main-body {
   height: 100%;
   width: 100%;
-  background-color: #333;
+  background-color: rgb(27, 27, 28);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -34,7 +31,7 @@ h1 {
 
 .watch-list {
   margin-top: 80px;
-  background-color: #333;
+  background-color: rgb(27, 27, 28);
   min-height: 200px;
   width: 280px;
   margin-left: 70px;
@@ -130,11 +127,11 @@ h1 {
   display: flex;
   flex-direction: column;
   border: 1px solid #6e6c6c31;
-  -webkit-box-shadow: 0px 10px 51px 14px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
-  -moz-box-shadow: 0px 10px 51px 14px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
-  box-shadow: 0px 10px 51px 14px rgba(0,0,0,0.75),0px 0px 75px -29px rgba(158, 157, 158, 0.45)inset;
-  background-color: rgba(63, 62, 62, 0.746);
-  border-radius: 10px;
+  -webkit-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
+  -moz-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
+  box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75),0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
+  background-color: rgb(27, 27, 28);
+  border-radius: 5px;
   height: 580px;
 }
 
@@ -147,14 +144,14 @@ h1 {
   
 }
 .watch-list span{
-  border-bottom: 1px solid rgba(122, 118, 118, 0.76);
+  border-bottom: 1px solid rgb(0, 0, 0);
   margin-bottom: 20px;
 }
 
 .watch-list div {
   height: 50px;
   width: 85px;
-  background-color: orange;
+  background-color: rgba(34, 104, 22, 0.116);
   margin-right: 25px;
 }
 
@@ -208,11 +205,11 @@ h1 {
 
 .wsticky {
   position: fixed;
-  right: 170px;
+  right: 200px;
 }
 
 .wsticky {
-  padding-top: 20px;
+  padding-top: 12px;
 }
 
 
@@ -232,6 +229,5 @@ h1 {
 
 
 /* Portfolio value styling end */
-
 
 

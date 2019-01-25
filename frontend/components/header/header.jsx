@@ -68,7 +68,7 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
                 <li className="user-portfolio">
                   <div>
                     <span>{currentUser.bankroll}</span>
-                    <p>Portfolio Value</p>
+                    <p>Available Funds</p>
                   </div>
                   <div className="fix2"></div>
                 </li>

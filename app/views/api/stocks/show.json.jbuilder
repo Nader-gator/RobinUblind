@@ -1,0 +1,1 @@
+json.partial! "api/stocks/stock", user: @stock

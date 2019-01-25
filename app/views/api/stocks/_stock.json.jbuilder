@@ -1,0 +1,1 @@
+json.extract! stock, :comapny_name, :nasdaq_code

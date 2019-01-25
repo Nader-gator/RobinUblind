@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   
   //TEST
   window.testrequest = newsFetch
+  window.state = store
   //TEST
   
   ReactDOM.render(<Root store={store}/>, rootEl)

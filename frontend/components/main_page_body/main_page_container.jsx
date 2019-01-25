@@ -5,26 +5,30 @@ import MainPage from './main_page'
 
 
 
-
 class Main extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {loaded: false}
+    this.state = this.props.loading
   }
-  async componentDidMount() {
-    await this.props.getNews()
-    this.setState({loaded: true})
+
+  componentWillMount() {
+    this.props.getNews()
   }
 
   content() {
-  const news = Object.values(this.props.articles).map((el, idx) => {
+
+    if (Object.keys(this.props.news).length === 0) {
+      return null
+    }
+    // debugger
+  const news = Object.values(this.props.news).map((el, idx) => {
   return (
-        <Link id={idx} to={el.url} >
+        <a href={el.url} key={idx}>
           <img src={el.urlToImage} />
           <h2>{el.title}</h2>
-          <p>el.description</p>
-        </Link>
+          <p>{el.description}</p>
+        </a>
       )
     })
 
@@ -33,18 +37,21 @@ class Main extends React.Component {
 
   render() {
 
-    if (this.state.loaded) {
-      return <MainPage articles={this.content()} currentUser={this.props.currentUser}/>
-    } else {return null}
+    if (this.state) {
+      return <div></div>
+    } else {
+      return <MainPage news={this.content()} currentUser={this.props.currentUser}/>
+    }
   }
 
 }
 
 
-const mapStateToProps = ({entities:{user}, entities:{articles}}) => {
+const mapStateToProps = ({entities:{user}, entities:{news}, ui:{loading}}) => {
   return {
     currentUser: user,
-    articles
+    news,
+    loading: loading.newsLoading
   }
 }
 

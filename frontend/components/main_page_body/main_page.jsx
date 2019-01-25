@@ -4,9 +4,9 @@ import Header from "../header/header_container"
 
 
 
-const MainPage = ({articles, currentUser}) => {
+const MainPage = ({news, currentUser}) => {
   
-
+  // debugger
   return (
     <div>
       <header>
@@ -65,117 +65,7 @@ const MainPage = ({articles, currentUser}) => {
         <div className="news-list">
           <h1>Recent News</h1>
           <ul>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-            <Link to="/">
-              <img src="https://designshack.net/wp-content/uploads/placekitten.jpg"/>
-              <h2>Title</h2>
-              <p>The actual news</p>
-            </Link>
-
+            {news}
           </ul>
         
         </div>
@@ -270,3 +160,114 @@ const MainPage = ({articles, currentUser}) => {
 }
 
 export default MainPage
+
+  // < Link to = "/" >
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  //           </Link >
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>
+  // <Link to="/">
+  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
+  //   <h2>Title</h2>
+  //   <p>The actual news</p>
+  // </Link>

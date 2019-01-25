@@ -136,7 +136,7 @@
   box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75),0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
   background-color: rgb(27, 27, 28);
   border-radius: 5px;
-  height: 580px;
+  height: 85vh;
 }
 
 .watch-list h2 {
@@ -173,7 +173,7 @@
   margin-top: 0;
   margin-bottom: 0;
   overflow-y: scroll;
-  height: 580px;
+  height: 85vh;
 }
 
 .watch-list h3 {
@@ -246,7 +246,8 @@
   color: #fffffff1;
 }
 .porfolio-performance span {
-  color: #6b6a6ad2
+  color: #6b6a6ad2;
+  margin-left: 5px;
 }
 
 

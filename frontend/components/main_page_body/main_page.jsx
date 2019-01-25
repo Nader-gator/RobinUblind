@@ -52,7 +52,7 @@ const MainPage = ({ }) => {
 
         <div className="porfolio-performance">
           <h1>$0.00</h1>
-          <h2>$0.00(0.00%)<span>Today</span></h2> 
+          <h2>$0.00    (0.00%)<span>Today</span></h2> 
         </div>
 
         <div className="porfolio-chart">
@@ -247,7 +247,7 @@ const MainPage = ({ }) => {
               <p>$0.00</p>
             </Link>
             <Link to="/" >
-              <h3>ADBE</h3>
+              <h3>LAST</h3>
               <div></div>
               <p>$0.00</p>
             </Link>

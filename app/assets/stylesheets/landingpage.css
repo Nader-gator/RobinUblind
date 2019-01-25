@@ -3,6 +3,7 @@
   flex-direction: row;
   background-color: white;
   padding-top: 10px;
+  z-index: 100;
 }
 
 /* always on top navbar */
@@ -79,12 +80,25 @@
   align-items: center;
   width: 80px;
   height: 45px;
+    font-family: Roboto;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #21ce99;
+  font-weight: bold;
+  font-size: 17px;
+  border-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 115px;
+  height: 45px;
 }
 
 .sign-up:hover{
--webkit-box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.40);
--moz-box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.40);
-box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.40);
+-webkit-box-shadow: 0px 4px 40px -4px rgba(0, 0, 0, 0.40);
+-moz-box-shadow: 0px 4px 40px -4px rgba(0, 0, 0, 0.40);
+box-shadow: 0px 4px 40px -4px rgba(0, 0, 0, 0.40);
 }
 
 .flex-box-divider {
@@ -158,19 +172,7 @@ box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.40);
     font-family: Roboto;
   }
 .body-signup {
-  font-family: Roboto;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  background-color: #21ce99;
-  font-weight: bold;
-  font-size: 17px;
-  border-radius: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 115px;
-  height: 45px;
+
 }
 
 .login-form-submit-container {
@@ -221,14 +223,14 @@ input{
   color: white;
   background-color: #21ce99;
   font-weight: bold;
-  border-radius: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 200px;
-  height: 30px;
+  height: 55px;
   position: relative;
-  right: 25%
+  right: 34%;
+  border-radius: 10px;
 }
 
 body {
@@ -310,15 +312,13 @@ label {
   outline: none !important;
 }
 
-
+ 
 
 .login-error ul li {
   font-family: Roboto;
   font-size: 17px;
   list-style-type: none;
   color: red;
-  position: relative;
-  right: 55%
 }
 
 .login-form {
@@ -361,4 +361,16 @@ label {
 .demo-user:hover {
   outline: none !important;
   background-color: rgb(209, 193, 193)
+}
+.login-error {
+  height: 250px;
+  width: 250px;
+  position: relative;
+  right: 29%;
+}
+.login-form-submit {
+  margin-top: 0;
+}
+.change-form {
+  width: 125px;
 }

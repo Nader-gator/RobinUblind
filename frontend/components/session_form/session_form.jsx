@@ -40,6 +40,7 @@ class SessionForm extends React.Component {
   }
 
 
+
   render() {
     return <main id="login-form">
         <div className="login-form-submit-container">
@@ -49,6 +50,7 @@ class SessionForm extends React.Component {
             <h1>Welcome to RobinUblind!</h1>
             <div className="login-greet">Please {this.props.formType}</div>
             {this.props.navLink}
+            
             <div className="login-fields">
               <label className="field-label">
                 Email
@@ -64,7 +66,9 @@ class SessionForm extends React.Component {
               </label>
             </div>
 
-            <div className="login-error">{this.renderErrors()}</div>
+            <div className="login-error">
+              {this.renderErrors()}
+            </div>
 
        
            
@@ -77,4 +81,4 @@ class SessionForm extends React.Component {
 
 }
 
-export default SessionForm
+export default SessionForm 

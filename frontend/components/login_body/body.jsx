@@ -11,7 +11,7 @@ const Greeting = ({ currentUser }) => {
       <div className="main_body_container">
         <header>
           <HeaderContainer />
-
+          {/* scroll script */}
           <script>
 
             {document.addEventListener("DOMContentLoaded", () => {
@@ -39,7 +39,7 @@ const Greeting = ({ currentUser }) => {
           <h1>Invest for Free</h1>
           <p>nvest in stocks, ETFs, options, and cryptocurrencies, all commission-free, right from your phone or desktop.</p>
 
-          <div className="body-signup">
+          <div className="sign-up">
             <Link className="sign-up"  to="/signup">Sign Up</Link>
 
           </div>

@@ -33,7 +33,7 @@
   margin-top: 80px;
   background-color: rgb(27, 27, 28);
   min-height: 200px;
-  width: 280px;
+  width: 270px;
   margin-left: 70px;
   position: relative;
 }
@@ -126,7 +126,7 @@
 .watch-list {
   display: flex;
   flex-direction: column;
-  border: 1px solid #6e6c6c31;
+  border: 1px solid #000000;
   -webkit-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
   -moz-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
   box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75),0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
@@ -167,6 +167,7 @@
   padding-left: 0;
   padding-top: 0;
   margin-top: 0;
+  margin-bottom: 0;
   overflow-y: scroll;
   height: 580px;
 }
@@ -175,7 +176,7 @@
   display: box;
   box-sizing: border-box;
   padding-left: 15px;
-  width: 100px;
+  width: 90px;
   text-decoration: none !important;
   color: #ffffffd2;
   font-family: Roboto;
@@ -205,7 +206,7 @@
 
 .wsticky {
   position: fixed;
-  right: 200px;
+  right: 210px;
 }
 
 .wsticky {

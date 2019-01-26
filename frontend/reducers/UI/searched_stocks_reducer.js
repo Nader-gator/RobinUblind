@@ -11,6 +11,6 @@ export default (state= {}, action) => {
     case CLEAR_SEARCH:
       return {}
     default:
-      return {}
+      return state
   }
 }

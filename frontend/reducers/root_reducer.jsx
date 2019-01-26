@@ -20,6 +20,7 @@ export default combineReducers({
 //UI:
       //loading
       //purchase pending (might not need this one)
+      //searched stocks
 //errors
       //session
       //purchase

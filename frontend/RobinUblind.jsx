@@ -5,8 +5,8 @@ import Root from './components/root'
 import configureStore from './store/store'
 
 //test
-import newsFetch from "./util/news_util_api"
-import {search} from './actions/search_actions'
+import { fetchCurrentStock } from "./actions/stocks_actions";
+
 //test
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -29,9 +29,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
   
   //TEST
-  window.testrequest = newsFetch
   window.state = store
-  window.search = search
+  window.getstock = fetchCurrentStock
+
   //TEST
   
   ReactDOM.render(<Root store={store}/>, rootEl)

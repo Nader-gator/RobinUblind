@@ -12,6 +12,9 @@ import LogInFormContainter from "./session_form/login_form_container"
 import SignUpFormContainter from "./session_form/sign_up_form_container"
 import MainBodyContainer from "./login_body/body_container"
 import Main from "./main_page_body/main_page_container"
+import StockShow from "../components/stock_show/stock_show_container"
+
+
 const App = () => {
   return <div>
       <header />
@@ -21,6 +24,7 @@ const App = () => {
         <AuthRoute exact path="/signup" component={SignUpFormContainter} />
         <AuthRoute exact path="/main" component={MainBodyContainer} />
         <ProtectedRoute exact path="/" component={Main}/>
+        <ProtectedRoute exact path="/:stockCode" component={StockShow}/>
       </Switch>
     </div>;
 }

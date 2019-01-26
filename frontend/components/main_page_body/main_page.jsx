@@ -6,7 +6,6 @@ import Header from "../header/header_container"
 
 const MainPage = ({news, currentUser}) => {
   
-  // debugger
   return (
     <div>
       <header>

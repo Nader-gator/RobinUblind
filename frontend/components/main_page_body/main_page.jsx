@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Header from "../header/header_container"
+import HeaderContainer from "../header/header_container"
 
 
 
@@ -9,7 +9,7 @@ const MainPage = ({news, currentUser}) => {
   return (
     <div>
       <header>
-        <Header/>
+        <HeaderContainer/>
 
         <script>
 
@@ -159,114 +159,3 @@ const MainPage = ({news, currentUser}) => {
 }
 
 export default MainPage
-
-  // < Link to = "/" >
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  //           </Link >
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>
-  // <Link to="/">
-  //   <img src="https://designshack.net/wp-content/uploads/placekitten.jpg" />
-  //   <h2>Title</h2>
-  //   <p>The actual news</p>
-  // </Link>

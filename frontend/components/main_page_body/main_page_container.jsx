@@ -21,8 +21,7 @@ class Main extends React.Component {
     if (Object.keys(this.props.news).length === 0) {
       return null
     }
-    // debugger
-  const news = Object.values(this.props.news).map((el, idx) => {
+    const news = Object.values(this.props.news).map((el, idx) => {
   return (
         <a href={el.url} key={idx}>
           <img src={el.urlToImage} />

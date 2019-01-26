@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import SearchBar from '../search_bar/search_bar_container'
 
 const Greeting = ({ currentUser, logout, demoUser }) => {
 
@@ -45,10 +46,10 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
           </Link>
         </div>
 
-
-        <div className="search-bar">
+        <SearchBar />
+        {/* <div className="search-bar">
             <input type="text" placeholder=" 🔍 Search"/>
-        </div>
+        </div> */}
 
         <nav className="navbar">
 

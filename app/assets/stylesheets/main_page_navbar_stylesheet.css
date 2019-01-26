@@ -236,3 +236,38 @@
 #loggedin-navbar {
   z-index: 100;
 }
+
+.search-results {
+  width: 460px;
+  max-height: 450px;
+  background-color: transparent;
+  overflow: scroll;
+}
+.search-results ul{
+  padding: 0;
+  margin: 0;
+
+}
+
+.search-results a p{
+  background-color: white;
+  margin: 0;
+  text-decoration: none;
+  color: black;
+  border: 10px solid white;
+}
+.search-results a {
+  text-decoration: none;
+}
+.search-results a:hover p:hover {
+  text-decoration: none;
+  color: rgb(17, 226, 17);
+}
+.search-results a:first-child p{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.search-results a:last-child p{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

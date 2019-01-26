@@ -1,1 +1,2 @@
-json.extract! stock, :comapny_name, :nasdaq_code
+#change this to email and ID only later
+json.extract! stock, "company_name", "nasdaq_code"

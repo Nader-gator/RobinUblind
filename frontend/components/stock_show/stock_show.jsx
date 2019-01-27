@@ -81,7 +81,7 @@ class ShowAndBuyForm extends React.Component{
 
           <div className="porfolio-chart">
             {/* ---------------------------CHART GOES HERE----------------------------------- */}
-            <Chart test="Hi" />
+            <Chart test="Chart" />
           </div>
           {/* 22 Articles in here */}
           <div className="news-list">

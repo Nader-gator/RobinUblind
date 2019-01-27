@@ -7,7 +7,7 @@ import Loading from '../loading_page/loading_page'
 const StockShowPage = ({ news, stock, loading }) => {
 
   if (loading.newsLoading || loading.stockLoading) {
-    debugger
+    
     return <Loading/>
   } 
   return (

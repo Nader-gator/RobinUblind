@@ -2,6 +2,7 @@ import {connect} from 'react-redux'
 import React from 'react'
 import { getNews } from "../../actions/news_actions"
 import MainPage from './main_page'
+import { clearSearch } from '../../actions/search_actions';
 
 
 
@@ -33,6 +34,11 @@ class Main extends React.Component {
     return news
   }
 
+  componentDidUpdate(prevProps) {
+    this.props.clearSearch()
+
+  }
+
   render() {
 
     return <MainPage news={this.content()} loading={this.props.loaded} currentUser={this.props.currentUser}/>
@@ -52,7 +58,8 @@ const mapStateToProps = ({entities:{user}, entities:{news}, ui:{loading}}) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getNews: () => dispatch(getNews("stocks+finance+business"))
+    getNews: () => dispatch(getNews("stocks+finance+business")),
+    clearSearch: () => dispatch(clearSearch())
   }
 }
 

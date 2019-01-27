@@ -15,6 +15,7 @@ class StockShow extends React.Component {
   componentWillMount() {
     this.props.getNews(this.props.match.params.stockCode);
     this.props.fetchCurrentStock(this.props.match.params.stockCode,"1m")
+    this.props.clearSearch()
   }
 
 

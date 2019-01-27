@@ -1,10 +1,12 @@
 import { RECEIVE_NEWS, START_RECEIVE_NEWS} from '../../actions/news_actions'
+import { START_RECEIVE_CURRENT_STOCK, RECEIVE_CURRENT_STOCK } from '../../actions/stocks_actions';
 
 const initialState = {
-  newsLoading: false
+  newsLoading: true,
+  stockLoading: true
 }
 
-export default (state = initialState, action) => {
+export default (state =initialState, action) => {
   Object.freeze(state)
 
   switch (action.type) {
@@ -12,6 +14,10 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { newsLoading: true })
     case RECEIVE_NEWS:
       return Object.assign({}, state, { newsLoading: false})
+    case START_RECEIVE_CURRENT_STOCK:
+      return Object.assign({}, state, { stockLoading: true })
+    case RECEIVE_CURRENT_STOCK:
+      return Object.assign({}, state, { stockLoading: false})
     default:
       return state
   }

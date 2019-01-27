@@ -3,6 +3,7 @@ import React from 'react'
 import { getNews } from "../../actions/news_actions"
 import StockShowPage from './stock_show'
 import { clearSearch } from '../../actions/search_actions';
+import {fetchCurrentStock} from "../../actions/stocks_actions"
 
 
 class StockShow extends React.Component {
@@ -12,17 +13,20 @@ class StockShow extends React.Component {
   }
 
   componentWillMount() {
-    this.props.getNews(this.props.match.params.stockCode)
+    this.props.getNews(this.props.match.params.stockCode);
+    this.props.fetchCurrentStock(this.props.match.params.stockCode,"1m")
   }
+
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.stockCode != this.props.match.params.stockCode) {
       this.props.getNews(this.props.match.params.stockCode);
       this.props.clearSearch()
+      this.props.fetchCurrentStock(this.props.match.params.stockCode,"1m")
     }
   }
 
-  content() {
+  news() {
 
     if (Object.keys(this.props.news).length === 0) {
       return null
@@ -41,18 +45,21 @@ class StockShow extends React.Component {
   }
 
 
+
   render() {
-    return (<StockShowPage news={this.content()}/>)
+    return (<StockShowPage news={this.news()} stock={this.props.stock} loading= {this.props.loading}/>)
+    }
   }
 
-}
 
 
-const mapStateToProps = ({ entities: { user }, entities: { news }, ui: { loading } }) => {
+
+const mapStateToProps = ({ entities: { user }, entities: { news, currentStock }, ui: { loading} }) => {
   return {
     currentUser: user,
     news,
-    loading: loading.newsLoading
+    stock: currentStock,
+    loading
   }
 }
 
@@ -60,7 +67,8 @@ const mapStateToProps = ({ entities: { user }, entities: { news }, ui: { loading
 const mapDispatchToProps = dispatch => {
   return {
     getNews: (stock_code) => dispatch(getNews(stock_code)),
-    clearSearch: () => dispatch(clearSearch())
+    clearSearch: () => dispatch(clearSearch()),
+    fetchCurrentStock: (stockCode,range) => dispatch(fetchCurrentStock(stockCode,range))
   }
 }
 

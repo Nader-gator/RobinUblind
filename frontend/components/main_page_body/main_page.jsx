@@ -1,11 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import HeaderContainer from "../header/header_container"
+import Loading from '../loading_page/loading_page'
 
 
-
-const MainPage = ({news, currentUser}) => {
-  
+const MainPage = ({news, currentUser, loading}) => {
+  if (loading) {
+    return <Loading/>
+  } 
   return (
     <div>
       <header>

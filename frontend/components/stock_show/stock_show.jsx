@@ -1,10 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from "../header/header_container"
+import Loading from '../loading_page/loading_page'
 
 
+const StockShowPage = ({ news, stock, loading }) => {
 
-const StockShowPage = ({ news }) => {
+  if (loading.newsLoading || loading.stockLoading) {
+    debugger
+    return <Loading/>
+  } 
   return (
     <div>
       <header>
@@ -71,9 +76,9 @@ const StockShowPage = ({ news }) => {
 
 
 
-        <div id='watchlist' className="watch-list wsticky">
+        <div id='watchlist stock-buy' className="watch-list wsticky">
           <h2>
-            Watchlist
+            Buy <div>{stock.quote.symbol}</div>
           </h2>
           <span></span>
           <ul>

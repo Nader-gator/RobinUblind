@@ -9,7 +9,6 @@ class Main extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = this.props.loading
   }
 
   componentWillMount() {
@@ -36,11 +35,7 @@ class Main extends React.Component {
 
   render() {
 
-    if (this.state) {
-      return <div></div>
-    } else {
-      return <MainPage news={this.content()} currentUser={this.props.currentUser}/>
-    }
+    return <MainPage news={this.content()} loading={this.props.loaded} currentUser={this.props.currentUser}/>
   }
 
 }

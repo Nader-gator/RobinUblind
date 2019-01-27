@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from "../header/header_container"
 import Loading from '../loading_page/loading_page'
-
+import Chart from '../chart/chart'
 class ShowAndBuyForm extends React.Component{
 
   constructor(props){
@@ -25,6 +25,7 @@ class ShowAndBuyForm extends React.Component{
       return <Loading />
     }
 
+    const testData = { "2017-05-13": 2, "2017-05-14": 5 }
 
     return (
       <div>
@@ -80,7 +81,7 @@ class ShowAndBuyForm extends React.Component{
 
           <div className="porfolio-chart">
             {/* ---------------------------CHART GOES HERE----------------------------------- */}
-            
+            <Chart data={testData} />
           </div>
           {/* 22 Articles in here */}
           <div className="news-list">

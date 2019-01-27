@@ -19,7 +19,7 @@ const newsSubjectFetch = (subject) => {
 
   const aMonthAgo = () => {
     var today = new Date();
-    var dd = today.getDate();
+    var dd = today.getDate() + 2;
     var mm = today.getMonth() + 1; //January is 0!
     var yyyy = today.getFullYear();
 

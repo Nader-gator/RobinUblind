@@ -1,0 +1,152 @@
+* {
+    font-family: Roboto;
+  }
+
+
+
+.stock-buy {
+  -webkit-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
+  -moz-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
+  box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75),0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
+  background-color: rgb(27, 27, 28);
+
+
+  margin-top: 80px;
+  background-color: rgb(27, 27, 28);
+  min-height: 200px;
+  width: 270px;
+  margin-left: 70px;
+  position: relative;
+  left:8px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  height: 400px;
+}
+
+
+.share-selecter div{
+  width: 260px;
+  height: 50px;
+}
+
+.stock-buy p {
+  color: rgb(151, 150, 150);
+}
+
+#stock-buy {
+  overflow: hidden;
+}
+
+.bsticky {
+  position: fixed;
+  left: 890px;
+}
+
+.bsticky {
+  padding-top: 12px;
+}
+
+
+.stock-buy h2 {
+  width: 140px;
+  height: 50px;
+  font-size: 16px;
+  margin-left: 20px;
+  color: white;
+}
+
+.share-selector{
+  width: 140px;
+  margin-left: 20px;
+}
+
+.share-selecter p {
+  width: 100px;
+}
+.share-selecter input {
+  background-color: black;
+  width: 50px;
+}
+
+
+.share-price {
+  background-color: red;
+  height: 150px;
+  margin-left: 20px;
+
+}
+
+.market-price {
+  width: 140px;
+  margin-top: 20px;
+  margin-left: 20px;
+
+}
+.market-price p {
+  color: green;
+}
+.estimated-cost {
+  width: 140px;
+  margin-left: 20px;
+  margin-bottom: 60px;
+}
+.share-cost{
+  background-color: orange;
+  height: 150px;
+
+}
+
+.buy-button {
+  height: 50px;
+  width: 230px;
+  margin-left: 20px;
+  border-radius: 8px;
+  background-color: rgb(97, 202, 157);
+  border: 1px solid rgb(97, 202, 157);
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.stock-buy span{
+  border-bottom: 1px solid rgb(0, 0, 0);
+  margin-bottom: 30px;
+}
+
+.buyingPower{
+  color: white;
+  height: 50px;
+  text-align: center;
+  font-size: 13px;
+}
+.divider {
+  display: block;
+  height: 5px;
+  
+  border-bottom: 5px solid rgb(0, 0, 0);
+}
+
+.number-shares-input {
+  width: 60px;
+  height: 10px;
+  float: right;
+  margin-left: 10px;
+  position: absolute;
+  right: 25px;
+  top: 100px;
+  background: gray;
+  border: 10px solid gray;
+  border-radius: 5px;
+}
+.markey-price{
+  width: 60px;
+  height: 10px;
+  float: right;
+  margin-left: 10px;
+  position: absolute;
+  right: 25px;
+  top: 145px;
+  color: rgb(204, 203, 203);
+  border-radius: 5px;
+  font-size: 13px;
+}

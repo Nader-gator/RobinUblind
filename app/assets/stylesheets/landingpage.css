@@ -1,3 +1,6 @@
+* {
+    font-family: Roboto;
+  }
 .login-signup-bar{
   display: flex;
   flex-direction: row;

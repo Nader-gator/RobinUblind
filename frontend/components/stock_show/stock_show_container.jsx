@@ -48,7 +48,7 @@ class StockShow extends React.Component {
 
 
   render() {
-    return (<StockShowPage news={this.news()} stock={this.props.stock} loading= {this.props.loading}/>)
+    return (<StockShowPage user={this.props.currentUser} news={this.news()} stock={this.props.stock} loading= {this.props.loading}/>)
     }
   }
 

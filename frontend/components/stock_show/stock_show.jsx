@@ -4,10 +4,9 @@ import Header from "../header/header_container"
 import Loading from '../loading_page/loading_page'
 
 
-const StockShowPage = ({ news, stock, loading }) => {
+const StockShowPage = ({user, news, stock, loading }) => {
 
   if (loading.newsLoading || loading.stockLoading) {
-    
     return <Loading/>
   } 
   return (
@@ -32,18 +31,19 @@ const StockShowPage = ({ news, stock, loading }) => {
           })}
 
         </script>
+        
           <script>
 
           {document.addEventListener("DOMContentLoaded", () => {
-            window.onscroll = function () { myFunction() };
-            var navbar = document.getElementById("watchlist");
+            window.onscroll = function () { myFunction2() };
+            var navbar = document.getElementById("stock-buy");
             var sticky = navbar.offsetTop;
 
-            function myFunction() {
+            function myFunction2() {
               if (window.pageYOffset >= sticky) {
-                navbar.classList.add("wsticky")
+                navbar.classList.add("bsticky")
               } else {
-                navbar.classList.remove("wsticky");
+                navbar.classList.remove("bsticky");
               }
             }
           })}
@@ -75,16 +75,29 @@ const StockShowPage = ({ news, stock, loading }) => {
 
 
 
-
-        <div id='watchlist stock-buy' className="watch-list wsticky">
+        <div id='stock-buy' className=" bsticky stock-buy">
           <h2>
-            Buy <div>{stock.quote.symbol}</div>
+            Buy {stock.quote.symbol}
           </h2>
           <span></span>
-          <ul>
-          </ul>
+          <div className="bottom-container">
+            <div className="share-selector">
+            <p>Shares</p>
+            </div>
+            <div className="market-price">
+              <p>Market Price</p>
+            </div>
+            <div className="estimated-cost">
+              <p>Estimated Cost</p>
+            </div>
+            <button className="buy-button" type="submit" value="submit-order">Submit Order</button>
+            <span className="divider"></span>
+            <div className="buyingPower">${user.bankroll} is Available for Trading</div>
+            {/* new line here */}
+            <input className="number-shares-input" type="text" onClick={()=>{return 0}} />
+            <div className="markey-price">{stock.quote.delayedPrice}</div>
         </div>
-
+        </div>
       </div>
 
     </div>

@@ -1,4 +1,4 @@
-import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
+import ReactChartkick, { AreaChart } from 'react-chartkick'
 import Chart from 'chart.js'
 import React from 'react'
 ReactChartkick.addAdapter(Chart)
@@ -6,7 +6,7 @@ ReactChartkick.addAdapter(Chart)
 
 const DrawChart = ({data}) => {
   return (
-    <LineChart data={data} />
+    <AreaChart data={data} width="710px" height="300px" colors={["#61ca9d"]} />
   )
 }
 

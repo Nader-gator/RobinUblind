@@ -20,12 +20,23 @@ class ShowAndBuyForm extends React.Component{
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+  prepData(data){
+    
+    let chartData = {}
+    data.forEach(el => {
+      chartData[el.date] = el.close
+    });
+    return chartData
+  }
+
   render(){
     if (this.props.loading.newsLoading || this.props.loading.stockLoading) {
       return <Loading />
     }
 
     const testData = { "2017-05-13": 2, "2017-05-14": 5 }
+    // debugger
+     
 
     return (
       <div>
@@ -81,7 +92,7 @@ class ShowAndBuyForm extends React.Component{
 
           <div className="porfolio-chart">
             {/* ---------------------------CHART GOES HERE----------------------------------- */}
-            <Chart data={testData} />
+            <Chart data={this.prepData(this.props.stock.chart)} />
           </div>
           {/* 22 Articles in here */}
           <div className="news-list">

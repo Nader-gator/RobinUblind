@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from "../header/header_container"
 import Loading from '../loading_page/loading_page'
-import Chart from '../chart/chart_container'
 
 class ShowAndBuyForm extends React.Component{
 
@@ -81,7 +80,7 @@ class ShowAndBuyForm extends React.Component{
 
           <div className="porfolio-chart">
             {/* ---------------------------CHART GOES HERE----------------------------------- */}
-            <Chart test="Chart" />
+            
           </div>
           {/* 22 Articles in here */}
           <div className="news-list">

@@ -211,10 +211,10 @@ input[type="number"] {
 .helper-text {
   -webkit-animation: seconds 1.0s forwards;
   -webkit-animation-iteration-count: 1;
-  -webkit-animation-delay: 5s;
+  -webkit-animation-delay: 3s;
   animation: seconds 1.0s forwards;
   animation-iteration-count: 1;
-  animation-delay: 5s;
+  animation-delay: 3s;
   position: relative;
   animation-fill-mode: forwards;
 }

@@ -32,7 +32,7 @@
 }
 
 .stock-buy p {
-  color: rgb(151, 150, 150);
+  color: rgb(241, 241, 241);
 }
 
 #stock-buy {
@@ -72,7 +72,6 @@
 
 
 .share-price {
-  background-color: red;
   height: 150px;
   margin-left: 20px;
 
@@ -82,10 +81,11 @@
   width: 140px;
   margin-top: 20px;
   margin-left: 20px;
+  
 
 }
 .market-price p {
-  color: green;
+  color: rgb(97, 202, 157)
 }
 .estimated-cost {
   width: 140px;
@@ -93,7 +93,6 @@
   margin-bottom: 60px;
 }
 .share-cost{
-  background-color: orange;
   height: 150px;
 
 }
@@ -108,9 +107,10 @@
   margin-bottom: 20px;
   font-size: 14px;
 }
+
 .stock-buy span{
   border-bottom: 1px solid rgb(0, 0, 0);
-  margin-bottom: 30px;
+  margin-bottom: 23px;
 }
 
 .buyingPower{
@@ -127,16 +127,18 @@
 }
 
 .number-shares-input {
-  width: 60px;
-  height: 10px;
+  width: 80px;
+  height: 30px;
   float: right;
   margin-left: 10px;
   position: absolute;
-  right: 25px;
-  top: 100px;
-  background: gray;
-  border: 10px solid gray;
+  right: 20px;
+  top: 90px;
+  background: rgb(23, 23, 24);
+  border: 1px solid rgb(17, 17, 17);
   border-radius: 5px;
+  text-align: left;
+  color: rgb(241, 241, 241);
 }
 .markey-price{
   width: 60px;
@@ -144,9 +146,93 @@
   float: right;
   margin-left: 10px;
   position: absolute;
-  right: 1px;
+  right: 25px;
   top: 145px;
-  color: rgb(204, 203, 203);
+  color: rgb(250, 250, 250);
   border-radius: 5px;
   font-size: 13px;
+  text-align: right;
+}
+.estimated-cost-calc{
+  width: 60px;
+  height: 10px;
+  float: right;
+  margin-left: 10px;
+  position: absolute;
+  right: 25px;
+  top: 203px;
+  color: rgb(250, 250, 250);
+  border-radius: 5px;
+  font-size: 13px;
+  text-align: right;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+.loading-page h1{
+  width:800px; 
+  height: 200px; 
+  line-height: 200px;
+  position: absolute;
+  top: 35%; margin-top:-100px;
+  left: 50%; margin-left:-400px;
+  font-weight: bold;
+  font-size: 80px;
+  text-transform: uppercase;
+  color: #ccc; text-align:center;
+  margin-bottom: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.loading-page p {
+  width:1200px; 
+  height: 300px; 
+  line-height: 40px;
+  position: absolute;
+  top: 65%; margin-top:-100px;
+  left: 99px; margin-left:-400px;
+  font-weight: bold;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #ccc; text-align:center;
+  opacity: 0;
+}
+
+
+
+.helper-text {
+  -webkit-animation: seconds 1.0s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 5s;
+  animation: seconds 1.0s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 5s;
+  position: relative;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes seconds {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    left: 36%; 
+  }
+}
+@keyframes seconds {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    left: 36%; 
+  }
 }

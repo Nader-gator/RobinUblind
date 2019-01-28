@@ -32,7 +32,6 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
       </nav>
     )
   }
-
   const isloggedIn = () => {
     
     return (
@@ -41,7 +40,11 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
 
 
         <div className="navbar_logo">
-          <Link to="/" className="navbar_logo">
+          <Link 
+          to="/" 
+          className="navbar_logo"
+            onClick={() => { window.scrollTo(0, 0) }}
+           >
             <img className="navbar_logo" src={window.logoURL} />
           </Link>
         </div>

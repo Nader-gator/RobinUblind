@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from "../header/header_container"
 import Loading from '../loading_page/loading_page'
-import Chart from '../chart/chart'
+import Chart from '../chart/_deprecated/chart_kick'
 class ShowAndBuyForm extends React.Component{
 
   constructor(props){

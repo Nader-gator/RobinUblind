@@ -20,3 +20,8 @@ csv.each do |row|
   t.company_name = row["Name"]
   t.save
 end
+
+Watchlist.destroy_all
+test_watclist1 = Watchlist.create(user_id: demo_user.id, stock_id: Stock.find_by_nasdaq_code("AAPL").id)
+test_watclist2 = Watchlist.create(user_id: demo_user.id, stock_id: Stock.find_by_nasdaq_code("MSFT").id)
+test_watclist3 = Watchlist.create(user_id: demo_user.id, stock_id: Stock.find_by_nasdaq_code("MU").id)

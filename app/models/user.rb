@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+
+  has_many :watchlist
+  has_many :stocks,
+    through: :watchlist,
+    source: :stock
+
   
   attr_reader :password
 

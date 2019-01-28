@@ -31,7 +31,7 @@ const MainPage = ({news, currentUser, loading, watchlist, data}) => {
         <div>
           <Chart data={data[el.nasdaq_code]} />
         </div>
-        <p>${data[el.nasdaq_code].quote}</p>
+        <p>${(data[el.nasdaq_code].quote).toFixed(2)}</p>
       </Link>
     )
   })

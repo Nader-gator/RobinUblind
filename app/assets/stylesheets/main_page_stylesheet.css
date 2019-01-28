@@ -203,6 +203,8 @@
   color: #ffffffd2;
   text-decoration: none !important;
   text-align: right;
+  margin-left: auto;
+  margin-right: 15px;
 }
 
 .watch-list a:link{

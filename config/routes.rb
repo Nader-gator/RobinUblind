@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy]
     resource :stock, only: [:show]
+    resources :user, only: [] do
+      resource :watchlist, only: [:show]
+    end
   end
-  
 end

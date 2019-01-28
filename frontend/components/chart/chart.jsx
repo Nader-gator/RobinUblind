@@ -41,7 +41,7 @@ const DrawChart = ({data}) => {
       { style: 'currency', currency: 'USD' }).format(value)}
       
       labelFormatter={(value) => {
-          return (<span className="test1">{value}</span>)
+          return (<span className="chart-time">{value}</span>)
 
         }}
     />

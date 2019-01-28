@@ -5,7 +5,8 @@ import Root from './components/root'
 import configureStore from './store/store'
 
 //test
-import { fetchCurrentStock } from "./actions/stocks_actions";
+
+import { fetchWatchlist } from "./actions/watchlist_actions";
 
 //test
 
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   
   //TEST
   window.state = store
-  window.getstock = fetchCurrentStock
+  window.getwatchlist = fetchWatchlist
 
   //TEST
   

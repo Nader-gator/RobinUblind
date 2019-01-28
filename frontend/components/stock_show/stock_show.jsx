@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from "../header/header_container"
 import Loading from '../loading_page/loading_page'
-import Chart from '../chart/_deprecated/chart_kick'
+import Chart from '../chart/chart'
 class ShowAndBuyForm extends React.Component{
 
   constructor(props){
@@ -21,7 +21,7 @@ class ShowAndBuyForm extends React.Component{
     }
 
   prepData(data){
-    
+    //to be used for deprecated chartkick
     let chartData = {}
     data.forEach(el => {
       chartData[el.date] = el.close
@@ -30,7 +30,6 @@ class ShowAndBuyForm extends React.Component{
   }
 
   dataSlice(arr,size){
-    // debugger
     return arr.slice(Math.max(arr.length - size, 1))
   }
 
@@ -94,7 +93,7 @@ class ShowAndBuyForm extends React.Component{
 
           <div className="porfolio-chart">
             {/* ---------------------------CHART GOES HERE----------------------------------- */}
-            <Chart data={this.prepData( this.dataSlice(this.props.stock.chart, this.state.viewsMode) ) } />
+            <Chart data={this.dataSlice(this.props.stock.chart, this.state.viewsMode) } />
           </div>
           {/* 22 Articles in here */}
           <div className="news-list">

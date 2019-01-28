@@ -236,3 +236,10 @@ input[type="number"] {
     left: 36%; 
   }
 }
+.recharts-tooltip-wrapper.recharts-tooltip-wrapper-right.recharts-tooltip-wrapper-bottom{
+  background-color: black;
+}
+
+.test1{
+  color: black;
+}

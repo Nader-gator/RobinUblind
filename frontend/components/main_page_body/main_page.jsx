@@ -11,12 +11,6 @@ const MainPage = ({news, currentUser, loading, watchlist, data}) => {
   } 
 
 
-  // SAMPLE
-  // <Link to="/" >
-  //   <h3>M</h3>
-  //   <div></div>
-  //   <p>$0.00</p>
-  // </Link>
 
   const mappedWatchlist = () => { 
     const list =watchlist.map((el,idx) => {
@@ -33,8 +27,8 @@ const MainPage = ({news, currentUser, loading, watchlist, data}) => {
       </Link>
     )
   })
-  return list
-                  }
+  return list.reverse()
+}
   return (
     <div>
       <header>

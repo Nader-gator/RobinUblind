@@ -42,7 +42,7 @@ const newsSubjectFetch = (subject) => {
 
   return $.ajax({
     method: "get",
-    url: `https://newsapi.org/v2/everything?q=${subject}&pageSize=22&from=${aMonthAgo()}&to=${today()}&sortBy=popularity&apiKey=27558331d5ff46548209fd60a90c6bdd`
+    url: `https://newsapi.org/v2/everything?q=${subject}&pageSize=22&from=${aMonthAgo()}&to=${today()}&sortBy=popularity&language=en&apiKey=27558331d5ff46548209fd60a90c6bdd`
   })
 }
 

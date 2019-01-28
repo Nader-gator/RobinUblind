@@ -3,8 +3,8 @@ import React from 'react'
 import { getNews } from "../../actions/news_actions"
 import MainPage from './main_page'
 import { clearSearch } from '../../actions/search_actions';
-
-
+import { fetchWatchlist } from "../../actions/watchlist_actions"
+import { fetchStockData } from '../../actions/stocks_actions'
 
 class Main extends React.Component {
 
@@ -14,6 +14,10 @@ class Main extends React.Component {
 
   componentWillMount() {
     this.props.getNews()
+    this.props.getWatchlist(this.props.currentUser.id)
+    this.props.watchlist.forEach(stockItem => {
+      this.props.fetchStockData(stockItem.nasdaq_code)
+    });
   }
 
   content() {
@@ -35,23 +39,30 @@ class Main extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    this.props.clearSearch()
 
+    this.props.clearSearch()
+    if (Object.values(prevProps.data).length === 0){
+      this.props.watchlist.forEach(stockItem => {
+        this.props.fetchStockData(stockItem.nasdaq_code)
+      });
+    }
   }
 
   render() {
 
-    return <MainPage news={this.content()} loading={this.props.loaded} currentUser={this.props.currentUser}/>
+    return <MainPage data={this.props.data} watchlist={this.props.watchlist} news={this.content()} loading={this.props.loaded} currentUser={this.props.currentUser}/>
   }
 
 }
 
 
-const mapStateToProps = ({entities:{user}, entities:{news}, ui:{loading}}) => {
+const mapStateToProps = ({entities:{user,watchlist, stockData}, entities:{news}, ui:{loading}}) => {
   return {
     currentUser: user,
     news,
-    loading: loading.newsLoading
+    loading: loading.newsLoading,
+    watchlist,
+    data: stockData
   }
 }
 
@@ -59,7 +70,9 @@ const mapStateToProps = ({entities:{user}, entities:{news}, ui:{loading}}) => {
 const mapDispatchToProps = dispatch => {
   return {
     getNews: () => dispatch(getNews("stocks+finance+business")),
-    clearSearch: () => dispatch(clearSearch())
+    clearSearch: () => dispatch(clearSearch()),
+    getWatchlist: (id) => dispatch(fetchWatchlist(id)),
+    fetchStockData: (code) => dispatch(fetchStockData(code))
   }
 }
 

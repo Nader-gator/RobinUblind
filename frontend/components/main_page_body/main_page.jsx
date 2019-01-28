@@ -3,11 +3,40 @@ import {Link} from 'react-router-dom'
 import HeaderContainer from "../header/header_container"
 import Loading from '../loading_page/loading_page'
 
+import Chart from "../chart/mini_chart"
 
-const MainPage = ({news, currentUser, loading}) => {
+const MainPage = ({news, currentUser, loading, watchlist, data}) => {
   if (loading) {
     return <Loading/>
   } 
+
+
+  // SAMPLE
+  // <Link to="/" >
+  //   <h3>M</h3>
+  //   <div></div>
+  //   <p>$0.00</p>
+  // </Link>
+
+  const mappedWatchlist = () => { 
+    const list =watchlist.map((el,idx) => {
+    // debugger
+    if (data[el.nasdaq_code] === undefined) {
+      return []
+    }
+    // debugger
+    return (
+      <Link key={idx} to={el.nasdaq_code}>
+        <h3>{el.nasdaq_code}</h3>
+        <div>
+          <Chart data={data[el.nasdaq_code]} />
+        </div>
+        <p>${data[el.nasdaq_code].quote}</p>
+      </Link>
+    )
+  })
+  return list
+                  }
   return (
     <div>
       <header>
@@ -80,71 +109,7 @@ const MainPage = ({news, currentUser, loading}) => {
           </h2>
           <span></span>
           <ul>
-            <Link to="/" >
-              <h3>M</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBEX</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>ADBE</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
-            <Link to="/" >
-              <h3>LAST</h3>
-              <div></div>
-              <p>$0.00</p>
-            </Link>
+            {mappedWatchlist()}
           </ul>
         </div>
 

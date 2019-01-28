@@ -3,6 +3,7 @@ import * as StockUtil from '../util/stocks_util'
 
 export const RECEIVE_CURRENT_STOCK = "RECEIVE_CURRENT_STOCK"
 export const START_RECEIVE_CURRENT_STOCK = "START_RECEIVE_CURRENT_STOCK"
+export const RECEIVE_STOCK_DATA = "RECEIVE_STOCK_DATA"
 
 
 export const fetchCurrentStock = (code,range) => dispatch => {
@@ -10,6 +11,18 @@ export const fetchCurrentStock = (code,range) => dispatch => {
   return StockUtil.getStock(code,range).then(data=>{
     return dispatch(receiveCurrentStock(data))
   })
+}
+export const fetchStockData = (code) => dispatch => {
+  return StockUtil.getSingleStockQoute(code).then(data=>{
+    return dispatch(receiveStockData(data))
+  })
+}
+
+export const receiveStockData = (stock) => {
+  return {
+    type: RECEIVE_STOCK_DATA,
+    stock
+  }
 }
 
 export const receiveCurrentStock= (stock) =>{

@@ -161,7 +161,7 @@
 .watch-list div {
   height: 50px;
   width: 85px;
-  background-color: rgba(34, 104, 22, 0.116);
+  background-color:transparent;
   margin-right: 25px;
 }
 
@@ -199,9 +199,10 @@
 .watch-list p {
   font-family: Roboto;
   font-weight: 100;
-  font-size: 18px;
+  font-size: 14px;
   color: #ffffffd2;
   text-decoration: none !important;
+  text-align: right;
 }
 
 .watch-list a:link{

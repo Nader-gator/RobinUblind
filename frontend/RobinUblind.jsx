@@ -6,7 +6,7 @@ import configureStore from './store/store'
 
 //test
 
-import { fetchWatchlist } from "./actions/watchlist_actions";
+import { fetchStockData } from './actions/stocks_actions'
 
 //test
 
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
   
   //TEST
   window.state = store
-  window.getwatchlist = fetchWatchlist
-
+  
+  window.getData = fetchStockData
   //TEST
   
   ReactDOM.render(<Root store={store}/>, rootEl)

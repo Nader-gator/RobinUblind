@@ -35,17 +35,12 @@
   color: rgb(241, 241, 241);
 }
 
-#stock-buy {
-  overflow: hidden;
-}
 
 .bsticky {
   position: fixed;
-  left: 890px;
-}
-
-.bsticky {
+  left: 61.7%;
   padding-top: 12px;
+
 }
 
 
@@ -236,10 +231,38 @@ input[type="number"] {
     left: 36%; 
   }
 }
-.recharts-tooltip-wrapper.recharts-tooltip-wrapper-right.recharts-tooltip-wrapper-bottom{
-  background-color: black;
+
+
+.watch-list-button {
+  background-color: white;
+  position: absolute;
+  right: 250px;
+  top: 1000px;
 }
 
-.test1{
-  color: black;
+
+
+#watchlist-button{
+  height: 50px;
+}
+
+.lsticky {
+  top: 445px;
+  left: 25.8px;
+  padding-top: 12px;
+  width: 220px;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 17px;
+  text-align: center;
+  text-decoration:none;
+  color:black;
+  font-family:sans-serif;
+  display: block;
+  padding: 0;
+  background-color: rgb(97, 202, 157);
+  border: 1px solid rgb(97, 202, 157);
+}
+.lsticky:hover{
+  cursor: pointer;
 }

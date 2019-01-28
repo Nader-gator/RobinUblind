@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom'
 import Header from "../header/header_container"
 import Loading from '../loading_page/loading_page'
 import Chart from '../chart/chart'
+import AddWatchlistButton from '../watchlist_button/add_watch_list_button'
+import RemoveWatchlistButton from '../watchlist_button/remove_watch_list_button'
+import { withRouter } from 'react-router-dom';
+
+
 class ShowAndBuyForm extends React.Component{
 
   constructor(props){
@@ -14,6 +19,16 @@ class ShowAndBuyForm extends React.Component{
     return (e) => {
       this.setState({[field]: e.target.value})
     }
+  }
+
+  checkWatchlist(){
+    let ownership = false
+    this.props.watchlist.forEach(el => {
+      if (el.nasdaq_code === this.props.match.params.stockCode) {
+        ownership = true
+      }
+    });
+    return ownership
   }
 
   numberWithCommas(x){
@@ -80,6 +95,24 @@ class ShowAndBuyForm extends React.Component{
 
           </script>
 
+          <script>
+
+            {document.addEventListener("DOMContentLoaded", () => {
+              window.onscroll = function () { myFunction2() };
+              var navbar = document.getElementById("watchlist-button");
+              var sticky = navbar.offsetTop;
+
+              function myFunction2() {
+                if (window.pageYOffset >= sticky) {
+                  navbar.classList.add("lsticky")
+                } else {
+                  navbar.classList.remove("lsticky");
+                }
+              }
+            })}
+
+          </script>
+
 
         </header>
         <div className="entire-main-body">
@@ -133,7 +166,18 @@ class ShowAndBuyForm extends React.Component{
               <div className="markey-price">${this.props.stock.quote.delayedPrice}</div>
               <div className="estimated-cost-calc">${this.numberWithCommas(parseInt(this.props.stock.quote.delayedPrice) * this.state.numShares)}</div>
             </div>
+
+
+            {this.checkWatchlist() ? (<RemoveWatchlistButton 
+            user={this.props.user} 
+            fetchWatchlist={this.props.fetchWatchlist} />) :
+             (<AddWatchlistButton 
+            fetchWatchlist={this.props.fetchWatchlist} 
+            user={this.props.user} /> )}
+
+            
           </div>
+
         </div>
 
       </div>
@@ -145,4 +189,4 @@ class ShowAndBuyForm extends React.Component{
 
 
 
-export default ShowAndBuyForm
+export default withRouter(ShowAndBuyForm)

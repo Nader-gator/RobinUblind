@@ -4,6 +4,7 @@ import { getNews } from "../../actions/news_actions"
 import StockShowPage from './stock_show'
 import { clearSearch } from '../../actions/search_actions';
 import {fetchCurrentStock} from "../../actions/stocks_actions"
+import { fetchWatchlist } from '../../actions/watchlist_actions';
 
 
 class StockShow extends React.Component {
@@ -48,19 +49,20 @@ class StockShow extends React.Component {
 
 
   render() {
-    return (<StockShowPage user={this.props.currentUser} news={this.news()} stock={this.props.stock} loading= {this.props.loading}/>)
+    return (<StockShowPage user={this.props.currentUser} news={this.news()} stock={this.props.stock} fetchWatchlist={this.props.fetchWatchlist} loading={this.props.loading} watchlist={this.props.watchlist}/>)
     }
   }
 
 
 
 
-const mapStateToProps = ({ entities: { user }, entities: { news, currentStock }, ui: { loading} }) => {
+const mapStateToProps = ({ entities: { user, watchlist }, entities: { news, currentStock }, ui: { loading} }) => {
   return {
     currentUser: user,
     news,
     stock: currentStock,
-    loading
+    loading,
+    watchlist
   }
 }
 
@@ -69,7 +71,8 @@ const mapDispatchToProps = dispatch => {
   return {
     getNews: (stock_code) => dispatch(getNews(stock_code)),
     clearSearch: () => dispatch(clearSearch()),
-    fetchCurrentStock: (stockCode,range) => dispatch(fetchCurrentStock(stockCode,range))
+    fetchCurrentStock: (stockCode,range) => dispatch(fetchCurrentStock(stockCode,range)),
+    fetchWatchlist: (id) => dispatch(fetchWatchlist(id))
   }
 }
 

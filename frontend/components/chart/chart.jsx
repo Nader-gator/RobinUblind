@@ -33,7 +33,7 @@ const DrawChart = ({data}) => {
   
   return (
   < LineChart width={710} height={300} data={data} >
-    <Line type="monotone" dataKey="close" stroke={stroke} dot={false} />
+      <Line type="monotone" dataKey="close" stroke={stroke} dot={false} />
     <XAxis dataKey="date" hide={true} />
     <YAxis  domain={[min, max]} hide={true} />
     <Tooltip

@@ -11,7 +11,6 @@ Array.max = function (array) {
 };
 
 const DrawChart = ({data}) => {
-  // debugger
   const chartOptions = { //this is the "options that gets passed to chart, see bottom for exampel"
     layout: {
       padding: { left: 10, right: 5, top: 5, bottom: 2 }

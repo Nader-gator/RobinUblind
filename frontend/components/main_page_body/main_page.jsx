@@ -20,11 +20,9 @@ const MainPage = ({news, currentUser, loading, watchlist, data}) => {
 
   const mappedWatchlist = () => { 
     const list =watchlist.map((el,idx) => {
-    // debugger
     if (data[el.nasdaq_code] === undefined) {
       return []
     }
-    // debugger
     return (
       <Link key={idx} to={el.nasdaq_code}>
         <h3>{el.nasdaq_code}</h3>

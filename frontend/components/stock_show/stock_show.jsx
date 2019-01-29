@@ -12,7 +12,7 @@ class ShowAndBuyForm extends React.Component{
 
   constructor(props){
     super(props)
-    this.state = {numShares: 0, viewsMode: 7, d:false,w:true,m:false,tm:false,y:false}
+    this.state = {numShares: 0, viewsMode: 30, d:false,w:false,m:true,tm:false,y:false}
   }
 
   update(field){

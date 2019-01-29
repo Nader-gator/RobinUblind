@@ -1,5 +1,3 @@
-import { request } from "http";
-
 //range = 1d,1m,3m,6m,1y
 export const getStock = (nasdaqcode,range) => {
   return $.ajax({

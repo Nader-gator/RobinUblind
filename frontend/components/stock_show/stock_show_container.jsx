@@ -5,7 +5,7 @@ import StockShowPage from './stock_show'
 import { clearSearch } from '../../actions/search_actions';
 import {fetchCurrentStock} from "../../actions/stocks_actions"
 import { fetchWatchlist } from '../../actions/watchlist_actions';
-
+import { fetchTransactions, sendTransactions } from '../../actions/transaction_actions'
 
 class StockShow extends React.Component {
 
@@ -49,20 +49,33 @@ class StockShow extends React.Component {
 
 
   render() {
-    return (<StockShowPage user={this.props.currentUser} news={this.news()} stock={this.props.stock} fetchWatchlist={this.props.fetchWatchlist} loading={this.props.loading} watchlist={this.props.watchlist} fetchCurrentStock={this.props.fetchCurrentStock} />)
+    return (
+    <StockShowPage 
+      user={this.props.currentUser} 
+      news={this.news()} 
+      stock={this.props.stock} 
+      fetchWatchlist={this.props.fetchWatchlist} 
+      loading={this.props.loading} 
+      watchlist={this.props.watchlist} 
+      fetchCurrentStock={this.props.fetchCurrentStock} 
+      fetchTransactions={() => this.props.fetchTransactions(this.props.currentUser.id)} 
+      sendTransaction={(data)=>this.props.sendTransaction(this.props.currentUser.id,data)}
+      
+      />)
     }
   }
 
 
 
 
-const mapStateToProps = ({ entities: { user, watchlist }, entities: { news, currentStock }, ui: { loading} }) => {
+const mapStateToProps = ({ entities: { user, watchlist }, entities: { news, currentStock }, ui: { loading, transactionStatus} }) => {
   return {
     currentUser: user,
     news,
     stock: currentStock,
     loading,
-    watchlist
+    watchlist,
+    transactionStatus
   }
 }
 
@@ -72,7 +85,9 @@ const mapDispatchToProps = dispatch => {
     getNews: (stock_code) => dispatch(getNews(stock_code)),
     clearSearch: () => dispatch(clearSearch()),
     fetchCurrentStock: (stockCode,range,option) => dispatch(fetchCurrentStock(stockCode,range,option)),
-    fetchWatchlist: (id) => dispatch(fetchWatchlist(id))
+    fetchWatchlist: (id) => dispatch(fetchWatchlist(id)),
+    fetchTransactions: (userId,date) => dispatch(fetchTransactions(userId,date)),
+    sendTransaction: (userId,data,date) => dispatch(sendTransactions(userId,data,date))
   }
 }
 

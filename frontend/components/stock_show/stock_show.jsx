@@ -13,6 +13,7 @@ class ShowAndBuyForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {numShares: 0, viewsMode: 30, d:false,w:false,m:true,tm:false,y:false}
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   update(field){
@@ -36,7 +37,7 @@ class ShowAndBuyForm extends React.Component{
     }
 
   prepData(data){
-    //to be used for deprecated chartkick
+    //used for deprecated chartkick
     let chartData = {}
     data.forEach(el => {
       chartData[el.date] = el.close
@@ -49,6 +50,16 @@ class ShowAndBuyForm extends React.Component{
       return arr
     }
     return arr.slice(Math.max(arr.length - size, 1))
+  }
+
+  handleSubmit(e){
+    e.preventDefault()
+    this.props.sendTransaction({
+      category: "buy",
+      stock_code: this.props.stock.quote.symbol,
+      price: this.props.stock.quote.delayedPrice,
+      amount: this.state.numShares
+    })
   }
 
   render(){
@@ -209,12 +220,12 @@ class ShowAndBuyForm extends React.Component{
                 <p>Estimated Cost</p>
               </div>
               {/* new line here */}
-              <form >
+              <form onSubmit={this.handleSubmit}>
                 <input className="number-shares-input" onChange={this.update("numShares")} type="number" />
-                <input className="buy-button" type="submit" value="submit-order" value="Submit Order" />
+                <input className="buy-button" type="submit" value="Submit Order" />
               </form>
               <span className="divider"></span>
-              <div className="buyingPower">${this.props.user.bankroll} is Available for Trading</div>
+              <div className="buyingPower">${this.numberWithCommas(this.props.user.bankroll)} is Available for Trading</div>
               <div className="markey-price">${this.props.stock.quote.delayedPrice}</div>
               <div className="estimated-cost-calc">${this.numberWithCommas(parseInt(this.props.stock.quote.delayedPrice) * this.state.numShares)}</div>
             </div>

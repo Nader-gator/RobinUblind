@@ -4,12 +4,15 @@ import news from "./news_reducer"
 import currentStock from "./current_stock_reducer"
 import watchlist from "./watchlist_reducer"
 import stockData from './stock_data_reducer'
+import Transactions from './transactions_reducer'
+
 export default combineReducers({
   user,
   news,
   currentStock,
   watchlist,
-  stockData
+  stockData,
+  Transactions
 })
 
 

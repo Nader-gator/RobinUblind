@@ -15,7 +15,7 @@ class StockShow extends React.Component {
 
   componentWillMount() {
     this.props.getNews(this.props.match.params.stockCode);
-    this.props.fetchCurrentStock(this.props.match.params.stockCode,"1m")
+    this.props.fetchCurrentStock(this.props.match.params.stockCode,"1y")
     this.props.clearSearch()
   }
 
@@ -24,7 +24,7 @@ class StockShow extends React.Component {
     if (prevProps.match.params.stockCode != this.props.match.params.stockCode) {
       this.props.getNews(this.props.match.params.stockCode);
       this.props.clearSearch()
-      this.props.fetchCurrentStock(this.props.match.params.stockCode,"1m")
+      this.props.fetchCurrentStock(this.props.match.params.stockCode,"1y")
     }
   }
 
@@ -49,7 +49,7 @@ class StockShow extends React.Component {
 
 
   render() {
-    return (<StockShowPage user={this.props.currentUser} news={this.news()} stock={this.props.stock} fetchWatchlist={this.props.fetchWatchlist} loading={this.props.loading} watchlist={this.props.watchlist}/>)
+    return (<StockShowPage user={this.props.currentUser} news={this.news()} stock={this.props.stock} fetchWatchlist={this.props.fetchWatchlist} loading={this.props.loading} watchlist={this.props.watchlist} fetchCurrentStock={this.props.fetchCurrentStock} />)
     }
   }
 
@@ -71,7 +71,7 @@ const mapDispatchToProps = dispatch => {
   return {
     getNews: (stock_code) => dispatch(getNews(stock_code)),
     clearSearch: () => dispatch(clearSearch()),
-    fetchCurrentStock: (stockCode,range) => dispatch(fetchCurrentStock(stockCode,range)),
+    fetchCurrentStock: (stockCode,range,option) => dispatch(fetchCurrentStock(stockCode,range,option)),
     fetchWatchlist: (id) => dispatch(fetchWatchlist(id))
   }
 }

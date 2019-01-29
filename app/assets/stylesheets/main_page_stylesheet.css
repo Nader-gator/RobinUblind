@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 5000px;
+  height: 5200px;
   align-content: flex-start;
 }
 
@@ -28,7 +28,7 @@
   margin-left: 180px;
   text-align: center;
   color:white;
-  
+  margin-bottom: 70px;
 }
 
 .watch-list {

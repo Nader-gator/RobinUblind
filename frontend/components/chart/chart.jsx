@@ -37,13 +37,15 @@ const DrawChart = ({data}) => {
     <XAxis dataKey="date" hide={true} />
     <YAxis  domain={[min, max]} hide={true} />
     <Tooltip
-      formatter={(value) => new Intl.NumberFormat('en-US',
-      { style: 'currency', currency: 'USD' }).format(value)}
-      
+      formatter={(value) => {new Intl.NumberFormat('en-US',
+      { style: 'currency', currency: 'USD' }).format(value)}}
       labelFormatter={(value) => {
-          return (<span className="chart-time">{value}</span>)
-
-        }}
+        if (value.includes("-")) {
+          return <span className="chart-time">{value}</span>
+        } else {
+          value = value.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3");
+        return (<span className="chart-time">{value}</span>)}}
+      }
     />
   </LineChart >)
 }

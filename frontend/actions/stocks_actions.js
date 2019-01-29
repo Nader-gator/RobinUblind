@@ -6,8 +6,11 @@ export const START_RECEIVE_CURRENT_STOCK = "START_RECEIVE_CURRENT_STOCK"
 export const RECEIVE_STOCK_DATA = "RECEIVE_STOCK_DATA"
 
 
-export const fetchCurrentStock = (code,range) => dispatch => {
-  dispatch(startReceiveCurrentStock())
+export const fetchCurrentStock = (code,range,option = true) => dispatch => {
+  
+  if (option){
+    dispatch(startReceiveCurrentStock())
+  }
   return StockUtil.getStock(code,range).then(data=>{
     return dispatch(receiveCurrentStock(data))
   })

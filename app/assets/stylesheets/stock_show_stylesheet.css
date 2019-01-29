@@ -270,3 +270,29 @@ input[type="number"] {
 .chart-time {
   color: #000000;
 }
+
+.stock-show-span-selectors span{
+
+}
+
+.stock-show-span-selectors p {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  position: relative;
+  top: 30px;
+  padding: 6px;
+}
+
+.stock-show-span-selectors p:hover{
+  cursor: pointer;
+}
+
+.stock-show-span-selectors{
+  height: 10px;
+  display: flex;
+}
+
+.range-selected {
+  color: rgb(97, 202, 157)
+}

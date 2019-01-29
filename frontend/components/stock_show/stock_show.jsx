@@ -12,7 +12,7 @@ class ShowAndBuyForm extends React.Component{
 
   constructor(props){
     super(props)
-    this.state = {numShares: 0, viewsMode: 7}
+    this.state = {numShares: 0, viewsMode: 7, d:false,w:true,m:false,tm:false,y:false}
   }
 
   update(field){
@@ -45,6 +45,9 @@ class ShowAndBuyForm extends React.Component{
   }
 
   dataSlice(arr,size){
+    if(size === false || size === 1) {
+      return arr
+    }
     return arr.slice(Math.max(arr.length - size, 1))
   }
 
@@ -96,7 +99,6 @@ class ShowAndBuyForm extends React.Component{
           </script>
 
           <script>
-
             {document.addEventListener("DOMContentLoaded", () => {
               window.onscroll = function () { myFunction2() };
               var navbar = document.getElementById("watchlist-button");
@@ -109,6 +111,13 @@ class ShowAndBuyForm extends React.Component{
                   navbar.classList.remove("lsticky");
                 }
               }
+            })}
+          </script>
+
+
+          <script>
+            {document.addEventListener("DOMContentLoaded", ()=>{
+              var el = document.getElementsByClassName("range-selected")
             })}
 
           </script>
@@ -125,8 +134,51 @@ class ShowAndBuyForm extends React.Component{
           </div>
 
           <div className="porfolio-chart">
-            {/* ---------------------------CHART GOES HERE----------------------------------- */}
             <Chart data={this.dataSlice(this.props.stock.chart, this.state.viewsMode) } />
+
+              {/* SPAGHETTI CODE AHEAD, ENTER AT YOUR OWN RISK (it works tho) */}
+            <div className="stock-show-span-selectors">
+              <p onClick={() => 
+              {this.props.fetchCurrentStock(this.props.stock.quote.symbol,"1d",false).then(()=>
+                this.setState({ viewsMode: 1 }))
+                this.setState({ d: true, w: false, m: false, tm: false, y: false})
+              }}
+            className={this.state.d ? "range-selected" : null}
+              >1D</p>
+
+              <p 
+                onClick={() => {
+                  this.props.fetchCurrentStock(this.props.stock.quote.symbol, "1y", false).then(() =>
+                    this.setState({ viewsMode: 7 }))
+                  this.setState({ d: false, w: true, m: false, tm: false, y: false })
+                }}
+                className={this.state.w ? "range-selected" : null}
+              >1W</p>
+
+              <p onClick={() => {
+                this.props.fetchCurrentStock(this.props.stock.quote.symbol, "1y", false).then(() =>
+                  this.setState({ viewsMode: 30 }))
+                this.setState({ d: false, w: false, m: true, tm: false, y: false })
+              }}
+              className={this.state.m ? "range-selected" : null}
+              >1M</p>
+
+              <p onClick={() => {
+                this.props.fetchCurrentStock(this.props.stock.quote.symbol, "1y", false).then(() =>
+                  this.setState({ viewsMode: 90 }))
+                this.setState({ d: false, w: false, m: false, tm: true, y: false })
+              }}
+              className={this.state.tm ? "range-selected" : null}
+              >3M</p>
+
+              <p onClick={() => {
+                this.props.fetchCurrentStock(this.props.stock.quote.symbol, "1y", false).then(() =>
+                  this.setState({ viewsMode: false }))
+                this.setState({ d: false, w: false, m: false, tm: false, y: true })
+              }}
+              className={this.state.y ? "range-selected" : null}
+              >1Y</p>
+            </div>
           </div>
           {/* 22 Articles in here */}
           <div className="news-list">

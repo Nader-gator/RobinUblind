@@ -5,6 +5,7 @@ import MainPage from './main_page'
 import { clearSearch } from '../../actions/search_actions';
 import { fetchWatchlist } from "../../actions/watchlist_actions"
 import { fetchStockData } from '../../actions/stocks_actions'
+import { fetchTransactions } from "../../actions/transaction_actions"
 
 class Main extends React.Component {
 
@@ -18,6 +19,7 @@ class Main extends React.Component {
     this.props.watchlist.forEach(stockItem => {
       this.props.fetchStockData(stockItem.nasdaq_code)
     });
+    this.props.fetchTransactions(this.props.currentUser.id)
   }
 
   content() {
@@ -72,7 +74,8 @@ const mapDispatchToProps = dispatch => {
     getNews: () => dispatch(getNews("stocks+finance+business")),
     clearSearch: () => dispatch(clearSearch()),
     getWatchlist: (id) => dispatch(fetchWatchlist(id)),
-    fetchStockData: (code) => dispatch(fetchStockData(code))
+    fetchStockData: (code) => dispatch(fetchStockData(code)),
+    fetchTransactions: (userId,date) => dispatch(fetchTransactions(userId,date))
   }
 }
 

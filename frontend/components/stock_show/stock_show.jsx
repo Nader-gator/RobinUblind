@@ -140,8 +140,8 @@ class ShowAndBuyForm extends React.Component{
 
 
           <div className="porfolio-performance">
-            <h1>$0.00</h1>
-            <h2>$0.00 (0.00%)<span>Today</span></h2>
+            <h1>${this.props.stock.quote.close}</h1>
+            <h2>${this.props.stock.quote.change} ({(this.props.stock.quote.changePercent * 100).toFixed(2)}%)<span>Today</span></h2>
           </div>
 
           <div className="porfolio-chart">

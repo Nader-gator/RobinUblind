@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :stock, only: [:show]
     resources :user, only: [] do
       resource :watchlist, only: [:show,:create, :destroy]
+      resource :transaction, only: [:show,:create]
     end
   end
 end

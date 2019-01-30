@@ -17,11 +17,14 @@ class ShowAndBuyForm extends React.Component{
     this.handleSellSubmit = this.handleSellSubmit.bind(this)
 
   }
-
+  
 
   componentWillMount(){
     this.props.fetchTransactions()
     }
+  // componentDidUpdate(){
+  //   this.props.fetchTransactions()
+  //   }
   
 
   update(field){
@@ -71,6 +74,7 @@ class ShowAndBuyForm extends React.Component{
       price: this.props.stock.quote.delayedPrice,
       amount: this.state.numShares
     })
+    this.props.fetchTransactions()
   }
 
   handleSellSubmit(e){
@@ -80,6 +84,7 @@ class ShowAndBuyForm extends React.Component{
       price: this.props.stock.quote.delayedPrice,
       amount: this.state.numShares
     })
+    this.props.fetchTransactions()
   }
 
   numSharesOwnership(code){

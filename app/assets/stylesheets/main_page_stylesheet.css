@@ -1,275 +1,209 @@
 * {
-    font-family: Roboto;
-  }
-.entire-main-body {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(27, 27, 28);
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 5200px;
-  align-content: flex-start;
+	font-family: Roboto;
 }
-
-
+.entire-main-body {
+	height: 100%;
+	width: 100%;
+	background-color: rgb(27, 27, 28);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 5200px;
+	align-content: flex-start;
+}
 /* main body elements start */
 .porfolio-performance {
-  width: 700px;
-  height: 100px;
-  margin-top: 80px;
-  margin-left: 180px;
-  
+	width: 700px;
+	height: 100px;
+	margin-top: 80px;
+	margin-left: 180px;
 }
-
 .porfolio-chart {
-  width: 700px;
-  height: 290px;
-  margin-left: 180px;
-  text-align: center;
-  color:white;
-  margin-bottom: 70px;
+	width: 700px;
+	height: 290px;
+	margin-left: 180px;
+	text-align: center;
+	color:white;
+	margin-bottom: 70px;
 }
-
 .watch-list {
-  margin-top: 80px;
-  background-color: rgb(27, 27, 28);
-  min-height: 200px;
-  width: 270px;
-  margin-left: 70px;
-  position: relative;
+	margin-top: 80px;
+	background-color: rgb(27, 27, 28);
+	min-height: 200px;
+	width: 270px;
+	margin-left: 70px;
+	position: relative;
 }
-
 .news-list {
-  margin-left: 180px;
-  width: 700px;
-  height: 4530px;
-  word-break: break-all;
+	margin-left: 180px;
+	width: 700px;
+	height: 4530px;
+	word-break: break-all;
 }
-
 /* main body elements end */
-
 /* news sections styling start*/
-
-/* 
-  sample news section
-  <h1>Recent News</h1>
-    <ul>
-      <li>
-        <img src="..."/>
-        <h2>Title</h2>
-        <p>The actual news</p>
-      </li>
-    </ul>
-*/
-
+/*sample news section<h1>Recent News</h1><ul><li><img src="..."/><h2>Title</h2><p>The actual news</p></li></ul>*/
 .news-list ul {
-  margin: 0;
-  padding: 0;
-  width: 600;
-  list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 600;
+	list-style: none;
 }
-
 .news-list h1 {
-  padding-left: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(122, 118, 118, 0.76);
-  font-family: Roboto;
-  color: white;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid rgba(122, 118, 118, 0.76);
+	font-family: Roboto;
+	color: white;
 }
 .news-list h2 {
-  padding-left: 15px;
-  color: white;
-  font-family: Roboto;
-  font-size: 16px;
-  width: 360px;
-  word-break: normal;
+	padding-left: 15px;
+	color: white;
+	font-family: Roboto;
+	font-size: 16px;
+	width: 360px;
+	word-break: normal;
 }
 .news-list p {
-  padding-left: 15px; 
-  font-family: Roboto;
-  font-size: 12px;
-  width: 360px;
-  line-height: 16px;
-  word-break: normal;
+	padding-left: 15px;
+	font-family: Roboto;
+	font-size: 12px;
+	width: 360px;
+	line-height: 16px;
+	word-break: normal;
 }
-
 .news-list img {
-  height: 180px;
-  width: 280px;
-  margin-left: 15px;
-  margin-top: 10px;
+	height: 180px;
+	width: 280px;
+	margin-left: 15px;
+	margin-top: 10px;
 }
 .news-list a {
-  width: 690px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  text-decoration: none;
-  color: white;
+	width: 690px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	text-decoration: none;
+	color: white;
 }
-
 .news-list a:hover {
-  background-color: rgba(126, 120, 113, 0.39);
+	background-color: rgba(126, 120, 113, 0.39);
 }
-
 /* news sections styling end*/
-
-
 /* Watch list section styling start */
-
-/* 
-<Link to="/" >
-  <h3>S</h3>
-  <div>
-  </div>
-  <p>price</p>
-</Link>
-*/
+/*<Link to="/" ><h3>S</h3><div></div><p>price</p></Link>*/
 ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+	width: 0px;
+	background: transparent;
 }
-
 .watch-list {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #000000;
-  -webkit-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
-  -moz-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
-  box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75),0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
-  background-color: rgb(27, 27, 28);
-  border-radius: 5px;
-  height: 85vh;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #000000;
+	-webkit-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
+	-moz-box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75), 0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
+	box-shadow: 0px 20px 74px 6px rgba(0,0,0,0.75),0px 0px 75px -29px rgba(20, 20, 20, 0.74)inset;
+	background-color: rgb(27, 27, 28);
+	border-radius: 5px;
+	height: 85vh;
 }
-
 .watch-list h2 {
-  margin-left: 15px;
-  font-family: Roboto;
-  font-size: 20px;
-  color: #ffffffd2;
-  padding: 0;
-  
+	margin-left: 15px;
+	font-family: Roboto;
+	font-size: 20px;
+	color: #ffffffd2;
+	padding: 0;
 }
 .watch-list span{
-  border-bottom: 1px solid rgb(0, 0, 0);
-  margin-bottom: 20px;
+	border-bottom: 1px solid rgb(0, 0, 0);
+	margin-bottom: 20px;
 }
-
 .watch-list div {
-  height: 50px;
-  width: 85px;
-  background-color:transparent;
-  margin-right: 25px;
+	height: 50px;
+	width: 85px;
+	background-color:transparent;
+	margin-right: 25px;
 }
-
 .watch-list a {
-  display: flex;
-  margin-bottom: 10px;
+	display: flex;
+	margin-bottom: 10px;
 }
-
 .watch-list a:hover{
-  background-color: rgba(126, 120, 113, 0.39);
+	background-color: rgba(126, 120, 113, 0.39);
 }
 .watch-list ul {
-  padding-left: 0;
-  padding-top: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  overflow-y: scroll;
-  height: 85vh;
+	padding-left: 0;
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	overflow-y: scroll;
+	height: 85vh;
 }
-
 .watch-list h3 {
-  display: box;
-  box-sizing: border-box;
-  padding-left: 15px;
-  width: 90px;
-  text-decoration: none !important;
-  color: #ffffffd2;
-  font-family: Roboto;
-  font-weight: 100;
-  font-size: 16px;
-  padding-left: 20px;
+	display: box;
+	box-sizing: border-box;
+	padding-left: 15px;
+	width: 90px;
+	text-decoration: none !important;
+	color: #ffffffd2;
+	font-family: Roboto;
+	font-weight: 100;
+	font-size: 16px;
+	padding-left: 20px;
 }
-
-
 .watch-list p {
-  font-family: Roboto;
-  font-weight: 100;
-  font-size: 14px;
-  color: #ffffffd2;
-  text-decoration: none !important;
-  text-align: right;
-  margin-left: auto;
-  margin-right: 15px;
+	font-family: Roboto;
+	font-weight: 100;
+	font-size: 14px;
+	color: #ffffffd2;
+	text-decoration: none !important;
+	text-align: right;
+	margin-left: auto;
+	margin-right: 15px;
 }
-
 .watch-list a:link{
-  text-decoration: none!important;
+	text-decoration: none!important;
 }
-
 /* always on top navbar */
-
 #watchlist {
-  overflow: hidden;
+	overflow: hidden;
 }
-
 .wsticky {
-  position: fixed;
-  right: 210px;
-  padding-top: 12px;
+	position: fixed;
+	right: 210px;
+	padding-top: 12px;
 }
-
 /* Watch list section styling end */
-
-
-
 /* Portfolio value styling start */
-
-/*
-        <div className="porfolio-performance">
-          <h1>$0.00</h1>
-          <h2>0.00(0.00%)Today</h2>
-        </div>
-*/
-
+/*<div className="porfolio-performance"><h1>$0.00</h1><h2>0.00(0.00%)Today</h2></div>*/
 .porfolio-performance h1 {
-  margin-top: 20px;
-  margin-bottom: 0px;
-  font-family: Roboto;
-  font-size: 36px;
-  color: #fffffff1;
-  margin-left: 10px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	font-family: Roboto;
+	font-size: 36px;
+	color: #fffffff1;
+	margin-left: 10px;
 }
-
 .porfolio-performance h2{
-  margin: 0;
-  font-size: 13px;
-  margin-left: 15px;
-  color: #fffffff1;
+	margin: 0;
+	font-size: 13px;
+	margin-left: 15px;
+	color: #fffffff1;
 }
 .porfolio-performance span {
-  color: #6b6a6ad2;
-  margin-left: 5px;
+	color: #6b6a6ad2;
+	margin-left: 5px;
 }
-
-
-
 /* Portfolio value styling end */
-
-
 .optional-divider {
-  margin-bottom: 5px !important;
-  border-bottom: 1px solid rgb(146, 177, 163) !important;
+	margin-bottom: 5px !important;
+	border-bottom: 1px solid rgb(146, 177, 163) !important;
 }
-
 .buying-list {
-  margin-bottom: 25px !important;
+	margin-bottom: 25px !important;
 }
-
 .first-buying-list {
-  margin-bottom: 0 !important;
+	margin-bottom: 0 !important;
 }

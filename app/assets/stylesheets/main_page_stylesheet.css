@@ -269,3 +269,7 @@
 .buying-list {
   margin-bottom: 25px !important;
 }
+
+.first-buying-list {
+  margin-bottom: 0 !important;
+}

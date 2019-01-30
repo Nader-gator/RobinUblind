@@ -172,7 +172,7 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
             { positions().length > 1 ? "Positions" : ""}
           </h2>
           {positions().length > 1 ? (<span></span>) : null}
-          {positions().length > 1 ? (<ul className="buying-list">
+          {positions().length > 1 ? (<ul className="buying-list first-buying-list">
             {positions()}
           </ul>) : null}
           {/* {positions().length > 1 ? (<span className="optional-divider"></span>) : null} */}

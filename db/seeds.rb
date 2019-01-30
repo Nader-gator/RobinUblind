@@ -30,6 +30,7 @@ test_watclist3 = Watchlist.create(user_id: demo_user.id, stock_id: Stock.find_by
 
 stock1= Stock.find_by_nasdaq_code('AAPL')
 stock2= Stock.find_by_nasdaq_code('MSFT')
+stock3= Stock.find_by_nasdaq_code('MU')
 
 
 Transaction.destroy_all
@@ -41,7 +42,7 @@ Transaction1a = Transaction.create!(
   stock_id: stock1.id,
   price: 172,
   date: "25/01/2017",
-  amount: 100,
+  amount: 20,
 
 )
 Transaction1b = Transaction.create!(
@@ -50,7 +51,7 @@ Transaction1b = Transaction.create!(
   stock_id: stock1.id,
   price: 172,
   date: "25/04/2017",
-  amount: 100,
+  amount: 25,
 
 )
 Transaction1c = Transaction.create!(
@@ -59,7 +60,7 @@ Transaction1c = Transaction.create!(
   stock_id: stock1.id,
   price: 172,
   date: "25/08/2017",
-  amount: 100,
+  amount: 5,
 
 )
 Transaction2a = Transaction.create!(
@@ -68,13 +69,41 @@ Transaction2a = Transaction.create!(
   stock_id: stock2.id,
   price: 50,
   date: "05/11/2016",
-  amount: 10,
+  amount: 15,
 
 )
 Transaction2b = Transaction.create!(
   category: 'buy',
   user_id: demo_user.id,
   stock_id: stock2.id,
+  price: 150,
+  date: "05/07/2018",
+  amount: 40,
+
+)
+
+Transaction2c = Transaction.create!(
+  category: 'buy',
+  user_id: demo_user.id,
+  stock_id: stock2.id,
+  price: 50,
+  date: "09/11/2016",
+  amount: 15,
+
+)
+Transaction3a = Transaction.create!(
+  category: 'buy',
+  user_id: demo_user.id,
+  stock_id: stock3.id,
+  price: 50,
+  date: "09/11/2017",
+  amount: 15,
+
+)
+Transaction3b = Transaction.create!(
+  category: 'buy',
+  user_id: demo_user.id,
+  stock_id: stock3.id,
   price: 150,
   date: "05/07/2018",
   amount: 40,

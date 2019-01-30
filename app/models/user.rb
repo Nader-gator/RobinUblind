@@ -59,7 +59,7 @@ class User < ApplicationRecord
     return transaction_hash
   end
 
-  def positions_for_comapny(company_code)
+  def positions_for_company(company_code)
     transaction_hash = {}
     stock = Stock.find_by_nasdaq_code(company_code)
 
@@ -89,13 +89,17 @@ class User < ApplicationRecord
 
 
   def self.calculate_holding(transaction_array)
+    if transaction_array.class == Hash
+      transaction_array = transaction_array.values.first
+    end
     num_stocks = 0
-
     transaction_array.each do |hash|
+
       if hash[:category] == 'buy'
-        num_stocks += hash[:amount]
+  
+        num_stocks += hash[:amount].to_i
       elsif hash[:category] == 'sell'
-        num_stocks -= hash[:amount]
+        num_stocks -= hash[:amount].to_i
       end
     end
 
@@ -188,7 +192,7 @@ end
   private
 
   def ensure_bankroll
-    self.bankroll ||= "1000000.00"
+    self.bankroll ||= "50000.00"
   end
 
   def ensure_session_token

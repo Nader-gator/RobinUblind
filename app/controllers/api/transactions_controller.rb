@@ -88,12 +88,21 @@ class Api::TransactionsController < ApplicationController
   user = User.find_by(id: params[:user_id])
   transaction = Transaction.new
 
-  if user.bankroll.to_i < ((params[:data][:amount].to_i * params[:data][:price].to_i))
-    render json: {error: "insuffient funds"}
+  if user.bankroll.to_i < ((params[:data][:amount].to_i * params[:data][:price].to_i)) && params[:data][:category] == "buy"
+    render json: {error: "insuffient funds",newBankroll: user.bankroll}
     rendered = true
+
   elsif params[:data][:amount].to_i == 0
-    render json: {error: "purchase amount must be greater than zero"}
+    render json: {error: "purchase amount must be greater than zero",newBankroll: user.bankroll}
     rendered = true
+
+  elsif params[:data][:category] == "sell"
+
+    if User.calculate_holding(user.positions_for_company(params[:data][:stock_code]))[:holding].to_i < params[:data][:amount].to_i
+    render json: {error: "you don't have enough shares of #{params[:data][:stock_code]}",newBankroll: user.bankroll}
+    rendered = true
+    end
+
   else
     transaction = Transaction.new(
     category: params[:data][:category],
@@ -128,7 +137,7 @@ class Api::TransactionsController < ApplicationController
     else
 
 
-      render json: {error: transaction.errors.full_messages} unless rendered
+      render json: {error: transaction.errors.full_messages,newBankroll: user.bankroll} unless rendered
     end
 
 

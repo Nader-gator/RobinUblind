@@ -7,7 +7,7 @@ class Api::StocksController < ApplicationController
   
   @stocks = by_code + by_name
   @stocks = @stocks.uniq
-  
+  @stock = @stocks[0..20]
   render "api/stocks/show"
   end
   

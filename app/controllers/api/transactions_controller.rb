@@ -72,7 +72,7 @@ class Api::TransactionsController < ApplicationController
       transactions = [needed_transactions, transactions[0][-2..-1]]
     # elsif params[:date] not to be user, maybe later for more features
     #   transactions = user.sorted_transactions_upto([params[:date]])
-    else
+    elsif params[:date] == 'now'
       transactions = user.sorted_transactions
     end
 
@@ -103,13 +103,27 @@ class Api::TransactionsController < ApplicationController
   end
 
     if transaction.save
-      new_bankroll = user.bankroll.to_i - ((params[:data][:amount].to_i * params[:data][:price].to_i))
+      if transaction[:category] == "buy"
+        new_bankroll = user.bankroll.to_i - ((params[:data][:amount].to_i * params[:data][:price].to_i))
+      elsif transaction[:category] == "sell"
+        new_bankroll = user.bankroll.to_i + ((params[:data][:amount].to_i * params[:data][:price].to_i))
+      end
       User.update(user.id, bankroll: new_bankroll)
-      render json: {
-        msg: "Purchase Successful for #{transaction.amount} shares of #{params[:data][:stock_code]}",
-        newBankroll: new_bankroll
-      } unless rendered
+
+      if transaction[:category] == "buy"
+        render json: {
+          msg: "Purchase Successful for #{transaction.amount} shares of #{params[:data][:stock_code]}",
+          newBankroll: new_bankroll
+        } unless rendered
+      elsif transaction[:category] == "sell"
+        render json: {
+          msg: "Sale Successful for #{transaction.amount} shares of #{params[:data][:stock_code]}",
+          newBankroll: new_bankroll
+        } unless rendered
+      end
     else
+
+
       render json: {error: transaction.errors.full_messages} unless rendered
     end
 

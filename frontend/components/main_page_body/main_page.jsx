@@ -40,7 +40,7 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
 }
   const parsePortfolioVal = (type) => {
 
-    if (transactions.length == 0) {
+    if (transactions.length == 0 || typeof transactions == "object") {
       return "00.00"
     }
     switch (type) {

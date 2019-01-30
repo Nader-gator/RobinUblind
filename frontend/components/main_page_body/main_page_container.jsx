@@ -19,8 +19,11 @@ class Main extends React.Component {
     this.props.watchlist.forEach(stockItem => {
       this.props.fetchStockData(stockItem.nasdaq_code)
     });
+    this.props.fetchTransactions(this.props.currentUser.id, "1w")
   }
-
+  // componentWillMount() {
+    
+  // }
   content() {
 
     if (Object.keys(this.props.news).length === 0) {
@@ -87,7 +90,7 @@ const mapDispatchToProps = dispatch => {
     clearSearch: () => dispatch(clearSearch()),
     getWatchlist: (id) => dispatch(fetchWatchlist(id)),
     fetchStockData: (code) => dispatch(fetchStockData(code)),
-    fetchTransactions: (userId,date,option) => dispatch(fetchTransactions(userId,date))
+    fetchTransactions: (userId,date) => dispatch(fetchTransactions(userId,date))
   }
 }
 

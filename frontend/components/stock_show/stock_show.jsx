@@ -12,9 +12,17 @@ class ShowAndBuyForm extends React.Component{
 
   constructor(props){
     super(props)
-    this.state = {numShares: 0, viewsMode: 30, d:false,w:false,m:true,tm:false,y:false}
+    this.state = {mode: "buy",numShares: 0, viewsMode: 30, d:false,w:false,m:true,tm:false,y:false}
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSellSubmit = this.handleSellSubmit.bind(this)
+
   }
+
+
+  componentWillMount(){
+    this.props.fetchTransactions()
+    }
+  
 
   update(field){
     return (e) => {
@@ -55,7 +63,6 @@ class ShowAndBuyForm extends React.Component{
   handleSubmit(e){
     e.preventDefault()
     if (!this.checkWatchlist()) {
-      debugger
       addToWatchlist(this.props.user.id, this.props.match.params.stockCode).then(() => this.props.fetchWatchlist(this.props.user.id))
     }
     this.props.sendTransaction({
@@ -64,6 +71,124 @@ class ShowAndBuyForm extends React.Component{
       price: this.props.stock.quote.delayedPrice,
       amount: this.state.numShares
     })
+  }
+
+  handleSellSubmit(e){
+    this.props.sendTransaction({
+      category: "sell",
+      stock_code: this.props.stock.quote.symbol,
+      price: this.props.stock.quote.delayedPrice,
+      amount: this.state.numShares
+    })
+  }
+
+  numSharesOwnership(code){
+    if (this.props.loading.transactionLoading){
+      return "0"
+    }
+    if (this.props.transactions.open === undefined){
+      return "0"
+    }
+    if (this.props.transactions.open[code] === undefined){
+      return "0"
+    }
+    return this.props.transactions.open[code].stats.holding
+  }
+
+  buyForm(){
+    return (
+    <div id='stock-buy' className=" bsticky stock-buy">
+      <h2>
+        Buy {this.props.stock.quote.symbol}
+      </h2>
+      <span></span>
+      <div className="bottom-container">
+        <div className="share-selector">
+          <p>Shares</p>
+        </div>
+        <div className="market-price">
+          <p>Market Price</p>
+        </div>
+        <span className="divider"></span>
+
+        <div className="estimated-cost">
+          <p>Estimated Cost</p>
+        </div>
+        <div className="estimated-cost share-ownership">
+            <p>you have {this.numSharesOwnership(this.props.stock.quote.symbol)} share of {this.props.stock.quote.symbol}
+                  <button onClick={() =>this.setState({ mode: "sell" })}>Sell</button>
+          </p>
+        </div>
+        {/* new line here */}
+        <form onSubmit={this.handleSubmit}>
+          <input className="number-shares-input" onChange={this.update("numShares")} type="number" />
+          <input className="buy-button" type="submit" value="Submit Order" />
+        </form>
+        <span className="divider"></span>
+        <div className="buyingPower">${this.numberWithCommas(this.props.user.bankroll)} is Available for Trading</div>
+        <div className="markey-price">${this.props.stock.quote.delayedPrice}</div>
+        <div className="estimated-cost-calc">${this.numberWithCommas(parseInt(this.props.stock.quote.delayedPrice) * this.state.numShares)}</div>
+      </div>
+
+
+      {this.checkWatchlist() ? (<RemoveWatchlistButton
+        user={this.props.user}
+        fetchWatchlist={this.props.fetchWatchlist} />) :
+        (<AddWatchlistButton
+          fetchWatchlist={this.props.fetchWatchlist}
+          user={this.props.user} />)}
+
+
+    </div>)
+  }
+
+
+  sellForm(){
+    return (
+      <div id='stock-buy' className=" bsticky stock-buy">
+        <h2>
+          Sell {this.props.stock.quote.symbol}
+        </h2>
+        <span></span>
+        <div className="bottom-container">
+          <div className="share-selector">
+            <p>Shares</p>
+          </div>
+          <div className="market-price">
+            <p>Market Price</p>
+          </div>
+          <span className="divider"></span>
+
+          <div className="estimated-cost">
+            <p>Estimated Value</p>
+          </div>
+          <div className="estimated-cost share-ownership">
+            <p>you have {this.numSharesOwnership(this.props.stock.quote.symbol)} share of {this.props.stock.quote.symbol}
+                  <button onClick={() => this.setState({ mode: "sell" })}>Buy more</button>
+            </p>
+          </div>
+          {/* new line here */}
+          <form onSubmit={this.handleSellSubmit}>
+            <input className="number-shares-input" onChange={this.update("numShares")} type="number" />
+            <input className="buy-button" type="submit" value="Submit Sell Order" />
+          </form>
+          <span className="divider"></span>
+          <div className="buyingPower">${this.numberWithCommas(this.props.user.bankroll)} is Available for Trading</div>
+          <div className="markey-price">${this.props.stock.quote.delayedPrice}</div>
+          <div className="estimated-cost-calc">${this.numberWithCommas(parseInt(this.props.stock.quote.delayedPrice) * this.state.numShares)}</div>
+        </div>
+
+
+        {this.checkWatchlist() ? (<RemoveWatchlistButton
+          user={this.props.user}
+          fetchWatchlist={this.props.fetchWatchlist} />) :
+          (<AddWatchlistButton
+            fetchWatchlist={this.props.fetchWatchlist}
+            user={this.props.user} />)}
+
+
+      </div>
+    )
   }
 
   render(){
@@ -206,44 +331,7 @@ class ShowAndBuyForm extends React.Component{
 
 
 
-          <div id='stock-buy' className=" bsticky stock-buy">
-            <h2>
-              Buy {this.props.stock.quote.symbol}
-            </h2>
-            <span></span>
-            <div className="bottom-container">
-              <div className="share-selector">
-                <p>Shares</p>
-              </div>
-              <div className="market-price">
-                <p>Market Price</p>
-              </div>
-              <span className="divider"></span>
-
-              <div className="estimated-cost">
-                <p>Estimated Cost</p>
-              </div>
-              {/* new line here */}
-              <form onSubmit={this.handleSubmit}>
-                <input className="number-shares-input" onChange={this.update("numShares")} type="number" />
-                <input className="buy-button" type="submit" value="Submit Order" />
-              </form>
-              <span className="divider"></span>
-              <div className="buyingPower">${this.numberWithCommas(this.props.user.bankroll)} is Available for Trading</div>
-              <div className="markey-price">${this.props.stock.quote.delayedPrice}</div>
-              <div className="estimated-cost-calc">${this.numberWithCommas(parseInt(this.props.stock.quote.delayedPrice) * this.state.numShares)}</div>
-            </div>
-
-
-            {this.checkWatchlist() ? (<RemoveWatchlistButton 
-            user={this.props.user} 
-            fetchWatchlist={this.props.fetchWatchlist} />) :
-             (<AddWatchlistButton 
-            fetchWatchlist={this.props.fetchWatchlist} 
-            user={this.props.user} /> )}
-
-            
-          </div>
+          {this.state.mode === "buy" ? this.buyForm() : this.sellForm()}
 
         </div>
 

@@ -12,9 +12,7 @@ class PortFolioChart extends React.Component{
     this.state = { w: true, m: false, tm: false, y: false }
   }
 
-  componentWillMount(){
-    this.props.fetchTransactions(this.props.currentUser.id, "1w")
-  }
+
 
   //data for chart should be:
   // [
@@ -38,7 +36,9 @@ class PortFolioChart extends React.Component{
   // ]
 
   parseData(data){
-    
+    if (data === undefined) {
+      return {}
+    }
     return data.map((el)=>{
       let runningTotal = 0
       Object.values(el.open).forEach(dataTouple => {

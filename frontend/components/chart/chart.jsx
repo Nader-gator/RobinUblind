@@ -5,7 +5,9 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'r
 
 const DrawChart = ({data}) => {
 
-
+  if (Object.keys(data).length === 0){
+    return null
+  }
   const dataMin = function (data) {
     let min = Math.pow(10,20)
     data.forEach(dataEl => {

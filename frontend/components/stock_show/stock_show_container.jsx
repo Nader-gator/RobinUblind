@@ -58,9 +58,9 @@ class StockShow extends React.Component {
       loading={this.props.loading} 
       watchlist={this.props.watchlist} 
       fetchCurrentStock={this.props.fetchCurrentStock} 
-      fetchTransactions={() => this.props.fetchTransactions(this.props.currentUser.id)} 
+      fetchTransactions={() => this.props.fetchTransactions(this.props.currentUser.id,"now")} 
       sendTransaction={(data)=>this.props.sendTransaction(this.props.currentUser.id,data)}
-      
+      transactions={this.props.transactions}
       />)
     }
   }
@@ -68,14 +68,15 @@ class StockShow extends React.Component {
 
 
 
-const mapStateToProps = ({ entities: { user, watchlist }, entities: { news, currentStock }, ui: { loading, transactionStatus} }) => {
+const mapStateToProps = ({ entities: { user, watchlist,transactions }, entities: { news, currentStock }, ui: { loading, transactionStatus} }) => {
   return {
     currentUser: user,
     news,
     stock: currentStock,
     loading,
     watchlist,
-    transactionStatus
+    transactionStatus,
+    transactions
   }
 }
 

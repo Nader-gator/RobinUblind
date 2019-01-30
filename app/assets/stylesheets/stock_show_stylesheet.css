@@ -85,11 +85,34 @@
 .estimated-cost {
   width: 140px;
   margin-left: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .share-cost{
   height: 150px;
 
+}
+
+.share-ownership button{
+  color: red;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 13px;
+}
+.share-ownership button:hover {
+  cursor: pointer;
+}
+
+.share-ownership button:focus {
+    outline:none !important;
+}
+.share-ownership p {
+  font-size: 13px;
+  color: rgb(97, 202, 157);
+  width: 240px;
+}
+
+.share-ownership {
+  margin-bottom: 20px;
 }
 
 .buy-button {

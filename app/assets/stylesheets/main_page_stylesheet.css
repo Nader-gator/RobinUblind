@@ -148,7 +148,7 @@
 .watch-list h2 {
   margin-left: 15px;
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 20px;
   color: #ffffffd2;
   padding: 0;
   
@@ -261,3 +261,11 @@
 /* Portfolio value styling end */
 
 
+.optional-divider {
+  margin-bottom: 5px !important;
+  border-bottom: 1px solid rgb(146, 177, 163) !important;
+}
+
+.buying-list {
+  margin-bottom: 25px !important;
+}

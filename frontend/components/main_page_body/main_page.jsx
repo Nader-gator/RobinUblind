@@ -20,7 +20,6 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
     if (data[el.nasdaq_code] === undefined) {
       return []
     }
-    // debugger
     if (positions().length > 0) {
       if (Object.keys(transactions[1][1].open).includes(el.nasdaq_code))
       return []
@@ -173,10 +172,10 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
             { positions().length > 1 ? "Positions" : ""}
           </h2>
           {positions().length > 1 ? (<span></span>) : null}
-          {positions().length > 1 ? (<ul>
+          {positions().length > 1 ? (<ul className="buying-list">
             {positions()}
           </ul>) : null}
-          
+          {/* {positions().length > 1 ? (<span className="optional-divider"></span>) : null} */}
           <h2>
             Watchlist
           </h2>

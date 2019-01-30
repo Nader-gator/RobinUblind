@@ -19,7 +19,6 @@ class Main extends React.Component {
     this.props.watchlist.forEach(stockItem => {
       this.props.fetchStockData(stockItem.nasdaq_code)
     });
-    this.props.fetchTransactions(this.props.currentUser.id)
   }
 
   content() {
@@ -52,19 +51,32 @@ class Main extends React.Component {
 
   render() {
 
-    return <MainPage data={this.props.data} watchlist={this.props.watchlist} news={this.content()} loading={this.props.loaded} currentUser={this.props.currentUser}/>
+    return <MainPage 
+    data={this.props.data} 
+    watchlist={this.props.watchlist} 
+    news={this.content()} 
+    loading={this.props.loaded} 
+    currentUser={this.props.currentUser}
+    stock={this.props.stock}
+    fetchTransactions={this.props.fetchTransactions}
+    transactionLoading={this.props.transactionLoading}
+    transactions={this.props.transactions}
+    />
   }
 
 }
 
 
-const mapStateToProps = ({entities:{user,watchlist, stockData}, entities:{news}, ui:{loading}}) => {
+const mapStateToProps = ({entities:{user,watchlist, stockData, currentStock,transactions}, entities:{news}, ui:{loading}}) => {
   return {
     currentUser: user,
     news,
     loading: loading.newsLoading,
     watchlist,
-    data: stockData
+    data: stockData,
+    stock: currentStock,
+    transactions,
+    transactionLoading: loading.transactionLoading
   }
 }
 
@@ -75,7 +87,7 @@ const mapDispatchToProps = dispatch => {
     clearSearch: () => dispatch(clearSearch()),
     getWatchlist: (id) => dispatch(fetchWatchlist(id)),
     fetchStockData: (code) => dispatch(fetchStockData(code)),
-    fetchTransactions: (userId,date) => dispatch(fetchTransactions(userId,date))
+    fetchTransactions: (userId,date,option) => dispatch(fetchTransactions(userId,date))
   }
 }
 

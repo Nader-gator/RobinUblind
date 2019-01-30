@@ -31,42 +31,64 @@ test_watclist3 = Watchlist.create(user_id: demo_user.id, stock_id: Stock.find_by
 stock1= Stock.find_by_nasdaq_code('AAPL')
 stock2= Stock.find_by_nasdaq_code('MSFT')
 
+
 Transaction.destroy_all
-Transaction1 = Transaction.create!(
+#date format for psotgres is ddmmyyyy
+
+Transaction1a = Transaction.create!(
   category: 'buy',
   user_id: demo_user.id,
   stock_id: stock1.id,
   price: 172,
-  date: "11/3/2017",
+  date: "25/01/2017",
   amount: 100,
 
 )
-Transaction2 = Transaction.create!(
-  category: 'sell',
-  user_id: demo_user.id,
-  stock_id: stock1.id,
-  price: 190,
-  date: "05/07/2018",
-  amount: 50,
+# Transaction1b = Transaction.create!(
+#   category: 'buy',
+#   user_id: demo_user.id,
+#   stock_id: stock1.id,
+#   price: 172,
+#   date: "25/04/2017",
+#   amount: 100,
 
-)
+# )
+# Transaction1c = Transaction.create!(
+#   category: 'sell',
+#   user_id: demo_user.id,
+#   stock_id: stock1.id,
+#   price: 172,
+#   date: "25/08/2017",
+#   amount: 100,
 
-Transaction3 = Transaction.create!(
-  category: 'buy',
-  user_id: demo_user.id,
-  stock_id: stock2.id,
-  price: 50,
-  date: "05/10/2016",
-  amount: 500,
+# )
 
-)
-Transaction4 = Transaction.create!(
-  category: 'buy',
-  user_id: demo_user.id,
-  stock_id: stock2.id,
-  price: 150,
-  date: "05/07/2018",
-  amount: 500,
 
-)
+
+
+
+
+
+
+
+
+
+# Transaction2a = Transaction.create!(
+#   category: 'buy',
+#   user_id: demo_user.id,
+#   stock_id: stock2.id,
+#   price: 50,
+#   date: "05/11/2016",
+#   amount: 10,
+
+# )
+# Transaction2b = Transaction.create!(
+#   category: 'buy',
+#   user_id: demo_user.id,
+#   stock_id: stock2.id,
+#   price: 150,
+#   date: "05/07/2018",
+#   amount: 40,
+
+# )
 

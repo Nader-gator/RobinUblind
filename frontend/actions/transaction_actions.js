@@ -4,8 +4,10 @@ export const RECEIVE_TRANSACTIONS = "RECEIVE_TRANSACTIONS"
 export const START_RECEIVE_TRANSACTIONS ="START_RECEIVE_TRANSACTIONS"
 export const RECEIVE_TRANSACTION_STATUS = "RECEIVE_TRANSACTION_STATUS"
 
-export const fetchTransactions = (userId,date) => dispatch => {
-  dispatch(startReciveTransactions());
+export const fetchTransactions = (userId,date,option=true) => dispatch => {
+  if (option){
+    dispatch(startReciveTransactions());
+  }
   return TransUtil.getTransactions(userId,date).then(transactions => {
     return dispatch(receiveTransactions(transactions))
   })

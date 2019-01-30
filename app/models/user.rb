@@ -59,9 +59,9 @@ class User < ApplicationRecord
     return transaction_hash
   end
 
-  def positions_for_comapny(compnay_code)
+  def positions_for_comapny(company_code)
     transaction_hash = {}
-    stock = Stock.find_by_nasdaq_code(compnay_code)
+    stock = Stock.find_by_nasdaq_code(company_code)
 
     transactions = self.transactions.where(stock_id: stock.id)
 
@@ -124,27 +124,66 @@ class User < ApplicationRecord
     return hash
   end
 
-  def sorted_transactions_upto(date)
+  def sorted_transactions_upto(dates)
+    price_info = {}
+    result = []
+    ::RestClient.log = Rails.logger
+    
+    dates.each do |date|
     hash = {closed: {}, open: {}}
-
     self.positions(date).each do |code, transaction_array|
       if self.closed_position?(transaction_array)
         hash[:closed][Stock.find_code(code)] = {data: transaction_array,
           stats: User.calculate_holding(transaction_array),
         }
       else
-        hash[:open][Stock.find_code(code)] = {data: transaction_array,
-          stats: User.calculate_holding(transaction_array),
+      price_info[code] ||= response = RestClient::Request.new({
+      method: 'get',
+      url: "https://api.iextrading.com/1.0/stock/#{Stock.find_code(code)}/batch?types=quote,chart&range=1y",
+      headers: { :accept => :json, content_type: :json }
+      }).execute do |response, request, result|
+        JSON.parse response
+      end
+
+
+        hash[:open][Stock.find_code(code)] = {
+          data: transaction_array,
+          stats: User.calculate_holding(transaction_array).merge({
+            price: self.find_price_at_date(price_info[code]["chart"],date)
+          }),
         }
+
       end
       
     end
+    hash[:date] = date
 
-    return hash
+    result << hash
+end
+  return result
   end
 
 
   
+  
+  
+  def find_price_at_date(array,date)
+    date = date.strftime("%Y%m%d")
+      array.each do |item|
+        if item["date"].gsub('-', '') > date
+          return item["close"]
+        end
+      end
+  end
+  
+  
+  
+  # target = array.bsearch {|item| item["date"] < date }
+  # target["close"]
+
+
+
+
   private
 
   def ensure_bankroll

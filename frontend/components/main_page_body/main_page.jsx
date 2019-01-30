@@ -2,10 +2,11 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import HeaderContainer from "../header/header_container"
 import Loading from '../loading_page/loading_page'
+import PorfolioChart from './portfolio_chart'
 
 import Chart from "../chart/mini_chart"
 
-const MainPage = ({news, currentUser, loading, watchlist, data}) => {
+const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTransactions, transactionLoading, transactions}) => {
   if (loading) {
     return <Loading/>
   } 
@@ -80,9 +81,15 @@ const MainPage = ({news, currentUser, loading, watchlist, data}) => {
           <h2>$0.00 (0.00%)<span>Today</span></h2> 
         </div>
 
-        <div className="porfolio-chart">
-          <h1>Chart goes here</h1>
-        </div>
+        
+          <PorfolioChart 
+          stock={stock}
+          fetchTransactions={fetchTransactions}
+          currentUser={currentUser}
+          transactions={transactions}
+          loading={transactionLoading}
+          />
+
           {/* 22 Articles in here */}
         <div className="news-list">
           <h1>Recent News</h1>

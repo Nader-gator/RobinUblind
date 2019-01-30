@@ -39,19 +39,19 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
 }
   const parsePortfolioVal = (type) => {
 
-    if (transactions.length == 0 || typeof transactions == "object") {
+    if (transactions.length == 0 || !Array.isArray(transactions)) {
       return "00.00"
     }
+    let tally = 0
+    let todaysTally = 0
+    let yesterdayssTally = 0
     switch (type) {
       case "totalVal":
-        let tally = 0
         Object.values(transactions[1][1].open).forEach(el => {
           tally = tally + (el.stats.holding * el.stats.price)
         });
         return numberWithCommas(tally)
       case "dayChange":
-        let todaysTally = 0
-        let yesterdayssTally = 0
         Object.values(transactions[1][1].open).forEach(el => {
           todaysTally = todaysTally + (el.stats.holding * el.stats.price)
         });
@@ -61,15 +61,13 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
         
         return numberWithCommas(todaysTally - yesterdayssTally)
       case "percentChange":
-        todaysTally = 0
-        yesterdayssTally = 0
         Object.values(transactions[1][1].open).forEach(el => {
           todaysTally = todaysTally + (el.stats.holding * el.stats.price)
         });
         Object.values(transactions[1][0].open).forEach(el => {
           yesterdayssTally = yesterdayssTally + (el.stats.holding * el.stats.price)
         });
-        return numberWithCommas((todaysTally - yesterdayssTally) / yesterdayssTally)
+        return numberWithCommas( ((todaysTally - yesterdayssTally) / yesterdayssTally) * 100 )
       default:
         return "00"
     }

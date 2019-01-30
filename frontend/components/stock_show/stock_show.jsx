@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from "../header/header_container"
-import Loading from '../loading_page/loading_page'
+import Loading from '../loading_page/body_loading'
 import Chart from '../chart/chart'
 import AddWatchlistButton from '../watchlist_button/add_watch_list_button'
 import RemoveWatchlistButton from '../watchlist_button/remove_watch_list_button'

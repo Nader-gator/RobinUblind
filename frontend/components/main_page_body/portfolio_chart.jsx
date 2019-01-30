@@ -1,6 +1,6 @@
 import React from 'react'
 import Chart from '../chart/chart'
-import Loading from '../loading_page/loading_page'
+import Loading from '../loading_page/body_loading'
 
 
 class PortFolioChart extends React.Component{
@@ -57,6 +57,7 @@ class PortFolioChart extends React.Component{
     if (this.props.loading) {
       return <Loading />
     }
+  
     return (
       <div className="porfolio-chart">
         <Chart data={this.parseData(this.props.transactions[0])} />

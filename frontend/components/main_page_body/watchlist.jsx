@@ -26,6 +26,7 @@ export default ({data,transactions,mappedWatchlist}) => {
 
   return (
   <div id='watchlist' className="watch-list wsticky">
+    <aside className="inner-container">
     <h2>
       {positions().length > 1 ? "Positions" : ""}
     </h2>
@@ -42,5 +43,6 @@ export default ({data,transactions,mappedWatchlist}) => {
     <ul>
       {mappedWatchlist()}
     </ul>
+      </aside>
   </div>)
 }

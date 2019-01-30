@@ -46,6 +46,30 @@
 
 	
 }
+.inner-container{
+	min-height: 200px;
+	width: 270px;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	background-color: transparent;
+	border-radius: 5px;
+	height: 85vh;
+	animation-name: fadein;
+	animation-duration: 0.4s;
+	/* top: 0px; */
+}
+
+@keyframes fadein {
+	0%   {
+		opacity: 0.01;
+		transform: translate(0,60px)
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
 
 .watch-list-animate {
 	margin-top: 80px;
@@ -287,4 +311,8 @@
 }
 .first-buying-list {
 	margin-bottom: 0 !important;
+}
+.stock-buy {
+	animation-name: fadein;
+	animation-duration: 0.4s;
 }

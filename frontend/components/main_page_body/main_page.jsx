@@ -11,7 +11,9 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
     return <Loading/>
   } 
 
-
+  const numberWithCommas = (x)=>{
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
 
   const mappedWatchlist = () => { 
     const list =watchlist.map((el,idx) => {
@@ -30,6 +32,46 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
   })
   return list.reverse()
 }
+  const parsePortfolioVal = (type) => {
+
+    if (transactions.length == 0) {
+      return "00.00"
+    }
+    switch (type) {
+      case "totalVal":
+        let tally = 0
+        Object.values(transactions[1][1].open).forEach(el => {
+          tally = tally + (el.stats.holding * el.stats.price)
+        });
+        return numberWithCommas(tally)
+      case "dayChange":
+        let todaysTally = 0
+        let yesterdayssTally = 0
+        Object.values(transactions[1][1].open).forEach(el => {
+          todaysTally = todaysTally + (el.stats.holding * el.stats.price)
+        });
+        Object.values(transactions[1][0].open).forEach(el => {
+          yesterdayssTally = yesterdayssTally + (el.stats.holding * el.stats.price)
+        });
+        
+        return numberWithCommas(todaysTally - yesterdayssTally)
+      case "percentChange":
+        todaysTally = 0
+        yesterdayssTally = 0
+        Object.values(transactions[1][1].open).forEach(el => {
+          todaysTally = todaysTally + (el.stats.holding * el.stats.price)
+        });
+        Object.values(transactions[1][0].open).forEach(el => {
+          yesterdayssTally = yesterdayssTally + (el.stats.holding * el.stats.price)
+        });
+        return numberWithCommas((todaysTally - yesterdayssTally) / yesterdayssTally)
+      default:
+        return "00"
+    }
+  }
+
+
+
   return (
     <div>
       <header>
@@ -77,8 +119,8 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
 
 
         <div className="porfolio-performance">
-          <h1>$0.00</h1>
-          <h2>$0.00 (0.00%)<span>Today</span></h2> 
+          <h1>${parsePortfolioVal("totalVal")}</h1>
+          <h2>${parsePortfolioVal("dayChange")} ({parsePortfolioVal("percentChange")}%)<span>Today</span></h2> 
         </div>
 
         

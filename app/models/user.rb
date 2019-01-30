@@ -170,10 +170,11 @@ end
   def find_price_at_date(array,date)
     date = date.strftime("%Y%m%d")
       array.each do |item|
-        if item["date"].gsub('-', '') > date
+        if item["date"].gsub('-', '') > (date.to_i - 3 ).to_s
           return item["close"]
         end
       end
+      
   end
   
   

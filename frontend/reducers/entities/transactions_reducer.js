@@ -1,6 +1,6 @@
 import { RECEIVE_TRANSACTIONS } from '../../actions/transaction_actions'
 
-export default (state= {}, action) => {
+export default (state= [], action) => {
   Object.freeze(state)
 
   switch (action.type) {

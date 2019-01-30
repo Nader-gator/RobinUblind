@@ -6,7 +6,7 @@ import Chart from '../chart/chart'
 import AddWatchlistButton from '../watchlist_button/add_watch_list_button'
 import RemoveWatchlistButton from '../watchlist_button/remove_watch_list_button'
 import { withRouter } from 'react-router-dom';
-
+import { addToWatchlist } from '../../util/watchlist_util'
 
 class ShowAndBuyForm extends React.Component{
 
@@ -54,6 +54,10 @@ class ShowAndBuyForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault()
+    if (!this.checkWatchlist()) {
+      debugger
+      addToWatchlist(this.props.user.id, this.props.match.params.stockCode).then(() => this.props.fetchWatchlist(this.props.user.id))
+    }
     this.props.sendTransaction({
       category: "buy",
       stock_code: this.props.stock.quote.symbol,
@@ -140,7 +144,7 @@ class ShowAndBuyForm extends React.Component{
 
 
           <div className="porfolio-performance">
-            <h1>${this.props.stock.quote.close}</h1>
+            <h1>${this.props.stock.quote.delayedPrice}</h1>
             <h2>${this.props.stock.quote.change} ({(this.props.stock.quote.changePercent * 100).toFixed(2)}%)<span>Today</span></h2>
           </div>
 

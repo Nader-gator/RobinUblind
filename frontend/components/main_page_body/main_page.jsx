@@ -20,6 +20,12 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
     if (data[el.nasdaq_code] === undefined) {
       return []
     }
+    // debugger
+    if (positions().length > 0) {
+      if (Object.keys(transactions[1][1].open).includes(el.nasdaq_code))
+      return []
+    }
+    
     return (
       <Link key={idx} to={el.nasdaq_code}>
         <h3>{el.nasdaq_code}</h3>
@@ -70,7 +76,24 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
     }
   }
 
+  const positions = () => {
+    if (transactions[1] === undefined) {
+      return []
+    }
+    
+    return Object.keys(transactions[1][1].open).map((el,idx) => {
+      return (<Link key={idx} to={el}>
+        <h3>{el}</h3>
+        <div>
+          <Chart data={data[el]} />
+        </div>
+        <p>${(data[el].quote).toFixed(2)}</p>
+      </Link>)
+    })
+    
 
+
+  }
 
   return (
     <div>
@@ -145,6 +168,15 @@ const MainPage = ({ news, currentUser, loading, watchlist, data, stock, fetchTra
 
 
         <div id='watchlist' className="watch-list wsticky">
+          
+          <h2>
+            { positions().length > 1 ? "Positions" : ""}
+          </h2>
+          {positions().length > 1 ? (<span></span>) : null}
+          {positions().length > 1 ? (<ul>
+            {positions()}
+          </ul>) : null}
+          
           <h2>
             Watchlist
           </h2>

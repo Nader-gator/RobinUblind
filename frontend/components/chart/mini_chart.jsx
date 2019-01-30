@@ -42,7 +42,10 @@ const DrawChart = ({ data }) => {
   let width = ((totalSeconds(timeone) - totalSeconds(baseline)) / (totalSeconds(timetwo) - totalSeconds(baseline))  ) * 85 //size of container
   if (width > 85) {
     width = 85
+  } else if (width < 1){
+    width = 1
   }
+  
   return (
     < LineChart width={width} height={50} data={data}  >
 

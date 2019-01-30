@@ -164,7 +164,7 @@ class ShowAndBuyForm extends React.Component{
           </div>
           <div className="estimated-cost share-ownership">
             <p>you have {this.numSharesOwnership(this.props.stock.quote.symbol)} share of {this.props.stock.quote.symbol}
-                  <button onClick={() => this.setState({ mode: "sell" })}>Buy more</button>
+                  <button onClick={() => this.setState({ mode: "buy" })}>Buy more</button>
             </p>
           </div>
           {/* new line here */}

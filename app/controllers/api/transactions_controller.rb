@@ -14,6 +14,7 @@ class Api::TransactionsController < ApplicationController
         Date.today - 3,
         Date.today - 2,
         Date.today - 1,
+        Date.today, 
         Date.today - 1,
         Date.today]),
       ]
@@ -31,6 +32,7 @@ class Api::TransactionsController < ApplicationController
         Date.today - 11,
         Date.today - 8,
         Date.today - 5,
+        Date.today, 
         Date.today - 1,
         Date.today]),
       ]
@@ -48,6 +50,7 @@ class Api::TransactionsController < ApplicationController
         Date.today - 30,
         Date.today - 20,
         Date.today - 10,
+        Date.today, 
         Date.today - 1,
         Date.today]),
       ]
@@ -65,6 +68,7 @@ class Api::TransactionsController < ApplicationController
         Date.today - 95,
         Date.today - 50,
         Date.today - 5,
+        Date.today, 
         Date.today - 1,
         Date.today]),
       ]

@@ -11,7 +11,7 @@ class ShowAndBuyForm extends React.Component{
 
   constructor(props){
     super(props)
-    this.state = {mode: "buy",numShares: 0, viewsMode: 30, d:false,w:false,m:true,tm:false,y:false, sbutton: "Submit Order",ssbutton:"Submit Sell Order",specialButton: false}
+    this.state = {mode: "buy",numShares: "", viewsMode: 30, d:false,w:false,m:true,tm:false,y:false, sbutton: "Submit Order",ssbutton:"Submit Sell Order",specialButton: false}
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleSellSubmit = this.handleSellSubmit.bind(this)
 
@@ -42,7 +42,11 @@ class ShowAndBuyForm extends React.Component{
 
   update(field){
     return (e) => {
-      this.setState({[field]: e.target.value})
+      if (e.target.value > 99999) {
+        this.setState({[field]: this.state[field]})  
+      } else {
+        this.setState({[field]: e.target.value})
+      }
     }
   }
 
@@ -140,7 +144,7 @@ class ShowAndBuyForm extends React.Component{
         </div>
         {/* new line here */}
         <form onSubmit={this.handleSubmit}>
-          <input className="number-shares-input" onChange={this.update("numShares")} type="number" />
+            <input className="number-shares-input" onChange={this.update("numShares")} type="number" value={this.state.numShares} />
           <input className={this.state.specialButton ? "buy-button-animate":"buy-button"} type="submit" value={this.state.sbutton} />
         </form>
         <span className="last-divider"></span>
@@ -188,7 +192,7 @@ class ShowAndBuyForm extends React.Component{
           </div>
           {/* new line here */}
           <form onSubmit={this.handleSellSubmit}>
-            <input className="number-shares-input" onChange={this.update("numShares")} type="number" />
+            <input className="number-shares-input" onChange={this.update("numShares")} type="number" value={this.state.numShares}/>
             <input className={this.state.specialButton ? "buy-button-animate":"buy-button"} type="submit" value={this.state.ssbutton} />
           </form>
           

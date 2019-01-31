@@ -316,3 +316,62 @@
 	animation-name: fadein;
 	animation-duration: 0.4s;
 }
+
+.loading-page {
+	margin-left: 180px;
+	width: 700px;
+	height: 290px;
+	margin-bottom: 70px;
+}
+
+.chart-loading {
+	position: relative;
+	top:200px;
+	width: 700;
+	height: 50px;
+	background-color: rgb(211, 245, 179)
+}
+
+.running-man {
+	position: relative;
+	top: 200px;
+	right: 680px;
+  -moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+
+#mainlogo {
+	position: relative;
+	left: 40px !important;
+	animation-name: running; 
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes running {
+	0%   {
+		transform: translate(50px,-30px)
+	}
+
+	25% {
+		transform: translate(-20px,-60px)
+	}
+
+	50% {
+		transform: translate(50px,-90px)
+	}
+
+	75% {
+		transform: translate(-20px,-110px)
+	}
+	100% {
+		transform: translate(50px,-140px)
+	}
+
+
+}
+

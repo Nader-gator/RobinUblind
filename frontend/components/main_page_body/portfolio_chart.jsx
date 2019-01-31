@@ -54,7 +54,6 @@ class PortFolioChart extends React.Component{
 
 
   render(){
-    // debugger
     if (this.props.ownLoading.transactionLoading) {
       return <Loading />
     }

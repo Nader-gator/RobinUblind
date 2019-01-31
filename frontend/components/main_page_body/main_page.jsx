@@ -180,6 +180,7 @@ class MainPage extends React.Component{
             <h2>${this.parsePortfolioVal("dayChange")} ({this.parsePortfolioVal("percentChange")}%)<span>Today</span></h2>
           </div>
 
+            <div>
 
           <PorfolioChart
             stock={this.props.stock}
@@ -187,7 +188,8 @@ class MainPage extends React.Component{
             currentUser={this.props.currentUser}
             transactions={this.props.transactions}
             loading={this.props.transactionLoading}
-          />
+            />
+            </div>
 
           <div className="news-list">
             <h1>Recent News</h1>

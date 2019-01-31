@@ -318,7 +318,7 @@ label {
 .demo-user:active {
 	outline: none !important;
 	background-color: white !important;
-	color: #21ce99
+	color: #21ce99;
 	box-shadow: none;
 }
 .demo-user:focus {

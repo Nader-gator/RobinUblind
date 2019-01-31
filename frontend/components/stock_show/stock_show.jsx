@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Header from "../header/header_container"
 import Loading from '../loading_page/full_page_load'
 import Chart from '../chart/chart'
@@ -12,7 +11,7 @@ class ShowAndBuyForm extends React.Component{
 
   constructor(props){
     super(props)
-    this.state = {mode: "buy",numShares: 0, viewsMode: 30, d:false,w:false,m:true,tm:false,y:false}
+    this.state = {mode: "buy",numShares: 0, viewsMode: 30, d:false,w:false,m:true,tm:false,y:false, sbutton: "Submit Order",ssbutton:"Submit Sell Order",specialButton: false}
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleSellSubmit = this.handleSellSubmit.bind(this)
 
@@ -22,9 +21,23 @@ class ShowAndBuyForm extends React.Component{
   componentWillMount(){
     this.props.fetchTransactions()
     }
-  // componentDidUpdate(){
-  //   this.props.fetchTransactions()
-  //   }
+
+
+  componentDidUpdate(){
+    if (this.props.transactionStatus.msg){
+      this.props.fetchTransactions()
+      this.setState({
+        sbutton: this.props.transactionStatus.msg,
+        ssbutton: this.props.transactionStatus.msg,
+        specialButton: true,
+      })
+      setTimeout(()=>this.setState({
+        sbutton: "Submit Order",
+        ssbutton: "Submit Sell Order",
+        specialButton: false,
+      }),4000)
+    }
+    }
   
 
   update(field){
@@ -63,6 +76,7 @@ class ShowAndBuyForm extends React.Component{
     return arr.slice(Math.max(arr.length - size, 1))
   }
 
+
   handleSubmit(e){
     e.preventDefault()
     if (!this.checkWatchlist()) {
@@ -74,17 +88,16 @@ class ShowAndBuyForm extends React.Component{
       price: this.props.stock.quote.delayedPrice,
       amount: this.state.numShares
     })
-    this.props.fetchTransactions()
   }
 
   handleSellSubmit(e){
+    e.preventDefault()
     this.props.sendTransaction({
       category: "sell",
       stock_code: this.props.stock.quote.symbol,
       price: this.props.stock.quote.delayedPrice,
       amount: this.state.numShares
     })
-    this.props.fetchTransactions()
   }
 
   numSharesOwnership(code){
@@ -123,13 +136,14 @@ class ShowAndBuyForm extends React.Component{
             <p>you have {this.numSharesOwnership(this.props.stock.quote.symbol)} share of {this.props.stock.quote.symbol}
                   <button onClick={() =>this.setState({ mode: "sell" })}>Sell</button>
           </p>
+          
         </div>
         {/* new line here */}
         <form onSubmit={this.handleSubmit}>
           <input className="number-shares-input" onChange={this.update("numShares")} type="number" />
-          <input className="buy-button" type="submit" value="Submit Order" />
+          <input className={this.state.specialButton ? "buy-button-animate":"buy-button"} type="submit" value={this.state.sbutton} />
         </form>
-        <span className="divider"></span>
+        <span className="last-divider"></span>
         <div className="buyingPower">${this.numberWithCommas(this.props.user.bankroll)} is Available for Trading</div>
         <div className="markey-price">${this.props.stock.quote.delayedPrice}</div>
         <div className="estimated-cost-calc">${this.numberWithCommas(parseInt(this.props.stock.quote.delayedPrice) * this.state.numShares)}</div>
@@ -175,9 +189,10 @@ class ShowAndBuyForm extends React.Component{
           {/* new line here */}
           <form onSubmit={this.handleSellSubmit}>
             <input className="number-shares-input" onChange={this.update("numShares")} type="number" />
-            <input className="buy-button" type="submit" value="Submit Sell Order" />
+            <input className={this.state.specialButton ? "buy-button-animate":"buy-button"} type="submit" value={this.state.ssbutton} />
           </form>
-          <span className="divider"></span>
+          
+          <span className="last-divider"></span>
           <div className="buyingPower">${this.numberWithCommas(this.props.user.bankroll)} is Available for Trading</div>
           <div className="markey-price">${this.props.stock.quote.delayedPrice}</div>
           <div className="estimated-cost-calc">${this.numberWithCommas(parseInt(this.props.stock.quote.delayedPrice) * this.state.numShares)}</div>

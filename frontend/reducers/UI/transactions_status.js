@@ -8,6 +8,6 @@ export default (state={},action) => {
     case RECEIVE_TRANSACTION_STATUS:
         return action.response
     default:
-      return state
+      return {}
   }
 }

@@ -89,15 +89,15 @@ class Api::TransactionsController < ApplicationController
   transaction = Transaction.new
 
   if user.bankroll.to_i < ((params[:data][:amount].to_i * params[:data][:price].to_i)) && params[:data][:category] == "buy"
-    render json: {error: "insuffient funds",newBankroll: user.bankroll}
+    render json: {msg: "insuffient funds",newBankroll: user.bankroll}
     rendered = true
     
-  elsif params[:data][:amount].to_i == 0
-    render json: {error: "purchase amount must be greater than zero",newBankroll: user.bankroll}
+  elsif params[:data][:amount].to_i == 0 || params[:data][:amount] == ""
+    render json: {msg: "amount must be greater than zero",newBankroll: user.bankroll}
     rendered = true
     
   elsif params[:data][:category] == "sell" && User.calculate_holding(user.positions_for_company(params[:data][:stock_code]))[:holding].to_i < params[:data][:amount].to_i
-    render json: {error: "you don't have enough shares of #{params[:data][:stock_code]}",newBankroll: user.bankroll}
+    render json: {msg: "Not enough shares of #{params[:data][:stock_code]}",newBankroll: user.bankroll}
     rendered = true
 
   else
@@ -123,19 +123,17 @@ class Api::TransactionsController < ApplicationController
 
       if transaction[:category] == "buy"
         render json: {
-          msg: "Purchase Successful for #{transaction.amount} shares of #{params[:data][:stock_code]}",
-          newBankroll: new_bankroll
-        } unless rendered
+          msg: "buy Successful for #{transaction.amount} shares of #{params[:data][:stock_code]}",
+          newBankroll: new_bankroll} unless rendered
       elsif transaction[:category] == "sell"
         render json: {
-          msg: "Sale Successful for #{transaction.amount} shares of #{params[:data][:stock_code]}",
-          newBankroll: new_bankroll
-        } unless rendered
+          msg: "Sell Successful for #{transaction.amount} shares of #{params[:data][:stock_code]}",
+          newBankroll: new_bankroll} unless rendered
       end
     else
 
 
-      render json: {error: transaction.errors.full_messages,newBankroll: user.bankroll} unless rendered
+      render json: {msg: transaction.errors.full_messages,newBankroll: user.bankroll} unless rendered
     end
 
 

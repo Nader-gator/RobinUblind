@@ -61,6 +61,7 @@ class StockShow extends React.Component {
       fetchTransactions={() => this.props.fetchTransactions(this.props.currentUser.id,"now")} 
       sendTransaction={(data)=>this.props.sendTransaction(this.props.currentUser.id,data)}
       transactions={this.props.transactions}
+      transactionStatus={this.props.transactionStatus}
       />)
     }
   }

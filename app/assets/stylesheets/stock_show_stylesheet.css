@@ -98,7 +98,58 @@
 	border: 1px solid rgb(97, 202, 157);
 	margin-bottom: 20px;
 	font-size: 14px;
+	/* animation: fbuttonfade 0.3s; */
 }
+@keyframes fbuttonfade {
+	0% {
+		padding-bottom: 45px;
+	}
+	80% {
+		/* padding-right: 80px; */
+	}
+}
+buy-button:hover {
+		cursor: pointer;
+
+}
+/* @-webkit-keyframes buttonfade {
+	0% {
+		color: red
+	}
+	100% {
+		color: blue
+	}
+} */
+
+
+.buy-button-animate{
+	height: 50px;
+	width: 230px;
+	margin-left: 20px;
+	border-radius: 8px;
+	background-color: rgb(97, 202, 157);
+	border: 1px solid rgb(97, 202, 157);
+	margin-bottom: 20px;
+	font-size: 12px;
+	animation: buttonfade 4s;
+	color: red;
+}
+@keyframes buttonfade {
+	0% {
+		padding-top: 45px;
+	}
+	8%{
+		padding-top: 0px;
+	}
+	92%{
+		padding-top: 0px;
+	}
+	100% {
+		padding-top: 45px;
+		/* padding-right: 80px; */
+	}
+}
+
 .stock-buy span{
 	border-bottom: 1px solid rgb(0, 0, 0);
 	margin-bottom: 23px;
@@ -113,6 +164,12 @@
 	display: block;
 	height: 5px;
 	border-bottom: 5px solid rgb(0, 0, 0);
+}
+.last-divider{
+	display: block;
+	height: 5px;
+	border-bottom: 5px solid rgb(0, 0, 0);
+	margin-bottom: 15px !important;
 }
 .number-shares-input {
 	width: 80px;

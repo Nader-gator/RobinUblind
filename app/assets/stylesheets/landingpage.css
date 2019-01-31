@@ -1,6 +1,10 @@
 * {
     font-family: Roboto;
 	}
+
+	.btn:focus {
+  outline: none !important;
+}
 	
 .login-signup-bar{
   display: flex;
@@ -313,20 +317,24 @@ label {
 }
 .demo-user:active {
 	outline: none !important;
-	background-color: rgb(209, 193, 193);
+	background-color: white !important;
+	color: #21ce99
 	box-shadow: none;
 }
 .demo-user:focus {
 	outline: none !important;
-	background-color: rgb(209, 193, 193)
+	background-color: white !important;
+	color: #21ce99
 }
 .demo-user:target {
 	outline: none !important;
-	background-color: rgb(209, 193, 193)
+	background-color: white !important;
+	color: #21ce99
 }
 .demo-user:hover {
 	outline: none !important;
-	background-color: rgb(209, 193, 193)
+	background-color: white !important;
+	color: #21ce99
 }
 .login-error {
 	height: 250px;

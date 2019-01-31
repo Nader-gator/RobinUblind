@@ -6,7 +6,7 @@ import AddWatchlistButton from '../watchlist_button/add_watch_list_button'
 import RemoveWatchlistButton from '../watchlist_button/remove_watch_list_button'
 import { withRouter } from 'react-router-dom';
 import { addToWatchlist } from '../../util/watchlist_util'
-
+import Unknown from '../loading_page/unknown_stock'
 class ShowAndBuyForm extends React.Component{
 
   constructor(props){
@@ -137,7 +137,7 @@ class ShowAndBuyForm extends React.Component{
           <p>Estimated Cost</p>
         </div>
         <div className="estimated-cost share-ownership">
-            <p>you have {this.numSharesOwnership(this.props.stock.quote.symbol)} share of {this.props.stock.quote.symbol}
+            <p>you have {this.numSharesOwnership(this.props.stock.quote.symbol)} shares of {this.props.stock.quote.symbol}
                   <button onClick={() =>this.setState({ mode: "sell" })}>Sell</button>
           </p>
           
@@ -217,6 +217,9 @@ class ShowAndBuyForm extends React.Component{
 
   render(){
     
+    if (this.props.errors.stock == "Unknown symbol"){
+      return <Unknown />
+    }
     if (this.props.loading.newsLoading || this.props.loading.stockLoading) {
       return <Loading />
     }

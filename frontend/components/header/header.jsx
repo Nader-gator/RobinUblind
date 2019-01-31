@@ -5,6 +5,8 @@ import SearchBar from '../search_bar/search_bar_container'
 const Greeting = ({ currentUser, logout, demoUser }) => {
 
   const notLoggedIn = () => {
+
+    
     return (
       <nav id="navbar" className="login-signup-bar sticky">
 
@@ -33,7 +35,9 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
     )
   }
   const isloggedIn = () => {
-    
+    const numberWithCommas = (x) => {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     return (
       <hgroup id="loggedin-navbar" className="logged-in-nav-bar sticky">
 
@@ -71,7 +75,7 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
                 </li>
                 <li className="user-portfolio">
                   <div>
-                    <span>{currentUser.bankroll}</span>
+                    <span>{numberWithCommas(currentUser.bankroll)}</span>
                     <p>Available Funds</p>
                   </div>
                   <div className="fix2"></div>

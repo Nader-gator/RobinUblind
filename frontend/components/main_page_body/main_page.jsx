@@ -18,7 +18,7 @@ class MainPage extends React.Component{
   }
 
   // componentDidUpdate(prevProps){
-  //   // debugger
+  //   // 
   //   if ((prevProps.length > 0) && !this.state.switched) {
   //     this.setState({watchlistWaiting: false, switched: true})
   //   }
@@ -26,7 +26,7 @@ class MainPage extends React.Component{
   componentWillMount() {
 
     setTimeout(() => {
-      debugger
+      
       this.setState({ watchlistWaiting: false })
 
     }, 2100)

@@ -62,6 +62,7 @@ class StockShow extends React.Component {
       sendTransaction={(data)=>this.props.sendTransaction(this.props.currentUser.id,data)}
       transactions={this.props.transactions}
       transactionStatus={this.props.transactionStatus}
+      errors={this.props.errors}
       />)
     }
   }
@@ -69,7 +70,7 @@ class StockShow extends React.Component {
 
 
 
-const mapStateToProps = ({ entities: { user, watchlist,transactions }, entities: { news, currentStock }, ui: { loading, transactionStatus} }) => {
+const mapStateToProps = ({ entities: { user, watchlist,transactions }, entities: { news, currentStock },errors ,ui: { loading, transactionStatus} }) => {
   return {
     currentUser: user,
     news,
@@ -77,7 +78,8 @@ const mapStateToProps = ({ entities: { user, watchlist,transactions }, entities:
     loading,
     watchlist,
     transactionStatus,
-    transactions
+    transactions,
+    errors
   }
 }
 

@@ -361,3 +361,16 @@ input[type="number"] {
 		opacity: 1;
 	}
 }
+
+.unknown-stock{
+  height: 100vh;
+  background: rgb(27, 27, 28);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.unknown-stock h1{
+	color:white;
+}

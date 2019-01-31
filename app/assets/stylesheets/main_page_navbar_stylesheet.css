@@ -77,6 +77,12 @@
 	float: right;
 	overflow: hidden;
 }
+.dropbtn2:hover {
+	cursor: pointer;
+}
+.dropbtn:hover {
+	cursor: pointer;
+}
 .dropdown2 .dropbtn2 {
 	font-size: 13px;
 	border: none;

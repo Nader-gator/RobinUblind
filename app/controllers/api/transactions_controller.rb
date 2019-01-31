@@ -85,7 +85,7 @@ class Api::TransactionsController < ApplicationController
 
   def create
     
-  user = User.find_by(id: params[:user_id])
+  user = current_user
   transaction = Transaction.new
 
   if user.bankroll.to_i < ((params[:data][:amount].to_i * params[:data][:price].to_i)) && params[:data][:category] == "buy"
@@ -101,7 +101,7 @@ class Api::TransactionsController < ApplicationController
     rendered = true
 
   else
-    
+    cost = params[:data][:amount].to_i * params[:data][:price].to_i
     transaction = Transaction.new(
     category: params[:data][:category],
     user_id: user.id,
@@ -109,6 +109,11 @@ class Api::TransactionsController < ApplicationController
     price: params[:data][:price],
     amount: params[:data][:amount],
     )
+    if params[:data][:category] == "buy"
+      transaction.bankroll = (user.bankroll.to_i - cost.to_i)
+    elsif params[:data][:category] == "sell"
+      transaction.bankroll = (user.bankroll.to_i + cost.to_i)
+    end
     parsed = Date.strptime(params[:date], "%m/%d/%Y")
     transaction.date = parsed
   end

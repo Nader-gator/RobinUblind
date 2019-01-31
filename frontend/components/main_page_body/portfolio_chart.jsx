@@ -44,6 +44,7 @@ class PortFolioChart extends React.Component{
       Object.values(el.open).forEach(dataTouple => {
         runningTotal = runningTotal + (dataTouple.stats.holding * dataTouple.stats.price)
       });
+      runningTotal = runningTotal + el.bankroll
       return {
         date: el.date,
         close: runningTotal

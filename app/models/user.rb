@@ -161,6 +161,7 @@ class User < ApplicationRecord
       
     end
     hash[:date] = date
+    hash[:bankroll] = self.find_bankroll_at_date(date)
 
     result << hash
 end
@@ -181,6 +182,10 @@ end
       
   end
   
+  def find_bankroll_at_date(date)
+    date = date.strftime("%Y%m%d")
+    self.transactions.where("date <= ?",date).last[:bankroll]
+  end
   
   
   # target = array.bsearch {|item| item["date"] < date }

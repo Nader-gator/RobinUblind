@@ -121,7 +121,7 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
           </div>
 
           
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={() => { window.scrollTo(0, 0) }}>Home</Link>
 
       </nav>
 

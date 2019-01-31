@@ -5,10 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+module LifeCycle
+  RESET ||= 'reset'
+end
+
 require 'csv'
  
 User.destroy_all
-demo_user = User.create!(email: "demouser@demo.com", password: "starwars")
+demo_user = User.create!(email: "demouser@demo.com", password: "starwars", bankroll: 16450)
 
 # # comment this back in when production is over
 Stock.destroy_all
@@ -36,77 +40,49 @@ stock3= Stock.find_by_nasdaq_code('MU')
 Transaction.destroy_all
 #date format for psotgres is ddmmyyyy
 
-Transaction1a = Transaction.create!(
+
+Transaction1 = Transaction.create!(
+  category: 'buy-in',
+  user_id: demo_user.id,
+  stock_id: stock1.id,
+  price: 0,
+  date: "01/01/2016",
+  amount: 0,
+  bankroll: 50000
+)
+Transaction2 = Transaction.create!(
   category: 'buy',
   user_id: demo_user.id,
   stock_id: stock1.id,
-  price: 172,
-  date: "25/01/2017",
-  amount: 20,
-
+  price: 156,
+  date: "08/02/2018",
+  amount: 100,
+  bankroll: 34400
 )
-Transaction1b = Transaction.create!(
+Transaction2 = Transaction.create!(
   category: 'buy',
   user_id: demo_user.id,
   stock_id: stock1.id,
-  price: 172,
-  date: "25/04/2017",
-  amount: 25,
-
+  price: 169,
+  date: "01/05/2018",
+  amount: 150,
+  bankroll: 9050
 )
-Transaction1c = Transaction.create!(
+Transaction2 = Transaction.create!(
   category: 'sell',
   user_id: demo_user.id,
   stock_id: stock1.id,
-  price: 172,
-  date: "25/08/2017",
-  amount: 5,
-
+  price: 224,
+  date: "05/10/2018",
+  amount: 100,
+  bankroll: 31450
 )
-Transaction2a = Transaction.create!(
+Transaction3 = Transaction.create!(
   category: 'buy',
   user_id: demo_user.id,
   stock_id: stock2.id,
-  price: 50,
-  date: "05/11/2016",
-  amount: 15,
-
+  price: 105,
+  date: "10/10/2018",
+  amount: 150,
+  bankroll: 16450
 )
-Transaction2b = Transaction.create!(
-  category: 'buy',
-  user_id: demo_user.id,
-  stock_id: stock2.id,
-  price: 150,
-  date: "05/07/2018",
-  amount: 40,
-
-)
-
-Transaction2c = Transaction.create!(
-  category: 'buy',
-  user_id: demo_user.id,
-  stock_id: stock2.id,
-  price: 50,
-  date: "09/11/2016",
-  amount: 15,
-
-)
-Transaction3a = Transaction.create!(
-  category: 'buy',
-  user_id: demo_user.id,
-  stock_id: stock3.id,
-  price: 50,
-  date: "09/11/2017",
-  amount: 15,
-
-)
-Transaction3b = Transaction.create!(
-  category: 'buy',
-  user_id: demo_user.id,
-  stock_id: stock3.id,
-  price: 150,
-  date: "05/07/2018",
-  amount: 40,
-
-)
-

@@ -71,7 +71,9 @@ class MainPage extends React.Component{
         Object.values(this.props.transactions[1][1].open).forEach(el => {
           tally = tally + (el.stats.holding * el.stats.price)
         });
+        tally = tally + this.props.transactions[1][1].bankroll
         return this.numberWithCommas(tally)
+
       case "dayChange":
         Object.values(this.props.transactions[1][1].open).forEach(el => {
           todaysTally = todaysTally + (el.stats.holding * el.stats.price)
@@ -79,8 +81,10 @@ class MainPage extends React.Component{
         Object.values(this.props.transactions[1][0].open).forEach(el => {
           yesterdayssTally = yesterdayssTally + (el.stats.holding * el.stats.price)
         });
-
+        todaysTally = todaysTally + this.props.transactions[1][1].bankroll
+        yesterdayssTally = yesterdayssTally + this.props.transactions[1][0].bankroll
         return this.numberWithCommas(todaysTally - yesterdayssTally)
+
       case "percentChange":
         Object.values(this.props.transactions[1][1].open).forEach(el => {
           todaysTally = todaysTally + (el.stats.holding * el.stats.price)
@@ -88,7 +92,10 @@ class MainPage extends React.Component{
         Object.values(this.props.transactions[1][0].open).forEach(el => {
           yesterdayssTally = yesterdayssTally + (el.stats.holding * el.stats.price)
         });
+        todaysTally = todaysTally + this.props.transactions[1][1].bankroll
+        yesterdayssTally = yesterdayssTally + this.props.transactions[1][0].bankroll
         return this.numberWithCommas(((todaysTally - yesterdayssTally) / yesterdayssTally) * 100)
+        
       default:
         return "00"
     }

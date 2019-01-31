@@ -329,10 +329,11 @@ class ShowAndBuyForm extends React.Component{
           {/* 22 Articles in here */}
           <div className="news-list">
             <h1>Recent News</h1>
-            <ul>
-              {this.props.news}
-            </ul>
-
+            <div>
+              <ul>
+                {this.props.news}
+              </ul>
+            </div>
           </div>
 
 

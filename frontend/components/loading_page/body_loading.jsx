@@ -12,6 +12,7 @@ export default () => {
           <img id='mainlogo' className="mainlogo" src={window.logoURL} />
         </div>
         <div className="chart-loading">
+          <h1>LOADING</h1>
         </div>
       </div>
     </div>

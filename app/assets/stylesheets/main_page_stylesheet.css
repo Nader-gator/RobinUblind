@@ -88,7 +88,7 @@
 	border-radius: 5px;
 	height: 85vh;
 	animation-name: watchlist;
-  animation-duration: 3s;
+  animation-duration: 2s;
 	/* animation-direction: reverse;   */
 }
 
@@ -326,10 +326,19 @@
 
 .chart-loading {
 	position: relative;
-	top:200px;
+	top:290px;
 	width: 700;
 	height: 50px;
-	background-color: rgb(211, 245, 179)
+	background-color: rgb(211, 245, 179);
+	align-content: center;
+}
+.chart-loading h1{
+	background-color: transparent;
+	color: #080707d2 !important;
+	font-size: 60px !important;
+	position: relative !important;
+	top: -84px !important;
+	left: 130px !important;
 }
 
 .running-man {
@@ -347,12 +356,12 @@
 #mainlogo {
 	position: relative;
 	left: 40px !important;
-	animation-name: running; 
+	/* animation-name: running; 
 	animation-duration: 2s;
-	animation-iteration-count: infinite;
+	animation-iteration-count: infinite; */
 }
 
-@keyframes running {
+/* @keyframes running {
 	0%   {
 		transform: translate(50px,-30px)
 	}
@@ -373,5 +382,5 @@
 	}
 
 
-}
+} */
 

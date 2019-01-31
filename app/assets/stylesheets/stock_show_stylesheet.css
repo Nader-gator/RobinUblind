@@ -273,3 +273,34 @@ input[type="number"] {
 .range-selected {
 	color: rgb(97, 202, 157)
 }
+.news-list{
+	animation-name: news-roll;
+	animation-duration: 1s;
+	position: relative;
+}
+
+@keyframes news-roll {
+	0%   {
+		opacity: 0.1;
+		transform: translate(100px,0px)
+		}
+	100% {
+		opacity: 1;
+	}
+}
+
+.news-list a {
+	animation-name: news-items;
+	animation-duration: 1s;
+	position: relative;
+}
+
+@keyframes news-items {
+	0%   {
+		opacity: 0.1;
+		transform: translate(0px,80px)
+		}
+	100% {
+		opacity: 1;
+	}
+}

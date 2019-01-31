@@ -29,7 +29,7 @@ class MainPage extends React.Component{
       debugger
       this.setState({ watchlistWaiting: false })
 
-    }, 3100)
+    }, 2100)
   }
 
   shouldComponentUpdate(nextProps, nextState) {

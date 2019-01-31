@@ -4,4 +4,14 @@ class Transaction < ApplicationRecord
   belongs_to :user
   belongs_to :stock
 
+
+  def self.get_time_map(range)
+    range = range + 1
+    result_array = []
+    range.times do |i|
+      result_array << Date.today - i
+    end
+
+    result_array.reverse.concat([Date.today - 1,Date.today])
+  end
 end

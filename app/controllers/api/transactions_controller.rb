@@ -3,74 +3,35 @@ class Api::TransactionsController < ApplicationController
   def show
     user = User.find_by(id: params[:user_id])
 
-    #welcome to hard-code city, population: Nader (trust me this was the fastest way)
     if params[:date] == '1w'
       transactions = [
-        user.sorted_transactions_upto([
-        Date.today - 7,
-        Date.today - 6,
-        Date.today - 5,
-        Date.today - 4,
-        Date.today - 3,
-        Date.today - 2,
-        Date.today - 1,
-        Date.today, 
-        Date.today - 1,
-        Date.today]),
+        user.sorted_transactions_upto(
+          Transaction.get_time_map(7)
+        ),
       ]
       needed_transactions= transactions[0][0...-2]
       transactions = [needed_transactions, transactions[0][-2..-1]]
     elsif params[:date] == '1m'
       transactions = [
-        user.sorted_transactions_upto([
-        Date.today - 30,
-        Date.today - 27,
-        Date.today - 24,
-        Date.today - 21,
-        Date.today - 18,
-        Date.today - 15,
-        Date.today - 11,
-        Date.today - 8,
-        Date.today - 5,
-        Date.today, 
-        Date.today - 1,
-        Date.today]),
+        user.sorted_transactions_upto(
+          Transaction.get_time_map(30)
+        ),
       ]
       needed_transactions= transactions[0][0...-2]
       transactions = [needed_transactions, transactions[0][-2..-1]]
     elsif params[:date] == '3m'
       transactions = [
-        user.sorted_transactions_upto([
-        Date.today - 90,
-        Date.today - 80,
-        Date.today - 70,
-        Date.today - 60,
-        Date.today - 50,
-        Date.today - 40,
-        Date.today - 30,
-        Date.today - 20,
-        Date.today - 10,
-        Date.today, 
-        Date.today - 1,
-        Date.today]),
+        user.sorted_transactions_upto(
+          Transaction.get_time_map(90)
+        ),
       ]
       needed_transactions= transactions[0][0...-2]
       transactions = [needed_transactions, transactions[0][-2..-1]]
     elsif params[:date] == '1y'
       transactions = [
-        user.sorted_transactions_upto([
-        Date.today - 365,
-        Date.today - 320,
-        Date.today - 275,
-        Date.today - 230,
-        Date.today - 185,
-        Date.today - 140,
-        Date.today - 95,
-        Date.today - 50,
-        Date.today - 5,
-        Date.today, 
-        Date.today - 1,
-        Date.today]),
+        user.sorted_transactions_upto(
+          Transaction.get_time_map(365)
+        ),
       ]
       needed_transactions= transactions[0][0...-2]
       transactions = [needed_transactions, transactions[0][-2..-1]]

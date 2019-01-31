@@ -336,7 +336,7 @@
 }
 .chart-loading h1{
 	background-color: transparent;
-	color: #080707d2 !important;
+	color: rgb(27, 27, 28) !important;
 	font-size: 60px !important;
 	position: relative !important;
 	top: -84px !important;

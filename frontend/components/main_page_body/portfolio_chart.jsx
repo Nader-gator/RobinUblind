@@ -1,7 +1,7 @@
 import React from 'react'
 import Chart from '../chart/chart'
 import Loading from '../loading_page/body_loading'
-
+import { connect } from 'react-redux'
 
 class PortFolioChart extends React.Component{
 
@@ -54,7 +54,8 @@ class PortFolioChart extends React.Component{
 
 
   render(){
-    if (this.props.loading) {
+    // debugger
+    if (this.props.ownLoading.transactionLoading) {
       return <Loading />
     }
   
@@ -102,5 +103,10 @@ class PortFolioChart extends React.Component{
     )
   }
 }
+const mstop = ({ui:{loading}}) => {
+  return {
+    ownLoading: loading
+  }
+}
 
-export default PortFolioChart
+export default connect(mstop)(PortFolioChart)

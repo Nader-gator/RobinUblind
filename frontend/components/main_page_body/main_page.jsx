@@ -14,7 +14,7 @@ import Chart from "../chart/mini_chart"
 class MainPage extends React.Component{
   constructor(props){
     super(props)
-    this.state = {watchlistWaiting: true, switched: false}
+    this.state = {watchlistWaiting: true}
   }
 
   // componentDidUpdate(prevProps){
@@ -23,7 +23,19 @@ class MainPage extends React.Component{
   //     this.setState({watchlistWaiting: false, switched: true})
   //   }
   // }
+  componentWillMount() {
 
+    setTimeout(() => {
+      debugger
+      this.setState({ watchlistWaiting: false })
+
+    }, 3100)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    
+    return this.props.transactions[1] != nextProps.transactions[1] || this.state.watchlistWaiting != nextState.watchlistWaiting
+  }
 
   positions = () => {
     if (this.props.transactions[1] === undefined) {
@@ -188,7 +200,7 @@ class MainPage extends React.Component{
 
 
 
-          {this.props.transactionLoading ? 
+          {(this.props.transactionLoading || this.state.watchlistWaiting) ? 
             (<div id='watchlist' className="watch-list-animate wsticky">
               <div className="loading-watchlist">
                 <WatchlistLoading/>

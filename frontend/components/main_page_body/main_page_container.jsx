@@ -79,7 +79,8 @@ const mapStateToProps = ({entities:{user,watchlist, stockData, currentStock,tran
     data: stockData,
     stock: currentStock,
     transactions,
-    transactionLoading: loading.transactionLoading
+    transactionLoading: loading.transactionLoading,
+    allLoading: loading
   }
 }
 

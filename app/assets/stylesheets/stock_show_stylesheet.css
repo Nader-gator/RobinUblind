@@ -327,8 +327,14 @@ input[type="number"] {
 	height: 10px;
 	display: flex;
 }
-.range-selected {
+/* .range-selected {
 	color: rgb(97, 202, 157)
+} */
+.green{
+	color: rgb(97, 202, 157) !important;
+}
+.red{
+	color: #e3603f !important;
 }
 .news-list{
 	animation-name: news-roll;

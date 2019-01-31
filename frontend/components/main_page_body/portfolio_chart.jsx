@@ -9,37 +9,16 @@ class PortFolioChart extends React.Component{
 
   constructor(props){
     super(props)
-    this.state = { w: true, m: false, tm: false, y: false }
+    this.state = { w: true, m: false, tm: false, y: false}
+    this.color = "green"
   }
 
-
-
-  //data for chart should be:
-  // [
-  //   {
-  //     date: "01/01/2001",
-  //     close: "125"
-  //   }
-  // ]
-  // _______incoming data:
-  // [
-  //   (el=) {
-  //     closed:[],
-  //     date: 01/01/2001,
-  //     open: {
-  //       APPL: {
-  //         data:[transaction detail],
-  //         stats:{holidng: 50,price:125}
-  //       }
-  //     }
-  //   }
-  // ]
 
   parseData(data){
     if (data === undefined) {
       return {}
     }
-    return data.map((el)=>{
+    let parsedData = data.map((el)=>{
       let runningTotal = 0
       Object.values(el.open).forEach(dataTouple => {
         runningTotal = runningTotal + (dataTouple.stats.holding * dataTouple.stats.price)
@@ -50,9 +29,20 @@ class PortFolioChart extends React.Component{
         close: runningTotal
       }
     })
+    this.changeColor(parsedData)
+    return parsedData
   }
 
-
+  changeColor(data){
+    if (Object.keys(data).length === 0) {
+      return null
+    }
+    const first = data[0].close
+    const last = data[data.length - 1].close
+    const stroke = (first < last) ? "green" : "red";
+    this.color = stroke
+  }
+  
 
   render(){
     if (this.props.ownLoading.transactionLoading) {
@@ -72,7 +62,7 @@ class PortFolioChart extends React.Component{
                 this.setState({ viewsMode: 7 }))
               this.setState({ w: true, m: false, tm: false, y: false })
             }}
-            className={this.state.w ? "range-selected" : null}
+            className={this.state.w ? `range-selected ${this.color}` : null}
           >1W</p>
 
           <p onClick={() => {
@@ -80,7 +70,7 @@ class PortFolioChart extends React.Component{
               this.setState({ viewsMode: 30 }))
             this.setState({ w: false, m: true, tm: false, y: false })
           }}
-            className={this.state.m ? "range-selected" : null}
+            className={this.state.m ? `range-selected ${this.color}` : null}
           >1M</p>
 
           <p onClick={() => {
@@ -88,7 +78,7 @@ class PortFolioChart extends React.Component{
               this.setState({ viewsMode: 90 }))
             this.setState({ w: false, m: false, tm: true, y: false })
           }}
-            className={this.state.tm ? "range-selected" : null}
+            className={this.state.tm ? `range-selected ${this.color}` : null}
           >3M</p>
 
           <p onClick={() => {
@@ -96,7 +86,7 @@ class PortFolioChart extends React.Component{
               this.setState({ viewsMode: false }))
             this.setState({ w: false, m: false, tm: false, y: true })
           }}
-            className={this.state.y ? "range-selected" : null}
+            className={this.state.y ? `range-selected ${this.color}` : null}
           >1Y</p>
         </div>
       </div>

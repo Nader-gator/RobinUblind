@@ -123,7 +123,7 @@ class Api::TransactionsController < ApplicationController
 
       if transaction[:category] == "buy"
         render json: {
-          msg: "buy Successful for #{transaction.amount} shares of #{params[:data][:stock_code]}",
+          msg: "Buy Successful for #{transaction.amount} shares of #{params[:data][:stock_code]}",
           newBankroll: new_bankroll} unless rendered
       elsif transaction[:category] == "sell"
         render json: {

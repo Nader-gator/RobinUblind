@@ -10,7 +10,6 @@
 * [IEX API](https://iextrading.com)
 * [News API](https://newsapi.org/)
 * [Recharts](http://recharts.org/en-US/)
-* [CSS Animate](http://animate.css)
 
 ## Features
 * Secure Auth pattern with password digests and CSRF protection.

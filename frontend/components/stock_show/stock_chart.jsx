@@ -16,10 +16,8 @@ class StockChart extends React.Component{
     }
     const first = data[0].close;
     const last = data[data.length - 1].close;
-    // let stroke
     if (first < last) {
       this.color = "green"} else{this.color = "red"}
-    // this.color = stroke
   }
 
 

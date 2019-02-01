@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import SearchBar from '../search_bar/search_bar_container'
 
-const Greeting = ({ currentUser, logout, demoUser }) => {
+const Greeting = ({ currentUser, logout, demoUser,resetNews }) => {
 
   const notLoggedIn = () => {
 
@@ -47,7 +47,10 @@ const Greeting = ({ currentUser, logout, demoUser }) => {
           <Link 
           to="/" 
           className="navbar_logo"
-            onClick={() => { window.scrollTo(0, 0) }}
+            onClick={() => { 
+              window.scrollTo(0, 0) 
+              resetNews()
+            }}
            >
             <img className="navbar_logo" src={window.logoURL} />
           </Link>

@@ -1,6 +1,11 @@
 * {
-    font-family: Roboto;
+		font-family: Roboto;
+		
 	}
+button:focus { outline: none; }
+
+input:focus { outline: none; }
+
 
 	.btn:focus {
   outline: none !important;
@@ -109,6 +114,24 @@
 	align-items: center;
 	width: 115px;
 	height: 45px;
+
+}
+.sign-up-animate{
+		animation-name: fadeinmain4;
+		animation-duration: 3s;
+}
+@keyframes fadeinmain4 {
+	0%{opacity: 0.01;
+		transform: translate(0,30px)}
+	49%{opacity: 0.01;}
+	50%   {
+		opacity: 0.01;
+		transform: translate(0,30px)
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 .sign-up:hover{
 	-webkit-box-shadow: 0px 4px 40px -4px rgba(0, 0, 0, 0.40);
@@ -149,7 +172,21 @@
 	min-width: 922px;
 	min-height: 720px;
 	position: relative;
-	top: 3%
+	top: 3%;
+	animation-name: fadeinmain3;
+	animation-duration: 1.5s;
+	
+}
+
+@keyframes fadeinmain3 {
+	0%   {
+		opacity: 0.01;
+		transform: translate(0,30px)
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 .main-text h1 {
 	font-family: Roboto;
@@ -314,6 +351,7 @@ label {
 	color: red;
 	border-color: white;
 	cursor: pointer;
+	background-color: transparent;
 }
 .demo-user:active {
 	outline: none !important;
@@ -480,15 +518,48 @@ box-shadow: 0px 4px 40px -4px rgba(0, 0, 0, 0.40);
   font-family: Roboto;
   font-size: 46px;
   font-weight: bold;
-  display: block;
+	display: block; 
+	
+	animation-name: fadeinmain;
+		animation-duration: 1s;
+		/* top: 0px; */
 }
+
+
+@keyframes fadeinmain {
+	0%   {
+		opacity: 0.01;
+		transform: translate(0,30px)
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
 
 .main-text p {
   font-family: Roboto;
   font-size: 16px;
   display: block;
   width: 300px;
-  line-height: 26px;
+	line-height: 26px;
+	animation-name: fadeinmain2;
+		animation-duration: 2s;
+}
+
+@keyframes fadeinmain2 {
+	0%{opacity: 0.01;
+		transform: translate(0,30px)}
+	49%{opacity: 0.01;}
+	50%   {
+		opacity: 0.01;
+		transform: translate(0,30px)
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 
 .main-text {

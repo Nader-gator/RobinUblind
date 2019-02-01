@@ -39,7 +39,7 @@ const Greeting = ({ currentUser }) => {
           <h1>Invest for Free</h1>
           <p>nvest in stocks, ETFs, options, and cryptocurrencies, all commission-free, right from your phone or desktop.</p>
 
-          <div className="sign-up">
+          <div className="sign-up sign-up-animate">
             <Link className="sign-up"  to="/signup">Sign Up</Link>
 
           </div>

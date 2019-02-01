@@ -135,25 +135,25 @@ class User < ApplicationRecord
     
     dates.each do |date|
     hash = {closed: {}, open: {}}
-    self.positions(date).each do |code, transaction_array|
+    self.positions(date).each do |company_code, transaction_array|
       if self.closed_position?(transaction_array)
-        hash[:closed][Stock.find_code(code)] = {data: transaction_array,
+        hash[:closed][Stock.find_code(company_code)] = {data: transaction_array,
           stats: User.calculate_holding(transaction_array),
         }
       else
-      price_info[code] ||= response = RestClient::Request.new({
+      price_info[company_code] ||= response = RestClient::Request.new({
       method: 'get',
-      url: "https://api.iextrading.com/1.0/stock/#{Stock.find_code(code)}/batch?types=quote,chart&range=1y",
+      url: "https://api.iextrading.com/1.0/stock/#{Stock.find_code(company_code)}/batch?types=quote,chart&range=1y",
       headers: { :accept => :json, content_type: :json }
       }).execute do |response, request, result|
         JSON.parse response
       end
 
 
-        hash[:open][Stock.find_code(code)] = {
+        hash[:open][Stock.find_code(company_code)] = {
           data: transaction_array,
           stats: User.calculate_holding(transaction_array).merge({
-            price: self.find_price_at_date(price_info[code]["chart"],date)
+            price: self.find_price_at_date(price_info[company_code]["chart"],date)
           }),
         }
 

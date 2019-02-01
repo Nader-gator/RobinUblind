@@ -227,7 +227,7 @@ Transactions Are handles by the backend by first checking the input amount for a
   end
 ```
 
-The final challenge faced during the production was the small charts in the watchlist.mainly, the charts in Robihood grow during the day as markets open, meaning at the beginning of the day the range of the chart is 9am to 4pm, and the line slowly gets drawn as the day progressed. Recharts only supported doing this using null data, which was not something IEX api supported. to fix this issue, a simple function was used to calculate a percent based on how far into market open the time currently is, with 9am being 1% and 4pm being 100%. this was used to adjust the chart size to the needed length (e.g. at 9:30, the chart is 5% of its full 85 pixels wide)
+The final challenge faced during the production was the small charts in the watchlist.mainly, the charts in Robinhood grow during the day as markets open, meaning at the beginning of the day the range of the chart is 9am to 4pm, and the line slowly gets drawn as the day progressed. Recharts only supported doing this using null data, which was not something IEX api supported. to fix this issue, a simple function was used to calculate a percent based on how far into market open the time currently is, with 9am being 1% and 4pm being 100%. this was used to adjust the chart size to the needed length (e.g. at 9:30, the chart is 5% of its full 85 pixels wide)
 
 ``` js
   const timeone = data[data.length - 1].minute

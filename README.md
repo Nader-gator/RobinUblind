@@ -122,7 +122,7 @@ export const getStock = (nasdaqcode,range) => {
 
 The frontend has a state called viewsMode which holds a number indicating the days user is requesting. it also holds has a state for each button in the range indicating with a boolean if the button is selected. The color is calculated based on whether the price of the stock has gone up or down. since the chart needs to have the color information as well, the color property is not bound to state. this is due to the fact that chart calculating color triggers a re render, which triggers a recalculation of color in the buttons, which in turn triggers the chart to calculate color again, starting an infinite loop and stack overflow.
 
-```js
+```jsx
   class StockChart extends React.Component{
   
   constructor(props){
@@ -146,7 +146,7 @@ The frontend has a state called viewsMode which holds a number indicating the da
 
 One of the biggest challenges of this project was updating the displayed value on the top left of the screen based on the mouse hover location on the chart. the challenge was mainly due to the limitations of Recharts. to solved this problem, an unconventional measure was used. a function that updates a ChartData slice in the store was mapped to the props of the chart, and it was placed inside the function the chart used to format its Tooltip data labels. this way, every time Recharts formatted the data to be displayed based on mouse hover location, the data was *dispatched to the store.
 
-```js
+```jsx
     const mstop = ({})=> {
     return {}}
 
@@ -187,8 +187,6 @@ One of the biggest challenges of this project was updating the displayed value o
 
       //...
 
-
-
 export default connect(mstop,mapDispatchToProps)(DrawChart)
 ```
 
@@ -228,7 +226,7 @@ Transactions Are handles by the backend by first checking the input amount for a
 
 The final challenge faced during the production was the small charts in the watchlist.mainly, the charts in Robinhood grow during the day as markets open, meaning at the beginning of the day the range of the chart is 9am to 4pm, and the line slowly gets drawn as the day progressed. Recharts only supported doing this using null data, which was not something IEX api supported. to fix this issue, a simple function was used to calculate a percent based on how far into market open the time currently is, with 9am being 1% and 4pm being 100%. this was used to adjust the chart size to the needed length (e.g. at 9:30, the chart is 5% of its full 85 pixels wide)
 
-``` js
+``` jsx
   const timeone = data[data.length - 1].minute
   const baseline = "9:30"
   const timetwo = "16:00"

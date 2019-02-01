@@ -76,7 +76,7 @@ Note that not All information passed along are currently being used, however the
 ### Stock Show Page
 The stock show page contains current and historical price information about the stock, and the relevant news. Users are able to purchase and sell stock on this page.the error handling such as "insufficient funds" are all displayed within the submit button. Users can also add and remove items from watchlist. Note that purchasing a stock automatically adds it to the watchlist.
 
-<img src="./app/assets/images/stock-show.png" align="center" />
+<img src="./app/assets/images/stockShow.png" align="center" />
 
 #### Fetching Information
 Upon opening the show page of any stock, the front end makes two API request.

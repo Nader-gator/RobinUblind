@@ -25,6 +25,8 @@
 	text-align: center;
 	color:white;
 	margin-bottom: 70px;
+	padding-bottom: 5px;
+	border-bottom: 1px dashed white;
 }
 .watch-list {
 	margin-top: 80px;
@@ -358,6 +360,7 @@
 #mainlogo {
 	position: relative;
 	left: 40px !important;
+	
 	/* animation-name: running; 
 	animation-duration: 2s;
 	animation-iteration-count: infinite; */

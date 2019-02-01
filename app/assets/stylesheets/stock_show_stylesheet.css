@@ -310,7 +310,7 @@ input[type="number"] {
 	cursor: pointer;
 }
 .chart-time {
-	color: #000000;
+	color: transparent;
 }
 .stock-show-span-selectors p {
 	width: 20px;
@@ -379,4 +379,23 @@ input[type="number"] {
 
 .unknown-stock h1{
 	color:white;
+}
+.recharts-tooltip-item-name{
+	color: transparent;
+}
+.recharts-tooltip-item-separator{
+	color: transparent;
+}
+
+.chart-time-value{
+	position: relative !important;
+	top: 20px !important;
+	right: 20px !important;
+	/* color: transparent; */
+}
+
+.recharts-default-tooltip{
+	/* color: transparent; */
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }

@@ -6,6 +6,7 @@ import { clearSearch } from '../../actions/search_actions';
 import { fetchWatchlist } from "../../actions/watchlist_actions"
 import { fetchStockData } from '../../actions/stocks_actions'
 import { fetchTransactions } from "../../actions/transaction_actions"
+import { updateChartDisplay } from '../../actions/chart_actions'
 
 class Main extends React.Component {
 
@@ -64,6 +65,7 @@ class Main extends React.Component {
     fetchTransactions={this.props.fetchTransactions}
     transactionLoading={this.props.transactionLoading}
     transactions={this.props.transactions}
+    updateChartDisplay={this.props.updateChartDisplay}
     />
   }
 
@@ -80,7 +82,7 @@ const mapStateToProps = ({entities:{user,watchlist, stockData, currentStock,tran
     stock: currentStock,
     transactions,
     transactionLoading: loading.transactionLoading,
-    allLoading: loading
+    allLoading: loading,
   }
 }
 
@@ -91,8 +93,11 @@ const mapDispatchToProps = dispatch => {
     clearSearch: () => dispatch(clearSearch()),
     getWatchlist: (id) => dispatch(fetchWatchlist(id)),
     fetchStockData: (code) => dispatch(fetchStockData(code)),
-    fetchTransactions: (userId,date) => dispatch(fetchTransactions(userId,date))
+    fetchTransactions: (userId,date) => dispatch(fetchTransactions(userId,date)),
+    updateChartDisplay: (val) => dispatch(updateChartDisplay(val))
+
   }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Main)
+

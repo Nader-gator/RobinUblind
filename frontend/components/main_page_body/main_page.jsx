@@ -5,7 +5,7 @@ import Loading from '../loading_page/body_loading'
 import PorfolioChart from './portfolio_chart'
 import Watchlist from './watchlist'
 import WatchlistLoading from '../loading_page/watchlist_loading'
-
+import ValueDisplay from './main_value'
 import Chart from "../chart/mini_chart"
 
 
@@ -24,7 +24,7 @@ class MainPage extends React.Component{
   //   }
   // }
   componentWillMount() {
-
+    this.props.updateChartDisplay(this.parsePortfolioVal("totalVal"))
     setTimeout(() => {
       
       this.setState({ watchlistWaiting: false })
@@ -68,11 +68,12 @@ class MainPage extends React.Component{
     let yesterdayssTally = 0
     switch (type) {
       case "totalVal":
+      debugger
         Object.values(this.props.transactions[1][1].open).forEach(el => {
           tally = tally + (el.stats.holding * el.stats.price)
         });
         tally = tally + this.props.transactions[1][1].bankroll
-        return this.numberWithCommas(tally)
+        return tally
 
       case "dayChange":
         Object.values(this.props.transactions[1][1].open).forEach(el => {
@@ -133,6 +134,7 @@ class MainPage extends React.Component{
     if (this.props.loading) {
       return <Loading />
     } 
+    // debugger
     return (
       <div>
         <header>
@@ -183,12 +185,13 @@ class MainPage extends React.Component{
 
 
           <div className="porfolio-performance">
-            <h1>${this.parsePortfolioVal("totalVal")}</h1>
+            {/* <h1>${this.parsePortfolioVal("totalVal")}</h1> */}
+            <ValueDisplay/>
             <h2>${this.parsePortfolioVal("dayChange")} ({this.parsePortfolioVal("percentChange")}%)<span>Today</span></h2>
           </div>
 
-            <div>
-
+          <div onMouseLeave={()=>this.props.updateChartDisplay((this.parsePortfolioVal("totalVal")))}>
+            
           <PorfolioChart
             stock={this.props.stock}
             fetchTransactions={this.props.fetchTransactions}
@@ -234,3 +237,4 @@ class MainPage extends React.Component{
 }
 
 export default MainPage
+

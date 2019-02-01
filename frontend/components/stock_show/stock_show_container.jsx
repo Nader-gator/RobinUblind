@@ -28,6 +28,18 @@ class StockShow extends React.Component {
     }
   }
 
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   // debugger
+  //   if (this.props.chartData.length == 0){
+  //     return true
+  //   }
+  //   return false
+  // }
+  // componentDidUpdate(prevProps, prevState) {
+  //   Object.entries(this.props).forEach(([key, val]) =>
+  //     prevProps[key] !== val && console.log(`Prop '${key}' changed`)
+  //   );}
+
   news() {
 
     if (Object.keys(this.props.news).length === 0) {
@@ -70,7 +82,7 @@ class StockShow extends React.Component {
 
 
 
-const mapStateToProps = ({ entities: { user, watchlist,transactions }, entities: { news, currentStock },errors ,ui: { loading, transactionStatus} }) => {
+const mapStateToProps = ({ entities: { user, watchlist,transactions }, entities: { news, currentStock },errors ,ui: { loading, transactionStatus,chartData} }) => {
   return {
     currentUser: user,
     news,
@@ -79,7 +91,8 @@ const mapStateToProps = ({ entities: { user, watchlist,transactions }, entities:
     watchlist,
     transactionStatus,
     transactions,
-    errors
+    errors,
+    chartData
   }
 }
 

@@ -38,7 +38,6 @@ class DrawChart extends React.Component{
       const min = dataMin(this.props.data) - (0.005 * range)
       const max = dataMax(this.props.data) + (0.005 * range)
       const update = this.props.updateChartDisplay
-      debugger
       return (
         < LineChart width={710} height={300} data={this.props.data} >
           <Line type="monotone" dataKey="close" stroke={stroke} dot={false} />

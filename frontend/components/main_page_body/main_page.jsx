@@ -68,7 +68,6 @@ class MainPage extends React.Component{
     let yesterdayssTally = 0
     switch (type) {
       case "totalVal":
-      debugger
         Object.values(this.props.transactions[1][1].open).forEach(el => {
           tally = tally + (el.stats.holding * el.stats.price)
         });
@@ -76,6 +75,7 @@ class MainPage extends React.Component{
         return tally
 
       case "dayChange":
+      
         Object.values(this.props.transactions[1][1].open).forEach(el => {
           todaysTally = todaysTally + (el.stats.holding * el.stats.price)
         });
@@ -134,7 +134,6 @@ class MainPage extends React.Component{
     if (this.props.loading) {
       return <Loading />
     } 
-    // debugger
     return (
       <div>
         <header>

@@ -7,6 +7,8 @@ import RemoveWatchlistButton from '../watchlist_button/remove_watch_list_button'
 import { withRouter } from 'react-router-dom';
 import { addToWatchlist } from '../../util/watchlist_util'
 import Unknown from '../loading_page/unknown_stock'
+import StockChart from './stock_chart'
+
 class ShowAndBuyForm extends React.Component{
 
   constructor(props){
@@ -16,6 +18,7 @@ class ShowAndBuyForm extends React.Component{
     this.handleSellSubmit = this.handleSellSubmit.bind(this)
 
   }
+
   
 
   componentWillMount(){
@@ -71,13 +74,6 @@ class ShowAndBuyForm extends React.Component{
       chartData[el.date] = el.close
     });
     return chartData
-  }
-
-  dataSlice(arr,size){
-    if(size === false || size === 1) {
-      return arr
-    }
-    return arr.slice(Math.max(arr.length - size, 1))
   }
 
 
@@ -300,54 +296,11 @@ class ShowAndBuyForm extends React.Component{
             <h1>${this.props.stock.quote.delayedPrice}</h1>
             <h2>${this.props.stock.quote.change} ({(this.props.stock.quote.changePercent * 100).toFixed(2)}%)<span>Today</span></h2>
           </div>
-
-          <div className="porfolio-chart">
-            <Chart data={this.dataSlice(this.props.stock.chart, this.state.viewsMode) } />
-
-              {/* SPAGHETTI CODE AHEAD, ENTER AT YOUR OWN RISK (it works tho) */}
-            <div className="stock-show-span-selectors">
-              <p onClick={() => 
-              {this.props.fetchCurrentStock(this.props.stock.quote.symbol,"1d",false).then(()=>
-                this.setState({ viewsMode: 1 }))
-                this.setState({ d: true, w: false, m: false, tm: false, y: false})
-              }}
-            className={this.state.d ? "range-selected" : null}
-              >1D</p>
-
-              <p 
-                onClick={() => {
-                  this.props.fetchCurrentStock(this.props.stock.quote.symbol, "1y", false).then(() =>
-                    this.setState({ viewsMode: 7 }))
-                  this.setState({ d: false, w: true, m: false, tm: false, y: false })
-                }}
-                className={this.state.w ? "range-selected" : null}
-              >1W</p>
-
-              <p onClick={() => {
-                this.props.fetchCurrentStock(this.props.stock.quote.symbol, "1y", false).then(() =>
-                  this.setState({ viewsMode: 30 }))
-                this.setState({ d: false, w: false, m: true, tm: false, y: false })
-              }}
-              className={this.state.m ? "range-selected" : null}
-              >1M</p>
-
-              <p onClick={() => {
-                this.props.fetchCurrentStock(this.props.stock.quote.symbol, "1y", false).then(() =>
-                  this.setState({ viewsMode: 90 }))
-                this.setState({ d: false, w: false, m: false, tm: true, y: false })
-              }}
-              className={this.state.tm ? "range-selected" : null}
-              >3M</p>
-
-              <p onClick={() => {
-                this.props.fetchCurrentStock(this.props.stock.quote.symbol, "1y", false).then(() =>
-                  this.setState({ viewsMode: false }))
-                this.setState({ d: false, w: false, m: false, tm: false, y: true })
-              }}
-              className={this.state.y ? "range-selected" : null}
-              >1Y</p>
-            </div>
-          </div>
+            <StockChart
+            fetchCurrentStock={this.props.fetchCurrentStock}
+            stock={this.props.stock}
+            chartData={this.props.chartData}
+            />
           {/* 22 Articles in here */}
           <div className="news-list">
             <h1>Recent News</h1>

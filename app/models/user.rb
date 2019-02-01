@@ -179,7 +179,7 @@ end
           return item["close"]
         end
       end
-      
+      array.last["close"]
   end
   
   def find_bankroll_at_date(date)

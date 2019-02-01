@@ -14,7 +14,6 @@ class StockChart extends React.Component{
     if (Object.keys(data).length === 0) {
       return null
     }
-    debugger
     const first = data[0].close;
     const last = data[data.length - 1].close;
     // let stroke

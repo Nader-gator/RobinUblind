@@ -33,7 +33,6 @@ class DrawChart extends React.Component {
     };
     const first = this.props.data[0].close
     const last = this.props.data[this.props.data.length - 1].close
-    debugger
     const stroke = (this.props.color === 'green') ? "#61ca9d" : "#e3603f";
     const range = dataMin(this.props.data) + dataMax(this.props.data)
     const min = dataMin(this.props.data) - (0.005 * range)

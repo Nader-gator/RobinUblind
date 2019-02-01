@@ -35,10 +35,10 @@ class StockShow extends React.Component {
   //   }
   //   return false
   // }
-  // componentDidUpdate(prevProps, prevState) {
-  //   Object.entries(this.props).forEach(([key, val]) =>
-  //     prevProps[key] !== val && console.log(`Prop '${key}' changed`)
-  //   );}
+  componentDidUpdate(prevProps, prevState) {
+    Object.entries(this.props).forEach(([key, val]) =>
+      prevProps[key] !== val && console.log(`Prop '${key}' changed`)
+    );}
 
   news() {
 

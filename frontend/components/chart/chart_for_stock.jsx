@@ -51,7 +51,7 @@ class DrawChart extends React.Component {
               style: 'currency',
               currency: 'USD'
             }).format(value);
-            // update(value);
+            update(value);
             return <span className="chart-time" >{returnVal}</span>
           }}
           labelFormatter={(value) => {

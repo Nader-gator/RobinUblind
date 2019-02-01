@@ -185,7 +185,7 @@ class MainPage extends React.Component{
 
           <div className="porfolio-performance">
             {/* <h1>${this.parsePortfolioVal("totalVal")}</h1> */}
-            <ValueDisplay/>
+            <ValueDisplay begin={this.parsePortfolioVal("totalVal")}/>
             <h2>${this.parsePortfolioVal("dayChange")} ({this.parsePortfolioVal("percentChange")}%)<span>Today</span></h2>
           </div>
 

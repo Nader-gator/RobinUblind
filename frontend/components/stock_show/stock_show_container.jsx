@@ -6,6 +6,7 @@ import { clearSearch } from '../../actions/search_actions';
 import {fetchCurrentStock} from "../../actions/stocks_actions"
 import { fetchWatchlist } from '../../actions/watchlist_actions';
 import { fetchTransactions, sendTransactions } from '../../actions/transaction_actions'
+import { updateChartDisplay } from '../../actions/chart_actions';
 
 class StockShow extends React.Component {
 
@@ -28,17 +29,7 @@ class StockShow extends React.Component {
     }
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   // debugger
-  //   if (this.props.chartData.length == 0){
-  //     return true
-  //   }
-  //   return false
-  // }
-  componentDidUpdate(prevProps, prevState) {
-    Object.entries(this.props).forEach(([key, val]) =>
-      prevProps[key] !== val && console.log(`Prop '${key}' changed`)
-    );}
+
 
   news() {
 
@@ -75,6 +66,7 @@ class StockShow extends React.Component {
       transactions={this.props.transactions}
       transactionStatus={this.props.transactionStatus}
       errors={this.props.errors}
+      updateChartDisplay={this.props.updateChartDisplay}
       />)
     }
   }
@@ -104,7 +96,8 @@ const mapDispatchToProps = dispatch => {
     fetchCurrentStock: (stockCode,range,option) => dispatch(fetchCurrentStock(stockCode,range,option)),
     fetchWatchlist: (id) => dispatch(fetchWatchlist(id)),
     fetchTransactions: (userId,date) => dispatch(fetchTransactions(userId,date)),
-    sendTransaction: (userId,data,date) => dispatch(sendTransactions(userId,data,date))
+    sendTransaction: (userId,data,date) => dispatch(sendTransactions(userId,data,date)),
+    updateChartDisplay: (value) => dispatch(updateChartDisplay(value))
   }
 }
 

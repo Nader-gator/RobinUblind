@@ -23,6 +23,7 @@ class StockChart extends React.Component{
   }
 
 
+
   dataSlice(arr, size) {
     if (size === false || size === 1) {
       return arr

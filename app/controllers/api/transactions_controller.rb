@@ -61,6 +61,13 @@ class Api::TransactionsController < ApplicationController
     render json: {msg: "Not enough shares of #{params[:data][:stock_code]}",newBankroll: user.bankroll}
     rendered = true
 
+  elsif params[:data][:amount].to_i < 0
+    
+      render json: {msg: "Order canm\'t be negative",
+      newBankroll: user.bankroll
+      }
+      rendered = true
+
   else
     cost = params[:data][:amount].to_i * params[:data][:price].to_i
     transaction = Transaction.new(

@@ -1,7 +1,7 @@
 import {RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER, REMOVE_ERRORS} from '../../actions/session_actions'
 
 
-export default (state = [], action) => {
+export default (state = 0, action) => {
   Object.freeze(state)
   
   switch (action.type) {
@@ -12,6 +12,6 @@ export default (state = [], action) => {
     case REMOVE_ERRORS:
       return []
     default:
-      return []
+      return 0
   }
 }

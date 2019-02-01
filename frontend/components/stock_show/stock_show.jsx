@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom';
 import { addToWatchlist } from '../../util/watchlist_util'
 import Unknown from '../loading_page/unknown_stock'
 import StockChart from './stock_chart'
+import MainVal from './main_value'
 
 class ShowAndBuyForm extends React.Component{
 
@@ -41,7 +42,15 @@ class ShowAndBuyForm extends React.Component{
       }),4000)
     }
     }
-  
+
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("STOCK SHOW")
+  //   Object.entries(this.props).forEach(([key, val]) =>
+  //     prevProps[key] !== val && console.log(`Prop '${key}' changed`)
+  //   );
+  // }
+
 
   update(field){
     return (e) => {
@@ -88,16 +97,20 @@ class ShowAndBuyForm extends React.Component{
       price: this.props.stock.quote.delayedPrice,
       amount: this.state.numShares
     })
+    
+    this.setState({ numShares: ""})
   }
 
   handleSellSubmit(e){
     e.preventDefault()
-    this.props.sendTransaction({
+        this.props.sendTransaction({
       category: "sell",
       stock_code: this.props.stock.quote.symbol,
       price: this.props.stock.quote.delayedPrice,
       amount: this.state.numShares
     })
+    this.setState({ numShares: ""})
+
   }
 
   numSharesOwnership(code){
@@ -293,14 +306,18 @@ class ShowAndBuyForm extends React.Component{
 
 
           <div className="porfolio-performance">
-            <h1>${this.props.stock.quote.delayedPrice}</h1>
+            <MainVal begin={this.props.stock.quote.delayedPrice}/>
             <h2>${this.props.stock.quote.change} ({(this.props.stock.quote.changePercent * 100).toFixed(2)}%)<span>Today</span></h2>
           </div>
+          <div onMouseLeave={ () => {
+              this.props.updateChartDisplay(this.props.stock.quote.delayedPrice)
+            }}>
             <StockChart
             fetchCurrentStock={this.props.fetchCurrentStock}
             stock={this.props.stock}
             chartData={this.props.chartData}
             />
+            </div>
           {/* 22 Articles in here */}
           <div className="news-list">
             <h1>Recent News</h1>

@@ -94,7 +94,7 @@ const mapDispatchToProps = dispatch => {
     getWatchlist: (id) => dispatch(fetchWatchlist(id)),
     fetchStockData: (code) => dispatch(fetchStockData(code)),
     fetchTransactions: (userId,date) => dispatch(fetchTransactions(userId,date)),
-    updateChartDisplay: (val) => dispatch(updateChartDisplay(val))
+    updateChartDisplay: (value) => dispatch(updateChartDisplay(value))
 
   }
 }

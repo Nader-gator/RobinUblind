@@ -90,7 +90,7 @@
 	border-radius: 5px;
 	height: 85vh;
 	animation-name: watchlist;
-  animation-duration: 2s;
+  animation-duration: 0.8s;
 	/* animation-direction: reverse;   */
 }
 
@@ -281,7 +281,7 @@
 }
 .wsticky {
 	position: fixed;
-	left: 890px;
+	left: 68%;
 	padding-top: 12px;
 }
 /* Watch list section styling end */
@@ -324,7 +324,7 @@
 .loading-page {
 	margin-left: 180px;
 	width: 700px;
-	height: 290px;
+	height: 296px;
 	margin-bottom: 70px;
 }
 

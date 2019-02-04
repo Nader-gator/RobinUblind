@@ -28,8 +28,8 @@
 }
 .bsticky {
 	position: fixed;
-	left: 61.7%;
 	padding-top: 12px;
+	margin-left: 960px;
 }
 .stock-buy h2 {
 	width: 140px;

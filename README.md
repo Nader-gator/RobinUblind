@@ -1,6 +1,6 @@
 # RobinUblind
 
-*RobinUblind is a single page Robinhood clone made with Rails + React where users are able to purchase and sell stocks, keep a *watchlist, and monitor the value of their portfolio value.
+RobinUblind is a single page Robinhood clone made with Rails + React where users are able to purchase and sell stocks, keep a watchlist, and monitor the value of their portfolio value.
 
 [Live Demo](https://robinublind.herokuapp.com/#/)
 

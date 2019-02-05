@@ -30,7 +30,6 @@ class SearchBar extends React.Component {
     let left = text.slice(0,index)
     let middle = text.slice(index,length)
     let right = text.slice(length,-1)
-    // debugger
     return(
       <span class='search-text'>
         {left}<mark>{middle}</mark>{right}

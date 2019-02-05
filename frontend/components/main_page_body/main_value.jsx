@@ -1,16 +1,22 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import Odometer from '../odometer/odometer'
+
 class ValueDisplay extends React.Component{
-  numberWithCommas = (x) => {
-    x = parseInt(x)
-    return x.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  }
+
   render(){
     if (this.props.value === "00.00"){
-      return <h1>${this.props.begin}</h1>
+      return (
+        
+        <h1>
+        <Odometer value= {this.props.begin}/>
+      </h1>
+            )
     }
     return (
-      <h1>${this.numberWithCommas(this.props.value)}</h1>
+      <h1>
+        <Odometer value= {this.props.value}/>
+      </h1>
     )
   }
 }

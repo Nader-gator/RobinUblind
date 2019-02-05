@@ -399,3 +399,41 @@ input[type="number"] {
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 }
+
+.number-column{
+	overflow: hidden;
+	width: 20px;
+	height: 30px;
+}
+.number-column span{
+	margin: 0;
+	color: #fffffff1
+}
+.number-wrapper{
+	display: flex;
+	flex-direction: column;
+}
+
+.odometer-wrapper{
+	display: flex;
+	width: 300px;
+}
+.value-decimal {
+	position: relative;
+	top: -35px;
+}
+
+.odometer{
+	margin-left: 5px;
+	margin-bottom: 5px;
+	width: 40px;
+}
+
+.number-wrapper .number-wrapper{
+
+  transition: transform 1s ease, top 1s ease;
+}
+
+.odometer-wrapper{
+	color: #fffffff1
+}

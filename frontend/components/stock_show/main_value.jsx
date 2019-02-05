@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import Odometer from '../odometer/odometer'
 
 class ValueDisplay extends React.Component{
 
@@ -20,11 +21,11 @@ class ValueDisplay extends React.Component{
   render(){
     if (this.state.initialState){
       return (
-        <h1>${this.props.begin}</h1>
+        <Odometer value={this.props.begin}/>
       )
     }
     return (
-      <h1>${this.numberWithCommas(this.props.value)}</h1>
+      <Odometer value={this.props.value}/>
     )
   }
 }

@@ -27,7 +27,7 @@ class Api::TransactionsController < ApplicationController
       ]
       needed_transactions= transactions[0][0...-2]
       transactions = [needed_transactions, transactions[0][-2..-1]]
-    elsif params[:date] == '1y'
+    elsif params[:date] == '1y' #App only uses this one, keeping the rest for future feature additions
       transactions = [
         user.sorted_transactions_upto(
           Transaction.get_time_map(365)

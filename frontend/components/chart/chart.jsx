@@ -9,7 +9,7 @@ class DrawChart extends React.Component{
   render(){
 
 
-      if (Object.keys(this.props.data).length === 0) {
+      if (Object.keys(this.props.data).length === 0 || this.props.data.length === 0) {
         return null
       }
       const dataMin = function (data) {

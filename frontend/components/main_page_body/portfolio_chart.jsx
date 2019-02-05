@@ -9,8 +9,12 @@ class PortFolioChart extends React.Component{
 
   constructor(props){
     super(props)
-    this.state = { w: true, m: false, tm: false, y: false}
+    this.state = { w: true, m: false, tm: false, y: false, viewsMode: 7}
     this.color = "green"
+  }
+
+  componentDidMount(){
+    this.props.fetchTransactions(this.props.currentUser.id, "1y", false)
   }
 
 
@@ -30,7 +34,7 @@ class PortFolioChart extends React.Component{
       }
     })
     this.changeColor(parsedData)
-    return parsedData
+    return parsedData.slice(this.state.viewsMode * -1)
   }
 
   changeColor(data){
@@ -58,32 +62,28 @@ class PortFolioChart extends React.Component{
 
           <p
             onClick={() => {
-              this.props.fetchTransactions(this.props.currentUser.id, "1w",false).then(() =>
-                this.setState({ viewsMode: 7 }))
+                this.setState({ viewsMode: 7 })
               this.setState({ w: true, m: false, tm: false, y: false })
             }}
             className={this.state.w ? `range-selected ${this.color}` : null}
           >1W</p>
 
-          <p onClick={() => {
-            this.props.fetchTransactions(this.props.currentUser.id, "1m",false).then(() =>
-              this.setState({ viewsMode: 30 }))
-            this.setState({ w: false, m: true, tm: false, y: false })
+          <p onClick={()=>{
+              this.setState({ viewsMode: 30 })
+              this.setState({ w: false, m: true, tm: false, y: false })
           }}
             className={this.state.m ? `range-selected ${this.color}` : null}
           >1M</p>
 
           <p onClick={() => {
-            this.props.fetchTransactions(this.props.currentUser.id, "3m",false).then(() =>
-              this.setState({ viewsMode: 90 }))
+              this.setState({ viewsMode: 90 })
             this.setState({ w: false, m: false, tm: true, y: false })
           }}
             className={this.state.tm ? `range-selected ${this.color}` : null}
           >3M</p>
 
           <p onClick={() => {
-            this.props.fetchTransactions(this.props.currentUser.id, "1y",false).then(() =>
-              this.setState({ viewsMode: false }))
+              this.setState({ viewsMode: false })
             this.setState({ w: false, m: false, tm: false, y: true })
           }}
             className={this.state.y ? `range-selected ${this.color}` : null}

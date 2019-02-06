@@ -38,6 +38,7 @@ class DrawChart extends React.Component{
       const min = dataMin(this.props.data) - (0.005 * range)
       const max = dataMax(this.props.data) + (0.005 * range)
       const update = this.props.updateChartDisplay
+      const chartData = this.props.chartData
       return (
         < LineChart width={710} height={300} data={this.props.data} >
           <Line type="monotone" dataKey="close" stroke={stroke} dot={false} />
@@ -51,7 +52,9 @@ class DrawChart extends React.Component{
                 style: 'currency',
                 currency: 'USD'
               }).format(value);
-              update(value);
+              if (chartData != value){
+                update(value);
+              }
               return <span className="chart-time" >{returnVal}</span>
             }}
             labelFormatter={(value) => {
@@ -71,9 +74,9 @@ class DrawChart extends React.Component{
   }
   
 }
-const mstop = ({})=> {
+const mstop = ({ui: {chartData}})=> {
   return {
-
+    chartData
   }
 }
 

@@ -20,11 +20,8 @@ class Main extends React.Component {
     this.props.watchlist.forEach(stockItem => {
       this.props.fetchStockData(stockItem.nasdaq_code)
     });
-    this.props.fetchTransactions(this.props.currentUser.id, "1w")
   }
-  // componentWillMount() {
-    
-  // }
+  
   content() {
 
     if (Object.keys(this.props.news).length === 0) {

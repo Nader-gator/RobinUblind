@@ -56,7 +56,7 @@ class MainPage extends React.Component{
     })
   }
 
-  
+
 
   parsePortfolioVal = (type) => {
 

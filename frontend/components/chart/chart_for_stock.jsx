@@ -8,17 +8,18 @@ class DrawChart extends React.Component {
 
   render() {
 
-
     if (Object.keys(this.props.data).length === 0) {
       return null
     }
     const dataMin = function (data) {
+      
       let min = Math.pow(10, 20)
       data.forEach(dataEl => {
         if (dataEl.close < min) {
           min = dataEl.close
         }
       });
+      
       return min
     };
 
@@ -31,18 +32,18 @@ class DrawChart extends React.Component {
       });
       return max
     };
-    const first = this.props.data[0].close
-    const last = this.props.data[this.props.data.length - 1].close
+
     const stroke = (this.props.color === 'green') ? "#61ca9d" : "#e3603f";
-    const range = dataMin(this.props.data) + dataMax(this.props.data)
+    const range = dataMax(this.props.data) - dataMin(this.props.data) 
     const min = dataMin(this.props.data) - (0.005 * range)
     const max = dataMax(this.props.data) + (0.005 * range)
     const update = this.props.updateChartDisplay
+    
     return (
       < LineChart width={710} height={300} data={this.props.data} >
         <Line type="monotone" dataKey="close" stroke={stroke} dot={false} />
         <XAxis dataKey="date" hide={true} />
-        <YAxis domain={[min, max]} hide={true} />
+        <YAxis domain={this.props.viewsMode === 'day' ? [dataMin(this.props.data), dataMax(this.props.data)] :[min, max]} hide={true} />
           <Tooltip
           contentStyle={{ backgroundColor: 'transparent', border: '0' }}
 
@@ -73,7 +74,7 @@ class DrawChart extends React.Component {
 }
 const mstop = ({ }) => {
   return {
-
+    
   }
 }
 

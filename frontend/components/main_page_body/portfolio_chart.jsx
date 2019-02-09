@@ -4,7 +4,7 @@ import Loading from '../loading_page/body_loading'
 import { connect } from 'react-redux'
 
 class PortFolioChart extends React.Component{
-
+ 
 
 
   constructor(props){
@@ -14,7 +14,7 @@ class PortFolioChart extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchTransactions(this.props.currentUser.id, "1y", false)
+      this.props.fetchTransactions(this.props.currentUser.id, "1y", false)
   }
 
 
@@ -33,8 +33,9 @@ class PortFolioChart extends React.Component{
         close: runningTotal
       }
     })
+    parsedData = parsedData.slice(this.state.viewsMode * -1)
     this.changeColor(parsedData)
-    return parsedData.slice(this.state.viewsMode * -1)
+    return parsedData
   }
 
   changeColor(data){

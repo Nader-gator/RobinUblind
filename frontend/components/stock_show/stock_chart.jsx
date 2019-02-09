@@ -27,8 +27,14 @@ class StockChart extends React.Component{
       return arr
     }
     let result = []
-    arr.slice(Math.max(arr.length - size, 1)).forEach(el => {
-      result.push({ date: el.date, close: el.close })
+    arr.slice( (this.state.viewsMode === 'day') ? 0 : Math.max(arr.length - size, 1)).forEach((el,i) => {
+      if (this.state.viewsMode === 'day'){
+        if (i % 5 === 0){
+          result.push({ date: el.minute, close: el.close })
+        }
+      }else{
+        result.push({ date: el.date, close: el.close })
+      }
     })
     this.changeColor(result)
     return result
@@ -38,15 +44,17 @@ class StockChart extends React.Component{
     return (
 
       <div className="porfolio-chart">
-        <Chart data={this.dataSlice(this.props.stock.chart, this.state.viewsMode)}
-          color={this.color}
+        <Chart 
+        data={this.dataSlice(this.props.stock.chart, this.state.viewsMode)}
+        color={this.color}
+        viewsMode={this.state.viewsMode}
         />
 
 
         <div className="stock-show-span-selectors">
           <p onClick={() => {
             this.props.fetchCurrentStock(this.props.stock.quote.symbol, "1d", false).then(() =>{
-              this.setState({ viewsMode: 1 });
+              this.setState({ viewsMode: 'day' });
               this.setState({ d: true, w: false, m: false, tm: false, y: false });
             })
           }}

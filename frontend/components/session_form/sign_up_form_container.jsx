@@ -16,7 +16,8 @@ const mapStateToProps = ({ errors: { session } }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     formAction: (user) => dispatch(signUp(user)),
-    resetErrors: () => dispatch(clearError())
+    resetErrors: () => dispatch(clearError()),
+    demoUser: () => dispatch(logIn({ email: "demouser@demo.com", password: "starwars" })),
   }
 }
 

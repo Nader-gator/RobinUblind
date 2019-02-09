@@ -53,9 +53,10 @@ class SessionForm extends React.Component {
         <img className="login-img" src={window.loginimgURL} />
           <form onSubmit={this.handleSubmit} className="loginform">
             <h1>Welcome to RobinUblind!</h1>
+          <button className="demo-user-form" onClick={this.props.demoUser}>Demo User</button>
             <div className="login-greet">Please {this.props.formType}</div>
             {this.props.navLink}
-            
+          
             <div className="login-fields">
               <label className="field-label">
                 Email
@@ -70,12 +71,13 @@ class SessionForm extends React.Component {
                 <input className="login-inputs" type="password" value={this.state.password} onChange={this.update("password")} />
               </label>
             </div>
+          
 
             <div className="login-error">
               {this.renderErrors()}
             </div>
 
-       
+
            
 
             <input className="login-form-submit" type="submit" value={this.props.formType} />

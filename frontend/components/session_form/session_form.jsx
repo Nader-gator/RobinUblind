@@ -19,6 +19,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    debugger
     const user = Object.assign({}, this.state)
     this.props.formAction(user)
   }
@@ -53,7 +54,13 @@ class SessionForm extends React.Component {
         <img className="login-img" src={window.loginimgURL} />
           <form onSubmit={this.handleSubmit} className="loginform">
             <h1>Welcome to RobinUblind!</h1>
-          <button className="demo-user-form" onClick={this.props.demoUser}>Demo User</button>
+
+          <button 
+          type="button"
+          className="demo-user-form"
+          onClick={this.props.demoUser}
+          >Demo User</button>
+
             <div className="login-greet">Please {this.props.formType}</div>
             {this.props.navLink}
           

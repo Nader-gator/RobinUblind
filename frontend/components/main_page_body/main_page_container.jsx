@@ -5,7 +5,7 @@ import MainPage from './main_page'
 import { clearSearch } from '../../actions/search_actions';
 import { fetchWatchlist } from "../../actions/watchlist_actions"
 import { fetchStockData } from '../../actions/stocks_actions'
-import { fetchTransactions } from "../../actions/transaction_actions"
+import { fetchTransactions,fetchTransactionsMain } from "../../actions/transaction_actions"
 import { updateChartDisplay } from '../../actions/chart_actions'
 
 class Main extends React.Component {
@@ -63,13 +63,14 @@ class Main extends React.Component {
     transactionLoading={this.props.transactionLoading}
     transactions={this.props.transactions}
     updateChartDisplay={this.props.updateChartDisplay}
+    fetchTransactionsMain={this.props.fetchTransactionsMain}
     />
   }
 
 }
 
 
-const mapStateToProps = ({entities:{user,watchlist, stockData, currentStock,transactions}, entities:{news}, ui:{loading}}) => {
+const mapStateToProps = ({entities:{user,watchlist, stockData, currentStock,transactions}, entities:{news,portfolio}, ui:{loading}}) => {
   return {
     currentUser: user,
     news,
@@ -77,7 +78,7 @@ const mapStateToProps = ({entities:{user,watchlist, stockData, currentStock,tran
     watchlist,
     data: stockData,
     stock: currentStock,
-    transactions,
+    transactions: portfolio,
     transactionLoading: loading.transactionLoading,
     allLoading: loading,
   }
@@ -91,7 +92,8 @@ const mapDispatchToProps = dispatch => {
     getWatchlist: (id) => dispatch(fetchWatchlist(id)),
     fetchStockData: (code) => dispatch(fetchStockData(code)),
     fetchTransactions: (userId,date) => dispatch(fetchTransactions(userId,date)),
-    updateChartDisplay: (value) => dispatch(updateChartDisplay(value))
+    updateChartDisplay: (value) => dispatch(updateChartDisplay(value)),
+    fetchTransactionsMain: (userId,date) => dispatch(fetchTransactionsMain(userId,date)),
 
   }
 }

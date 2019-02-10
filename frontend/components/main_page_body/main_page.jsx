@@ -193,7 +193,7 @@ class MainPage extends React.Component{
             
           <PorfolioChart
             stock={this.props.stock}
-            fetchTransactions={this.props.fetchTransactions}
+            fetchTransactionsMain={this.props.fetchTransactionsMain}
             currentUser={this.props.currentUser}
             transactions={this.props.transactions}
             loading={this.props.transactionLoading}

@@ -4,6 +4,7 @@ export const LOGOUT_CURRENT_USER ="LOGOUT_CURRENT_USER"
 export const RECEIVE_SESSION_ERRORS ="RECEIVE_SESSION_ERRORS"
 export const REMOVE_ERRORS = "REMOVE_ERRORS"
 
+import { clearPortfolio} from './transaction_actions'
 
 export const receiveErrors = (errors) => {
   return {
@@ -53,6 +54,7 @@ export const logIn = (user) => dispatch => {
 }
 
 export const logOut = () => dispatch => {
+  dispatch(clearPortfolio())
   return APIutil.logout().then(user => {
     return dispatch(logoutCurrentUser())
   })

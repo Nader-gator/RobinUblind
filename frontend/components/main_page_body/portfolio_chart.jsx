@@ -14,7 +14,8 @@ class PortFolioChart extends React.Component{
   }
 
   componentDidMount(){
-      this.props.fetchTransactions(this.props.currentUser.id, "1y", false)
+    if (this.props.transactions.length === 0)
+      this.props.fetchTransactionsMain(this.props.currentUser.id, "1y", false)
   }
 
 

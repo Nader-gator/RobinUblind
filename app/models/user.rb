@@ -174,13 +174,13 @@ end
   
   def find_price_at_date(array,date)
     date = date.strftime("%Y%m%d")
-      # array.each do |item|
-      #   if item["date"].gsub('-', '') > date.to_s
-      #     return item["close"]
-      #   end
-      # end
-       result =array.bsearch{|item| item["date"].gsub('-', '') >= date.to_s }
-      return result['close'] if result
+      array.each do |item|
+        if item["date"].gsub('-', '') > date.to_s
+          return item["close"]
+        end
+      end
+      #  result =array.bsearch{|item| item["date"].gsub('-', '') >= date.to_s }
+      # return result['close'] if result
       array.last["close"]
   end
   

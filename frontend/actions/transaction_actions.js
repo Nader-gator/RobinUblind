@@ -20,7 +20,11 @@ export const fetchTransactionsMain = (userId,date,option=true) => dispatch => {
   }
   return TransUtil.getTransactions(userId,date).then(transactions => {
     return dispatch(receiveTransactionsMain(transactions))
-  })
+  },
+    err => {
+      location.reload();
+}
+  )
 }
 
 export const startReciveTransactions = () => {

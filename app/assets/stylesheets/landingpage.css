@@ -56,6 +56,7 @@ input:focus { outline: none; }
 	text-align: right;
 	text-decoration: none;
 	color: black;
+
 }
 .mainlogo {
 	position: relative;
@@ -398,7 +399,9 @@ label {
   flex-grow: 1.1;
   text-align: right;
   text-decoration: none;
-  color: black;
+	color: black;
+	position: relative;
+	right: 10%;
 }
 .mainlogo {
   position: relative;
@@ -733,13 +736,15 @@ label {
   font-weight: bolder;
   font-size: 16px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   border: none;
   border-left: 40px solid transparent;
   color: red;
   border-color: white;
-  cursor: pointer;
+	cursor: pointer;
+	position: relative;
+	right: 18%;
 }
 
 .demo-user:active {
@@ -792,4 +797,22 @@ font-family: Roboto;
 	height: 50px;
 	position: relative;
 	right: 155px;
+}
+
+.login-error ul li{
+	font-family: Roboto;
+	font-weight: bold;
+	animation-name: errors;
+	animation-duration: 0.5s;
+}
+
+
+@keyframes errors {
+	0%   {
+		opacity: 0.1;
+		transform: translate(20px,0px)
+		}
+	100% {
+		opacity: 1;
+	}
 }

@@ -19,10 +19,10 @@ const Greeting = ({ currentUser, logout, demoUser,resetNews }) => {
         
         </Link>
         <div className="middle-filler">
-          <Link to="/main" className="filler-link">Investing</Link>
+          {/* <Link to="/main" className="filler-link">Investing</Link>
           <Link to="/main" className="filler-link">Cash Management</Link>
           <Link to="/main" className="filler-link">Blog</Link>
-          <Link to="/main" className="filler-link">Help</Link>
+          <Link to="/main" className="filler-link">Help</Link> */}
           <button className="demo-user" onClick={demoUser}>Demo User</button>
         </div>
         

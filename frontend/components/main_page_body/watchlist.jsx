@@ -23,7 +23,6 @@ export default ({data,transactions,mappedWatchlist}) => {
       </Link>)
     })
   }
-
   return (
   <div id='watchlist' className="watch-list wsticky">
     <aside className="inner-container">

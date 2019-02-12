@@ -40,7 +40,11 @@ class ShowAndBuyForm extends React.Component{
         ssbutton: "Submit Sell Order",
         specialButton: false,
       }),4000)
+
+      this.props.fetchWatchlist(this.props.user.id)
+      this.props.fetchTransactions()
     }
+
     }
 
 

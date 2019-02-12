@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
     let middle = text.slice(index,length)
     let right = text.slice(length,-1)
     return(
-      <span class='search-text'>
+      <span className='search-text'>
         {left}<mark>{middle}</mark>{right}
       </span>
     )

@@ -64,6 +64,7 @@ class Main extends React.Component {
     transactions={this.props.transactions}
     updateChartDisplay={this.props.updateChartDisplay}
     fetchTransactionsMain={this.props.fetchTransactionsMain}
+    wListTransactions={this.props.wListTransactions}
     />
   }
 
@@ -79,6 +80,7 @@ const mapStateToProps = ({entities:{user,watchlist, stockData, currentStock,tran
     data: stockData,
     stock: currentStock,
     transactions: portfolio,
+    wListTransactions: transactions,
     transactionLoading: loading.transactionLoading,
     allLoading: loading,
   }

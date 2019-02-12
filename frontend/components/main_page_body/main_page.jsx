@@ -29,7 +29,7 @@ class MainPage extends React.Component{
       
       this.setState({ watchlistWaiting: false })
 
-    }, 2100)
+    }, 1200)
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -219,7 +219,8 @@ class MainPage extends React.Component{
             </div>)
             : <Watchlist 
             data={this.props.data}
-            transactions={this.props.transactions}
+            transactions={(this.props.wListTransactions.length === 0 ? this.props.transactions : 
+              [null,[null,this.props.wListTransactions]])}
             mappedWatchlist={this.mappedWatchlist}
             />}
         

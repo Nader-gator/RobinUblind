@@ -8,6 +8,6 @@ export default (defaultState={}) => {
   return createStore(
     RootReducer,
     defaultState,
-    applyMiddleware(thunk,logger)
+    applyMiddleware(thunk)
   )
 }

@@ -229,7 +229,6 @@ class ShowAndBuyForm extends React.Component{
   }
 
   render(){
-    
     if (this.props.errors.stock == "Unknown symbol"){
       return <Unknown />
     }
@@ -310,6 +309,7 @@ class ShowAndBuyForm extends React.Component{
 
 
           <div className="porfolio-performance">
+          <h1>{this.props.stock.quote.companyName}</h1>
             <MainVal begin={this.props.stock.quote.delayedPrice}/>
             <h2>${this.props.stock.quote.change} ({(this.props.stock.quote.changePercent * 100).toFixed(2)}%)<span>Today</span></h2>
           </div>

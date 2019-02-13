@@ -107,8 +107,9 @@ class MainPage extends React.Component{
       if (this.props.data[el.nasdaq_code] === undefined) {
         return []
       }
-      const transactions = (this.props.wListTransactions.length === 0 ? Object.keys(this.props.transactions[1][1].open) : Object.keys(this.props.wListTransactions.open))
+      
       if (this.positions().length > 0) {
+        const transactions = (this.props.wListTransactions.length === 0 ? Object.keys(this.props.transactions[1][1].open) : Object.keys(this.props.wListTransactions.open))
         if (transactions.includes(el.nasdaq_code))
           return []
       }

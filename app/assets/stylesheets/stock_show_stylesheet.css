@@ -437,3 +437,9 @@ input[type="number"] {
 .odometer-wrapper{
 	color: #fffffff1
 }
+
+.porfolio-performance h1 {
+	margin: 0;
+	margin-left: 5px;
+	font-size: 24px;
+}

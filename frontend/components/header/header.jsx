@@ -85,11 +85,12 @@ const Greeting = ({ currentUser, logout, demoUser,resetNews }) => {
                 </li>
 
 
-                <li>
+                {/* <li>
                   <a href="#">💼 Account</a>
-                </li>
+                </li> */}
                 <li>
-                  <a href="#">🕑 History</a>
+                  <Link to='history'>🕑 History</Link>
+                  {/* <a href="/history">🕑 History</a> */}
                 </li>
                 <li className="log-out">
                   <div className="fix"></div>

@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
   
   handleChange(e) {
     this.setState({ searchletters: e.target.value},()=>{
-      if (this.state.searchletters.length > 1){
+      if (this.state.searchletters.length > 0){
         this.props.fetchStocks(this.state.searchletters)
       } else {
         this.props.clearSearch()

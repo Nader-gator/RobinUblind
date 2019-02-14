@@ -59,7 +59,6 @@ class PortFolioChart extends React.Component{
       <div className="porfolio-chart">
         <Chart data={this.parseData(this.props.transactions[0])} />
 
-        {/* SPAGHETTI CODE AHEAD, ENTER AT YOUR OWN RISK (it works tho :D ) */}
         <div className="stock-show-span-selectors">
 
           <p

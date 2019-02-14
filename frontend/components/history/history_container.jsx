@@ -1,52 +1,122 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Header from '../header/header_container'
-import {fetchTransactionsMain} from '../../actions/transaction_actions'
+import {fetchTransactions} from '../../actions/transaction_actions'
 import Loading from '../loading_page/full_page_load'
 
 class History extends React.Component {
 
   componentWillMount(){
-    if (this.props.transactions.length === 0){
-      this.props.fetchTransactionsMain(this.props.user.id, "1y")
-    }
+    this.props.fetchTransactions(this.props.user.id, "now")
   }
 
-  mappedTransactions(transactions){
+  mappedTransactionsType(transactions){
     return transactions.map((el,i)=>{
       if (el.category === 'buy-in'){
         return []
       }
       return(
-        <li key={i}>
-          <span style={{ color: '#f46242' }}> Category:</span> {el.category}, <span style={{ color: '#6a8aed' }}> Amount:</span> {el.amount}, <span style={{ color: '#6aed9a' }}>Price: </span>${el.price}, <span style={{color: '#ede86a'}}>Date:</span> {el.date.slice(0,10)}
+        <li key={i} className="history-header">
+          {el.category}
+        </li>
+      )
+    })
+  }
+  mappedTransactionsPrice(transactions){
+    return transactions.map((el,i)=>{
+      if (el.category === 'buy-in'){
+        return []
+      }
+      return(
+        <li key={i} className="history-header">
+          {el.price}
+        </li>
+      )
+    })
+  }
+  mappedTransactionsAmount(transactions){
+    return transactions.map((el,i)=>{
+      if (el.category === 'buy-in'){
+        return []
+      }
+      return(
+        <li key={i} className="history-header">
+          {el.amount}
+        </li>
+      )
+    })
+  }
+  mappedTransactionsDate(transactions){
+    return transactions.map((el,i)=>{
+      if (el.category === 'buy-in'){
+        return []
+      }
+      return(
+        <li key={i} className="history-header" style={{width: 100}}>
+          {el.date.slice(0,10)}
         </li>
       )
     })
   }
 
-  contentClosed(){
-    return Object.keys(this.props.transactions[1][1].closed).map((code,i)=>{
+
+
+  contentOpen(){
+    return Object.keys(this.props.transactions.open).map((code,i)=>{
       return (
-        <div key={`closed${i}`}>
-          <h1>{code}</h1>
-          <ul>
-            {this.mappedTransactions(this.props.transactions[1][1].closed[code].data)}
-          </ul>
+        <div key={`open${i}`} className='company-list'>
+          <h1 style={{color: 'white'}}>{code}</h1>
+          <div className='history-wrapper'>
+
+            <ul className='history-header'>
+              <li>Type</li>
+              {this.mappedTransactionsType(this.props.transactions.open[code].data)}
+            </ul>
+            <ul className='history-header'>
+              <li>Price</li>
+              {this.mappedTransactionsPrice(this.props.transactions.open[code].data)}
+            </ul>
+            <ul className='history-header'>
+              <li>Amount</li>
+              {this.mappedTransactionsAmount(this.props.transactions.open[code].data)}
+            </ul>
+            <ul className='history-header'>
+              <li style={{ width: 100 }}>Date</li>
+              {this.mappedTransactionsDate(this.props.transactions.open[code].data)}
+            </ul>
+          </div>
+          <div style={{marginLeft: 50}}>
+            <h2>Total holding: {this.props.transactions.open[code].stats.holding}</h2>
+          </div>
         </div>
       )
     })
+
   }
-  contentOpen(){
-    return Object.keys(this.props.transactions[1][1].open).map((code,i)=>{
+
+  contentClosed(){
+    return Object.keys(this.props.transactions.closed).map((code,i)=>{
       return (
-        <div key={`open${i}`}>
-          <h1>{code}</h1>
-          <ul>
-            {this.mappedTransactions(this.props.transactions[1][1].open[code].data)}
-          </ul>
-          <div>
-            <h2>Total holding: {this.props.transactions[1][1].open[code].stats.holding}</h2>
+        <div key={`closed${i}`} className='company-list'>
+          <h1 style={{color: 'white'}}>{code}</h1>
+          <div className='history-wrapper'>
+
+            <ul className='history-header'>
+              <li>Type</li>
+              {this.mappedTransactionsType(this.props.transactions.closed[code].data)}
+            </ul>
+            <ul className='history-header'>
+              <li>Price</li>
+              {this.mappedTransactionsPrice(this.props.transactions.closed[code].data)}
+            </ul>
+            <ul className='history-header'>
+              <li>Amount</li>
+              {this.mappedTransactionsAmount(this.props.transactions.closed[code].data)}
+            </ul>
+            <ul className='history-header'>
+              <li style={{ width: 100 }}>Date</li>
+              {this.mappedTransactionsDate(this.props.transactions.closed[code].data)}
+            </ul>
           </div>
         </div>
       )
@@ -65,17 +135,24 @@ class History extends React.Component {
         <div>
         <Header/>
         <div className="main-body-history">
-          <h1 className="trans-history">Transaction History</h1>
+          <h1 className="trans-history" style={{color: 'rgb(146, 177, 163)'}}>Transaction History</h1>
+          <div>
+
           <div className='line-div'></div>
-            <ul>
-              <h1>Open Positions</h1>
-              {this.contentOpen()}
-            </ul>
+              <h1 style={{ marginLeft: 20}}>Open Positions</h1>
+              <div className='stock-history-wrapper' style={{ marginLeft: 50 }}>
+                {this.contentOpen()}
+            </div>
+          </div>
           <div className='line-div'></div>
-          <ul>
-            <h1>Closed Positions:</h1>
-            {this.contentClosed()}
-          </ul>
+            <div>
+
+              <div className='line-div'></div>
+              <h1 style={{ marginLeft: 20 }}>Closed Positions</h1>
+              <div className='stock-history-wrapper' style={{ marginLeft: 50 }}>
+                {this.contentClosed()}
+              </div>
+            </div>
         </div>
       </div>
     )
@@ -83,16 +160,16 @@ class History extends React.Component {
   }
 }
 
-const mstop = ({ entities:{portfolio,user},ui:{loading:{transactionLoading}}}) => {
+const mstop = ({ entities:{transactions,user},ui:{loading:{transactionLoading}}}) => {
   return {
-    transactions: portfolio,
+    transactions,
     user,
     loading: transactionLoading
   }
 }
 const mdtop = (dispatch) => {
   return {
-    fetchTransactionsMain: (id,date)=> dispatch(fetchTransactionsMain(id,date))
+    fetchTransactions: (id,date)=> dispatch(fetchTransactions(id,date))
   }
 }
 

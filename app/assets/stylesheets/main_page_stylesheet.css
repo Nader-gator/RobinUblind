@@ -391,7 +391,7 @@
 
 .trans-history{
 	margin-top: 150px;
-	margin-left: 50px;
+	margin-left: 20px;
 	color: white;
 }
 
@@ -412,5 +412,31 @@
 }
 
 .main-body-history ul{
-	padding-left: 60px;
+	/* padding-left: 60px; */
+	padding: 0;
+}
+.history-header{
+	display: inline-block;
+	width: 73px;
+}
+.history-header li{
+	/* display: inline; */
+	list-style: none;
+	/* padding-right: 20px; */
+	font-size: 17px;
+	border: 3px solid rgb(51, 51, 51);
+	width: 70px;
+	height: 20px;
+	padding: 0
+}
+.history-wrapper{
+	margin-left: 40px;
+}
+.stock-history-wrapper{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.company-list{
+	margin-right: 80px;
 }

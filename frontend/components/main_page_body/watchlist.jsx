@@ -6,6 +6,7 @@ export default ({data,transactions,mappedWatchlist}) => {
 
 
   const positions = () => {
+    debugger
     if (transactions[1] === undefined) {
       return []
     }
@@ -27,14 +28,14 @@ export default ({data,transactions,mappedWatchlist}) => {
   <div id='watchlist' className="watch-list wsticky">
     <aside className="inner-container">
     <h2>
-      {positions().length > 1 ? "Positions" : ""}
+      {positions().length > 0 ? "Positions" : ""}
     </h2>
-    {positions().length > 1 ? (<span></span>) : null}
-    {positions().length > 1 ? (
+    {positions().length > 0 ? (<span></span>) : null}
+    {positions().length > 0 ? (
       <ul className="buying-list first-buying-list">
         {positions()}
       </ul>) : null}
-    {positions().length > 1 ? (<span className="optional-divider"></span>) : null}
+    {positions().length > 0 ? (<span className="optional-divider"></span>) : null}
     <h2>
       Watchlist
           </h2>

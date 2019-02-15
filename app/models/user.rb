@@ -186,7 +186,10 @@ end
   
   def find_bankroll_at_date(date)
     date = date.strftime("%Y%m%d")
-    self.transactions.where("date <= ?",date).last[:bankroll]
+    
+    last = self.transactions.where("date <= ?",date).last
+    return last[:bankroll] if last
+    return self.bankroll
   end
   
   

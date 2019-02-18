@@ -6,11 +6,9 @@ export default ({data,transactions,mappedWatchlist}) => {
 
 
   const positions = () => {
-    debugger
     if (transactions[1] === undefined) {
       return []
     }
-
     return Object.keys(transactions[1][1].open).map((el, idx) => {
       if (data[el] == undefined) {
         return null

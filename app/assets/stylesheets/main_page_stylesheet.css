@@ -331,7 +331,7 @@
 .chart-loading {
 	position: relative;
 	top:290px;
-	width: 700;
+	width: 700px;
 	height: 50px;
 	background-color: rgb(97, 202, 157);
 	align-content: center;
@@ -347,8 +347,8 @@
 
 .running-man {
 	position: relative;
-	top: 200px;
-	right: 680px;
+	top: 203px;
+	left: -88%;
   -moz-transform: scaleX(-1);
 	-o-transform: scaleX(-1);
 	-webkit-transform: scaleX(-1);
@@ -439,4 +439,20 @@
 
 .company-list{
 	margin-right: 80px;
+}
+
+.loadingmainlogo{
+	position: absolute;
+	top: -20%;
+	left: 25%;
+	height: 45px;
+	width: 45px;
+}
+
+.runningmanlogo{
+	position: relative;
+	top: 90%;
+	left: 10%;
+	height: 45px;
+	width: 45px;
 }

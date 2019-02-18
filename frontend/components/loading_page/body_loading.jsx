@@ -8,8 +8,8 @@ export default () => {
       <div >
 
         <div className="running-man">
-          <img className="mainlogo" src={window.runnungMan} />
-          <img id='mainlogo' className="mainlogo" src={window.logoURL} />
+          <img className="runningmanlogo" src={window.runnungMan} />
+          <img className="loadingmainlogo" src={window.logoURL} />
         </div>
         <div className="chart-loading">
           <h1>LOADING</h1>

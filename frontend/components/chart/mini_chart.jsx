@@ -31,6 +31,9 @@ const DrawChart = ({ data }) => {
     return max
   };
   
+  if (data.length === 0){
+    return []
+  }
   const first = data[0].close
   const last = data[data.length - 1].close
   const stroke = (first < last) ? "#61ca9d" : "#e3603f";

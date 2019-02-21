@@ -43,7 +43,7 @@ class DrawChart extends React.Component{
         < LineChart width={710} height={300} data={this.props.data} >
           <Line type="monotone" dataKey="close" stroke={stroke} dot={false} />
           <XAxis dataKey="date" hide={true} />
-          <YAxis domain={[min, max]} hide={true} />
+          <YAxis domain={this.props.viewsMode === 7 ? [dataMin(this.props.data)*0.9995, dataMax(this.props.data)*1.0005] : [min, max]} hide={true} />
           <Tooltip
             contentStyle={{ backgroundColor: 'transparent', border: '0' }}
 

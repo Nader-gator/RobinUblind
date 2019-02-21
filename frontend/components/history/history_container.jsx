@@ -125,7 +125,7 @@ class History extends React.Component {
   }
 
   render() {
-    if (this.props.loading){
+    if (this.props.loading || this.props.transactions.length === 0){
       return (
         <Loading/>
       )

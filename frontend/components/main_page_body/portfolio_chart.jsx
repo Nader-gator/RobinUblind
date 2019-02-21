@@ -9,7 +9,7 @@ class PortFolioChart extends React.Component{
 
   constructor(props){
     super(props)
-    this.state = { w: true, m: false, tm: false, y: false, viewsMode: 7}
+    this.state = { w: false, m: true, tm: false, y: false, viewsMode: 30}
     this.color = "green"
   }
 
@@ -57,7 +57,9 @@ class PortFolioChart extends React.Component{
   
     return (
       <div className="porfolio-chart">
-        <Chart data={this.parseData(this.props.transactions[0])} />
+        <Chart data={this.parseData(this.props.transactions[0])}
+        viewsMode={this.state.viewsMode}
+        />
 
         <div className="stock-show-span-selectors">
 

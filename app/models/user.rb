@@ -50,13 +50,13 @@ class User < ApplicationRecord
 
   def positions(date = nil)
     transaction_hash = {}
-    transactions = self.transactions
-    transactions = self.transactions.where("date <= ?",date) if date
+    transactions = self.transactions.includes(:stock).where("date <= ?",date) if date
     transactions.each do |transaction|
-      transaction_hash[transaction.stock_id] = [] unless transaction_hash[transaction.stock_id]
-      transaction_hash[transaction.stock_id] << transaction
+      transaction_hash[transaction.stock.nasdaq_code] = [] unless transaction_hash[transaction.stock.nasdaq_code]
+      transaction_hash[transaction.stock.nasdaq_code] << transaction
     end
     return transaction_hash
+    #{21159=>[#<Transaction id: 54, category: "buy-in", user_id: 12, stock_id: 21159, price: 0, date: "2016-01-01 00:00:00", amount: 0, created_at: "2019-02-01 02:46:36", updated_at: "2019-02-01 02:46:36", bankroll: 50000>, #<Transaction id: 55, category: "buy", user_id: 12, stock_id: 21159, price: 156, date: "2018-02-08 00:00:00", amount: 100, created_at: "2019-02-01 02:46:36", updated_at: "2019-02-01 02:46:36", bankroll: 34400>]}
   end
 
   def positions_for_company(company_code)
@@ -134,7 +134,7 @@ class User < ApplicationRecord
     ::RestClient.log = Rails.logger
 
     dates.each do |date|
-      # debugger
+  
     if date == nil
       last = result.last.dup
       next if last.nil?
@@ -146,20 +146,19 @@ class User < ApplicationRecord
     hash = {closed: {}, open: {}}
     self.positions(date).each do |company_code, transaction_array|
       if self.closed_position?(transaction_array)
-        hash[:closed][Stock.find_code(company_code)] = {data: transaction_array,
+        hash[:closed][company_code] = {data: transaction_array,
           stats: User.calculate_holding(transaction_array),
         }
       else
       price_info[company_code] ||= response = RestClient::Request.new({
       method: 'get',
-      url: "https://api.iextrading.com/1.0/stock/#{Stock.find_code(company_code)}/batch?types=quote,chart&range=1y",
+      url: "https://api.iextrading.com/1.0/stock/#{company_code}/batch?types=quote,chart&range=1y",
       headers: { :accept => :json, content_type: :json }
       }).execute do |response, request, result|
         JSON.parse response
       end
-
-
-        hash[:open][Stock.find_code(company_code)] = {
+  
+        hash[:open][company_code] = {
           data: transaction_array,
           stats: User.calculate_holding(transaction_array).merge({
             price: self.find_price_at_date(price_info[company_code]["chart"],date)

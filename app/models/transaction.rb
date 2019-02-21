@@ -9,11 +9,7 @@ class Transaction < ApplicationRecord
     range = range + 1
     result_array = []
     range.times do |i|
-      if i.even?
-        result_array << Date.today - i
-      else
-        result_array << nil
-      end
+      result_array << Date.today - i
     end
 
     result_array.reverse.concat([Date.today - 1,Date.today])

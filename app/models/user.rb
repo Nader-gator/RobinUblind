@@ -135,14 +135,6 @@ class User < ApplicationRecord
     ::RestClient.log = Rails.logger
 
     dates.each do |date|
-  
-    if date == nil
-      last = result.last.dup
-      next if last.nil?
-      last[:date] = last[:date] + 1
-      result << last
-      next
-    end
 
     hash = {closed: {}, open: {}}
     self.positions(date).each do |company_code, transaction_array|
@@ -174,7 +166,7 @@ class User < ApplicationRecord
 
     result << hash
 end
-  return result[1..-1]
+  return result
   end
 
 

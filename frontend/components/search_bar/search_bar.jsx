@@ -18,7 +18,6 @@ class SearchBar extends React.Component {
         this.props.clearSearch()
       }
     })
-
   }
 
   highlightText(text){
@@ -38,7 +37,13 @@ class SearchBar extends React.Component {
   }
 
   content() {
-
+    if(this.state.searchletters.length === 0){
+      setTimeout(() => {
+        console.log('cleared')
+        this.props.clearSearch()
+      }, 100);
+      return []
+    }
     return this.props.stocks.map((el,idx)=>{
       return (
         <Link key={idx} to={el.nasdaq_code}>

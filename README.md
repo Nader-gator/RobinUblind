@@ -46,7 +46,7 @@ def sorted_transactions_upto(dates)
 
       price_info[company_code] ||= response = RestClient::Request.new({
       method: 'get',
-      url: "https://api.iextrading.com/1.0/stock/#{Stock.find_code(company_code)}/batch?types=quote,chart&range=1y",
+      url: "https://api.iextrading.com/1.0/stock/#{company_code}/batch?types=quote,chart&range=1y",
       headers: { :accept => :json, content_type: :json }
       }).execute do |response, request, result|
         JSON.parse response
@@ -61,7 +61,7 @@ def sorted_transactions_upto(dates)
 
         #}
         #date(the date for this slice)
-        hash[:open][Stock.find_code(company_code)] = {
+        hash[:open][company_code] = {
           data: transaction_array,
           stats: User.calculate_holding(transaction_array).merge({
             price: self.find_price_at_date(price_info[company_code]["chart"],date)

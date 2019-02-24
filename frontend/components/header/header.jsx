@@ -101,7 +101,7 @@ const Greeting = ({ currentUser, logout, demoUser,resetNews }) => {
             </div>
 
           </div>
-          <div className="dropdown2">
+          {/* <div className="dropdown2">
             <button className="dropbtn2">Notifications
             </button>
 
@@ -122,7 +122,7 @@ const Greeting = ({ currentUser, logout, demoUser,resetNews }) => {
               
             </div>
 
-          </div>
+          </div> */}
 
           
           <Link to="/" onClick={() => { window.scrollTo(0, 0) }}>Home</Link>

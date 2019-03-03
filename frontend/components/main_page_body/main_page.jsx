@@ -225,12 +225,6 @@ class MainPage extends React.Component{
               [null,[null,this.props.wListTransactions]])}
             mappedWatchlist={this.mappedWatchlist}
             />}
-        
-
-
-
-
-
 
         </div>
 

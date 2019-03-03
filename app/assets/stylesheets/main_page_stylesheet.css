@@ -156,6 +156,7 @@
 	width: 700px;
 	height: 4530px;
 	word-break: break-all;
+	overflow: hidden;
 }
 /* main body elements end */
 /* news sections styling start*/
@@ -180,6 +181,7 @@
 	font-size: 16px;
 	width: 360px;
 	word-break: normal;
+	height: 50px;
 }
 .news-list p {
 	padding-left: 15px;
@@ -188,6 +190,8 @@
 	width: 360px;
 	line-height: 16px;
 	word-break: normal;
+	height: 70px;
+	padding-top: 10px;
 }
 .news-list img {
 	max-height: 180px;

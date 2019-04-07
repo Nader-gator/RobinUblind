@@ -1,17 +1,16 @@
 class User < ApplicationRecord
-
   has_many :watchlist
   has_many :stocks,
     through: :watchlist,
     source: :stock
   has_many :transactions
-  
+
   attr_reader :password
 
   validates :email, :password_digest, :session_token, :bankroll, presence: true
   validates :email, :session_token, uniqueness: true
-  validates :password, length: {minimum: 6, allow_nil: true}
-  
+  validates :password, length: { minimum: 6, allow_nil: true }
+
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   after_initialize :ensure_session_token, :ensure_bankroll
@@ -31,33 +30,31 @@ class User < ApplicationRecord
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
-  
   def reset_session_token
     self.session_token = User.generate_session_token
     self.save!
     self.session_token
   end
 
-# transaction methods begin here
+  # transaction methods begin here
 
   def purchases
-    self.transactions.where(category: 'buy')
+    self.transactions.where(category: "buy")
   end
 
   def sales
-    self.transactions.where(category: 'sell')
+    self.transactions.where(category: "sell")
   end
 
   def positions(date = nil)
     transaction_hash = {}
     transactions = self.transactions unless date
-    transactions = self.transactions.includes(:stock).where("date <= ?",date) if date
+    transactions = self.transactions.includes(:stock).where("date <= ?", date) if date
     transactions.each do |transaction|
       transaction_hash[transaction.stock.nasdaq_code] = [] unless transaction_hash[transaction.stock.nasdaq_code]
       transaction_hash[transaction.stock.nasdaq_code] << transaction
     end
     return transaction_hash
-
   end
 
   def positions_for_company(company_code)
@@ -78,16 +75,14 @@ class User < ApplicationRecord
     array.each do |transaction|
       if transaction.category == "buy"
         count += transaction.amount
-      elsif transaction.category == 'sell'
+      elsif transaction.category == "sell"
         count -= transaction.amount
       end
     end
 
     return false if count > 0
     return true
-    
   end
-
 
   def self.calculate_holding(transaction_array)
     if transaction_array.class == Hash
@@ -95,35 +90,27 @@ class User < ApplicationRecord
     end
     num_stocks = 0
     transaction_array.each do |hash|
-
-      if hash[:category] == 'buy'
-  
+      if hash[:category] == "buy"
         num_stocks += hash[:amount].to_i
-      elsif hash[:category] == 'sell'
+      elsif hash[:category] == "sell"
         num_stocks -= hash[:amount].to_i
       end
     end
 
-    return {holding: num_stocks}
+    return { holding: num_stocks }
   end
 
-
-
-
   def sorted_transactions
-    hash = {closed: {}, open: {}}
+    hash = { closed: {}, open: {} }
 
     self.positions.each do |code, transaction_array|
       if self.closed_position?(transaction_array)
-        hash[:closed][code] = {data: transaction_array,
-          stats: User.calculate_holding(transaction_array),
-        }
+        hash[:closed][code] = { data: transaction_array,
+                               stats: User.calculate_holding(transaction_array) }
       else
-        hash[:open][code] = {data: transaction_array,
-          stats: User.calculate_holding(transaction_array),
-        }
+        hash[:open][code] = { data: transaction_array,
+                             stats: User.calculate_holding(transaction_array) }
       end
-      
     end
 
     return hash
@@ -133,72 +120,59 @@ class User < ApplicationRecord
     price_info = {}
     result = []
     ::RestClient.log = Rails.logger
-
-    dates.each do |date|
-
-    hash = {closed: {}, open: {}}
-    self.positions(date).each do |company_code, transaction_array|
-      if self.closed_position?(transaction_array)
-        hash[:closed][company_code] = {data: transaction_array,
-          stats: User.calculate_holding(transaction_array),
-        }
-      else
-      price_info[company_code] ||= response = RestClient::Request.new({
-      method: 'get',
-      url: "https://api.iextrading.com/1.0/stock/#{company_code}/batch?types=quote,chart&range=1y",
-      headers: { :accept => :json, content_type: :json }
-      }).execute do |response, request, result|
-        JSON.parse response
-      end
-  
-        hash[:open][company_code] = {
-          data: transaction_array,
-          stats: User.calculate_holding(transaction_array).merge({
-            price: self.find_price_at_date(price_info[company_code]["chart"],date)
-          }),
-        }
-
-      end
-      
+    company_list = self.transactions.includes(:stock).where("date <= ?", dates.last).map { |transaction| transaction.stock.nasdaq_code.downcase }.uniq
+    price_info = RestClient::Request.new({
+      method: "get",
+      url: "https://api.iextrading.com/1.0/stock/market/batch?symbols=#{company_list.join(",")}&types=quote,chart&range=1y",
+      headers: { :accept => :json, content_type: :json },
+    }).execute do |response, request, result|
+      JSON.parse response
     end
-    hash[:date] = date
-    hash[:bankroll] = self.find_bankroll_at_date(date)
-
-    result << hash
-end
-  return result
-  end
-
-
-  
-  
-  
-  def find_price_at_date(array,date)
-    date = date.strftime("%Y%m%d")
-      array.each do |item|
-        if item["date"].gsub('-', '') > date.to_s
-          return item["close"]
+    dates.each do |date|
+      hash = { closed: {}, open: {} }
+      self.positions(date).each do |company_code, transaction_array|
+        if self.closed_position?(transaction_array)
+          hash[:closed][company_code] = { data: transaction_array,
+                                         stats: User.calculate_holding(transaction_array) }
+        else
+          hash[:open][company_code] = {
+            data: transaction_array,
+            stats: User.calculate_holding(transaction_array).merge({
+              price: self.find_price_at_date(price_info[company_code]["chart"], date),
+            }),
+          }
         end
       end
-      #  result =array.bsearch{|item| item["date"].gsub('-', '') >= date.to_s }
-      # return result['close'] if result
-      array.last["close"]
+      hash[:date] = date
+      hash[:bankroll] = self.find_bankroll_at_date(date)
+
+      result << hash
+    end
+    return result
   end
-  
+
+  def find_price_at_date(array, date)
+    date = date.strftime("%Y%m%d")
+    array.each do |item|
+      if item["date"].gsub("-", "") > date.to_s
+        return item["close"]
+      end
+    end
+    #  result =array.bsearch{|item| item["date"].gsub('-', '') >= date.to_s }
+    # return result['close'] if result
+    array.last["close"]
+  end
+
   def find_bankroll_at_date(date)
     date = date.strftime("%Y%m%d")
-    
-    last = self.transactions.where("date <= ?",date).last
+
+    last = self.transactions.where("date <= ?", date).last
     return last[:bankroll] if last
     return self.bankroll
   end
-  
-  
+
   # target = array.bsearch {|item| item["date"] < date }
   # target["close"]
-
-
-
 
   private
 

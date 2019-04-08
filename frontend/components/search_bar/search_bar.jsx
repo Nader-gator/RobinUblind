@@ -25,7 +25,7 @@ class SearchBar extends React.Component {
     if (index === -1){
       return (text)
     }
-    let length = index + this.state.searchletters.length - 1
+    let length = index + this.state.searchletters.length
     let left = text.slice(0,index)
     let middle = text.slice(index,length)
     let right = text.slice(length,-1)

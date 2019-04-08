@@ -56,5 +56,4 @@ ActiveRecord::Schema.define(version: 2019_01_31_193205) do
     t.index ["stock_id"], name: "index_watchlists_on_stock_id"
     t.index ["user_id"], name: "index_watchlists_on_user_id"
   end
-
 end

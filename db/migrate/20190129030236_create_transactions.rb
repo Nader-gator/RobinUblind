@@ -13,6 +13,7 @@ class CreateTransactions < ActiveRecord::Migration[5.2]
     add_index :transactions, :stock_id
   end
 end
-      # t.integer :day, null: false
-      # t.integer :month, null: false
-      # t.integer :year, null: false
+
+# t.integer :day, null: false
+# t.integer :month, null: false
+# t.integer :year, null: false

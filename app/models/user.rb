@@ -54,7 +54,7 @@ class User < ApplicationRecord
       transaction_hash[transaction.stock.nasdaq_code] = [] unless transaction_hash[transaction.stock.nasdaq_code]
       transaction_hash[transaction.stock.nasdaq_code] << transaction
     end
-    return transaction_hash
+    transaction_hash
   end
 
   def positions_for_company(company_code)
@@ -116,8 +116,29 @@ class User < ApplicationRecord
     return hash
   end
 
+  def get_transactions
+    transactions = self.transactions.includes(:stock).where("date <= ?", Date.today)
+    transaction_hash = {}
+    transactions.each do |transaction|
+      transaction_hash[transaction.stock.nasdaq_code] = [] unless transaction_hash[transaction.stock.nasdaq_code]
+      transaction_hash[transaction.stock.nasdaq_code] << transaction
+    end
+    # debugger
+    transaction_hash
+  end
+
+  def positions_upto(date, transactions)
+    # debugger
+    transaction_hash = {}
+    transactions.each do |symbol, array|
+      transaction_hash[symbol] = array.select do |el|
+        el.date < date
+      end
+    end
+    transaction_hash
+  end
+
   def sorted_transactions_upto(dates)
-    price_info = {}
     result = []
     ::RestClient.log = Rails.logger
     company_list = self.transactions.includes(:stock).where("date <= ?", dates.last).map { |transaction| transaction.stock.nasdaq_code.downcase }.uniq
@@ -128,9 +149,10 @@ class User < ApplicationRecord
     }).execute do |response, request, result|
       JSON.parse response
     end
+    transactions = self.get_transactions
     dates.each do |date|
       hash = { closed: {}, open: {} }
-      self.positions(date).each do |company_code, transaction_array|
+      self.positions_upto(date, transactions).each do |company_code, transaction_array|
         if self.closed_position?(transaction_array)
           hash[:closed][company_code] = { data: transaction_array,
                                          stats: User.calculate_holding(transaction_array) }
@@ -144,7 +166,9 @@ class User < ApplicationRecord
         end
       end
       hash[:date] = date
-      hash[:bankroll] = self.find_bankroll_at_date(date)
+      hash[:bankroll] = self
+        .find_bankroll_at_date(date,
+                               transactions.to_a.map { |el| el.last }.flatten)
 
       result << hash
     end
@@ -158,21 +182,12 @@ class User < ApplicationRecord
         return item["close"]
       end
     end
-    #  result =array.bsearch{|item| item["date"].gsub('-', '') >= date.to_s }
-    # return result['close'] if result
     array.last["close"]
   end
 
-  def find_bankroll_at_date(date)
-    date = date.strftime("%Y%m%d")
-
-    last = self.transactions.where("date <= ?", date).last
-    return last[:bankroll] if last
-    return self.bankroll
+  def find_bankroll_at_date(date, transactions_array)
+    transactions_array.select { |el| el.date < date }.sort_by { |transaction| transaction.date }.last.bankroll
   end
-
-  # target = array.bsearch {|item| item["date"] < date }
-  # target["close"]
 
   private
 

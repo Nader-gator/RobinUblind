@@ -186,6 +186,7 @@ class User < ApplicationRecord
   end
 
   def find_bankroll_at_date(date, transactions_array)
+    return self.bankroll if transactions_array.empty?
     transactions_array.select { |el| el.date < date }.sort_by { |transaction| transaction.date }.last.bankroll
   end
 

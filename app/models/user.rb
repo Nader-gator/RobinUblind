@@ -137,7 +137,7 @@ class User < ApplicationRecord
     end
     transaction_hash
   end
-  ENV["token"] = "sk_6a01d5b7ffad46f1b4a2379c26ab58ff"
+
   def sorted_transactions_upto(dates)
     result = []
     ::RestClient.log = Rails.logger
@@ -145,7 +145,7 @@ class User < ApplicationRecord
     price_info = RestClient::Request.new({
       method: "get",
       url: "https://cloud.iexapis.com/stable/stock/market/batch?symbols=#{company_list.join(",")}&types=quote,chart&"\
-      "range=1y&token=#{ENV["token"]}",
+      "range=1y&token=#{ENV["key"]}",
       headers: {accept: :json, content_type: :json},
     }).execute { |response, request, result|
       JSON.parse response

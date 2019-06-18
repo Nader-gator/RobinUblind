@@ -2,6 +2,7 @@
   <script id="window-bount-current-user" type="text/javascript">
   	window.currentUser = <%= render("api/users/user.json.jbuilder",
   		user: current_user).html_safe %>
+    window.key = <%= ENV['key'] %>
   </script>
 <% end %>
 

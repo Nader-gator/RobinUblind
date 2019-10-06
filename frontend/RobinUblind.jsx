@@ -4,11 +4,6 @@ import ReactDOM from 'react-dom'
 import Root from './components/root'
 import configureStore from './store/store'
 
-//test
-
-import { fetchStockData } from './actions/stocks_actions'
-
-//test
 
 document.addEventListener("DOMContentLoaded", ()=>{
   const rootEl = document.getElementById("root")
@@ -28,12 +23,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
     store = configureStore()
   }
 
-  
-  //TEST
-  window.state = store
-  
-  window.getData = fetchStockData
-  //TEST
-  
   ReactDOM.render(<Root store={store}/>, rootEl)
 })

@@ -4,8 +4,10 @@ import {connect} from 'react-redux'
 import { updateChartDisplay} from '../../actions/chart_actions'
 
 class DrawChart extends React.Component{
-  
-  
+
+    test(){
+        debugger
+    }
   render(){
 
 
@@ -48,21 +50,21 @@ class DrawChart extends React.Component{
             contentStyle={{ backgroundColor: 'transparent', border: '0' }}
 
             formatter={(value) => {
-              let returnVal = new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD'
-              }).format(value);
+              // let returnVal = new Intl.NumberFormat('en-US', {
+                // style: 'currency',
+                // currency: 'USD'
+              // }).format(value);
               if (chartData != value){
                 update(value);
               }
-              return <span className="chart-time" >{returnVal}</span>
+              return <span onChange={this.test} style={{display: "none"}} className="chart-time-value" >{value}</span>
             }}
             labelFormatter={(value) => {
               if (value.includes("-")) {
                 return <span className="chart-time-value">{value}</span>
               } else {
                 value = value.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3");
-                return (<span className="chart-time-value">{value}</span>)
+                return <span className="chart-time-value">{value}</span>
               }
             }
             }

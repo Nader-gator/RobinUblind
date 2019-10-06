@@ -22,10 +22,7 @@ export const fetchCurrentStock = (code,range,option = true) => dispatch => {
 
 export const fetchStockData = (code) => dispatch => {
   return StockUtil.getSingleStockQoute(code).then(
-    data=>{return dispatch(receiveStockData(data))}),
-    err => {
-      return dispatch(receiveStockError(err.responseText)) }
-
+    data=>{ dispatch(receiveStockData(data))})
 }
 
 export const receiveStockData = (stock) => {

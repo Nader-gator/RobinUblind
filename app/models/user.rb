@@ -123,12 +123,10 @@ class User < ApplicationRecord
       transaction_hash[transaction.stock.nasdaq_code] = [] unless transaction_hash[transaction.stock.nasdaq_code]
       transaction_hash[transaction.stock.nasdaq_code] << transaction
     end
-    # debugger
     transaction_hash
   end
 
   def positions_upto(date, transactions)
-    # debugger
     transaction_hash = {}
     transactions.each do |symbol, array|
       transaction_hash[symbol] = array.select { |el|
@@ -140,16 +138,35 @@ class User < ApplicationRecord
 
   def sorted_transactions_upto(dates)
     result = []
+    keys = ENV["key"] .split(",")
     ::RestClient.log = Rails.logger
     company_list = transactions.includes(:stock).where("date <= ?", dates.last).map { |transaction| transaction.stock.nasdaq_code.downcase }.uniq
-    price_info = RestClient::Request.new({
-      method: "get",
-      url: "https://cloud.iexapis.com/stable/stock/market/batch?symbols=#{company_list.join(",")}&types=quote,chart&"\
-      "range=1y&token=#{ENV["key"]}",
-      headers: {accept: :json, content_type: :json},
-    }).execute { |response, request, result|
-      JSON.parse response
-    }
+    if ph_last_accessed && (ph_last_accessed == Date.today && self.company_list.sort == company_list.sort)
+      price_info = price_history
+    else
+      price_info = keys.each do |key|
+        fetched_info = RestClient::Request.new({
+          method: "get",
+          url: "https://cloud.iexapis.com/stable/stock/market/batch?symbols=#{company_list.join(",")}&types=quote,chart&"\
+        "range=1y&token=#{key}",
+          headers: {accept: :json, content_type: :json},
+        }).execute { |response, request, result|
+          case response.code
+          when 200
+            JSON.parse response
+          end
+        }
+        break fetched_info if fetched_info
+      end
+      if price_info == keys
+        return result
+      else
+        self.price_history = price_info
+        self.ph_last_accessed = Date.today
+        self.company_list = company_list
+        save!
+      end
+    end
     transactions = get_transactions
     dates.each do |date|
       hash = {closed: {}, open: {}}

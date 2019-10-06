@@ -3,7 +3,7 @@ import { fetchWatchlistUtil } from '../util/watchlist_util'
 
 export const fetchWatchlist = (id) => dispatch => {
   return fetchWatchlistUtil(id).then(watchlist => {
-    dispatch(recieveWatchlist(watchlist))
+    return dispatch(recieveWatchlist(watchlist))
   })
 }
 

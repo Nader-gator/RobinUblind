@@ -10,18 +10,18 @@ import { updateChartDisplay } from '../../actions/chart_actions'
 
 class Main extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   componentWillMount() {
     this.props.getNews()
-    this.props.getWatchlist(this.props.currentUser.id)
-    this.props.watchlist.forEach(stockItem => {
-      this.props.fetchStockData(stockItem.nasdaq_code)
-    });
+      let self = this
+      this.props.getWatchlist(this.props.currentUser.id).then(()=>{
+        self.props.watchlist.forEach(stockItem => {
+            if (!self.props.data[stockItem.nasdaq_code]){
+                self.props.fetchStockData(stockItem.nasdaq_code)
+            }
+          })
+      })
   }
-  
+
   content() {
 
     if (Object.keys(this.props.news).length === 0) {
@@ -40,15 +40,6 @@ class Main extends React.Component {
     return news
   }
 
-  componentDidUpdate(prevProps) {
-
-    this.props.clearSearch()
-    if (Object.values(prevProps.data).length === 0){
-      this.props.watchlist.forEach(stockItem => {
-        this.props.fetchStockData(stockItem.nasdaq_code)
-      });
-    }
-  }
 
   render() {
 

@@ -17,24 +17,13 @@ class MainPage extends React.Component{
     this.state = {watchlistWaiting: true}
   }
 
-  // componentDidUpdate(prevProps){
-  //   // 
-  //   if ((prevProps.length > 0) && !this.state.switched) {
-  //     this.setState({watchlistWaiting: false, switched: true})
-  //   }
-  // }
   componentWillMount() {
     this.props.updateChartDisplay(this.parsePortfolioVal("totalVal"))
-    setTimeout(() => {
-      
-      this.setState({ watchlistWaiting: false })
-
-    }, 1200)
   }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    
-    return this.props.transactions[1] != nextProps.transactions[1] || this.state.watchlistWaiting != nextState.watchlistWaiting
+  componentDidMount(){
+    setTimeout(()=>{
+        this.setState({ watchlistWaiting: false })
+    },5000)
   }
 
   positions = () => {
@@ -131,6 +120,10 @@ class MainPage extends React.Component{
     return x.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
+  awaitingStocks = () => {
+    return this.props.watchlist.length != Object.keys(this.props.data).length
+  }
+
 
   render() {
     if (this.props.loading) {
@@ -213,7 +206,7 @@ class MainPage extends React.Component{
 
 
 
-          {(this.props.transactionLoading || this.state.watchlistWaiting) ? 
+    {(this.state.watchlistWaiting && this.awaitingStocks()) ? 
             (<div id='watchlist' className="watch-list-animate wsticky">
               <div className="loading-watchlist">
                 <WatchlistLoading/>
@@ -223,7 +216,7 @@ class MainPage extends React.Component{
             data={this.props.data}
             transactions={(this.props.wListTransactions.length === 0 ? this.props.transactions : 
               [null,[null,this.props.wListTransactions]])}
-            mappedWatchlist={this.mappedWatchlist}
+            mappedWatchlist={this.mappedWatchlist()}
             />}
 
         </div>

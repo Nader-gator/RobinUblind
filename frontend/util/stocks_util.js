@@ -2,9 +2,8 @@
 export const getStock = (nasdaqcode, range) => {
   return $.ajax({
     method: "get",
-    url: `https://cloud.iexapis.com/stable/stock/${nasdaqcode}/batch?types=quote,chart&range=${range}&token=${
-      window.key
-    }`
+    url: "/api/stockchart",
+    data: { stock_code: nasdaqcode, range: range }
   });
 };
 
@@ -12,8 +11,7 @@ export const getSingleStockQoute = nasdaqcode => {
   let range = "1d";
   return $.ajax({
     method: "get",
-    url: `https://cloud.iexapis.com/stable/stock/${nasdaqcode}/batch?types=quote,chart&range=${range}&token=${
-      window.key
-    }`
+    url: "/api/stockchart",
+    data: { stock_code: nasdaqcode, range: range }
   });
 };

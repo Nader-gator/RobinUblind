@@ -39,7 +39,7 @@ export default ({data,transactions,mappedWatchlist}) => {
           </h2>
     <span></span>
     <ul>
-      {mappedWatchlist()}
+      {mappedWatchlist}
     </ul>
       </aside>
   </div>)

@@ -39,7 +39,6 @@ class SearchBar extends React.Component {
   content() {
     if(this.state.searchletters.length === 0){
       setTimeout(() => {
-        console.log('cleared')
         this.props.clearSearch()
       }, 100);
       return []

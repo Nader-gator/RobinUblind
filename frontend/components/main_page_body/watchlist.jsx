@@ -22,18 +22,19 @@ export default ({data,transactions,mappedWatchlist}) => {
       </Link>)
     })
   }
+  const positionList = positions()
   return (
   <div id='watchlist' className="watch-list wsticky">
     <aside className="inner-container">
     <h2>
-      {positions().length > 0 ? "Positions" : ""}
+      {positionList.length > 0 ? "Positions" : ""}
     </h2>
-    {positions().length > 0 ? (<span></span>) : null}
-    {positions().length > 0 ? (
+    {positionList.length > 0 ? (<span></span>) : null}
+    {positionList.length > 0 ? (
       <ul className="buying-list first-buying-list">
         {positions()}
       </ul>) : null}
-    {positions().length > 0 ? (<span className="optional-divider"></span>) : null}
+    {positionList.length > 0 ? (<span className="optional-divider"></span>) : null}
     <h2>
       Watchlist
           </h2>

@@ -210,7 +210,8 @@ class MainPage extends React.Component {
             <ul>{this.props.news}</ul>
           </div>
 
-          {this.state.watchlistWaiting && this.awaitingStocks()  ? (
+          {(this.state.watchlistWaiting && this.awaitingStocks()) ||
+          this.props.transactionLoading ? (
             <div id="watchlist" className="watch-list-animate wsticky">
               <div className="loading-watchlist">
                 <WatchlistLoading />

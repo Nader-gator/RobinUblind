@@ -121,7 +121,7 @@ class MainPage extends React.Component{
   }
 
   awaitingStocks = () => {
-    return this.props.watchlist.length != Object.keys(this.props.data).length
+      return this.props.watchlist.length > Object.keys(this.props.data).length
   }
 
 

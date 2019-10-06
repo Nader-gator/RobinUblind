@@ -10,10 +10,16 @@ import { updateChartDisplay } from '../../actions/chart_actions'
 
 class Main extends React.Component {
 
+  constructor(props){
+      super(props)
+      this.state = {preFetch: true}
+  }
+
   componentWillMount() {
     this.props.getNews()
       let self = this
       this.props.getWatchlist(this.props.currentUser.id).then(()=>{
+        this.setState({preFetch: false})
         self.props.watchlist.forEach(stockItem => {
             if (!self.props.data[stockItem.nasdaq_code]){
                 self.props.fetchStockData(stockItem.nasdaq_code)
@@ -56,6 +62,7 @@ class Main extends React.Component {
     updateChartDisplay={this.props.updateChartDisplay}
     fetchTransactionsMain={this.props.fetchTransactionsMain}
     wListTransactions={this.props.wListTransactions}
+    preFetch={this.state.preFetch}
     />
   }
 

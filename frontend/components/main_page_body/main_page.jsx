@@ -38,7 +38,7 @@ class MainPage extends React.Component {
           <div>
             <Chart data={this.props.data[el]} />
           </div>
-          <p>${this.props.data[el].quote.toFixed(2)}</p>
+            <p>${this.props.data[el].quote ? this.props.data[el.nasdaq_code].quote.toFixed(2) : 0}</p>
         </Link>
       );
     });
@@ -115,7 +115,7 @@ class MainPage extends React.Component {
           <div>
             <Chart data={this.props.data[el.nasdaq_code]} />
           </div>
-          <p>${this.props.data[el.nasdaq_code].quote.toFixed(2)}</p>
+            <p>${this.props.data[el.nasdaq_code].quote ? this.props.data[el.nasdaq_code].quote.toFixed(2) : 0}</p>
         </Link>
       );
     });

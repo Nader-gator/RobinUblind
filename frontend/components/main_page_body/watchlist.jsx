@@ -18,7 +18,7 @@ export default ({data,transactions,mappedWatchlist}) => {
         <div>
           <Chart data={data[el]} />
         </div>
-        <p>${(data[el].quote).toFixed(2)}</p>
+          <p>${data[el].quote ? (data[el].quote).toFixed(2) : 0 }</p>
       </Link>)
     })
   }
